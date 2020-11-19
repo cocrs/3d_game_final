@@ -16,6 +16,8 @@ TagManager:
   - Controll
   - Fire
   - Building
+  - Waypoint
+  - AutonomousVehicle
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - PostProcessing
   - Arrow
   - Player
-  - 
+  - AutonomousVehicle
   - 
   - 
   - 

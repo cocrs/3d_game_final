@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPos;
     public GameObject goal;
     public GameObject goalIcon;
+    public GameObject WayPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,6 @@ public class GameManager : MonoBehaviour
         goal = buildings[Random.Range(0, buildings.Length)];
         Vector3 center = goal.transform.GetChild(0).GetComponent<MeshRenderer>().bounds.center;
         Instantiate(goalIcon, new Vector3(center.x, 30f, center.z), Quaternion.identity);
+        WayPoint.transform.position = center;
     }
 }
