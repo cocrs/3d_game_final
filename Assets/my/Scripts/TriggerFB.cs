@@ -15,16 +15,16 @@ public class TriggerFB : MonoBehaviour
 	{
 		
 		// Is front trigger
-		if (triggerType == MTriggerType.Front) {
-			if (col.tag == "Front") {
-				manager.tFront = true;
-			}
-		} else {// Or back trigger?
-			if (col.tag == "Back") {
-				manager.tBack = true;
-			}
+		// if (triggerType == MTriggerType.Front) {
+		// 	if (col.tag == "Front") {
+		// 		manager.tFront = true;
+		// 	}
+		// } else {// Or back trigger?
+		// 	if (col.tag == "Back") {
+		// 		manager.tBack = true;
+		// 	}
 
-		}
+		// }
 		
 		
 	}
@@ -32,16 +32,16 @@ public class TriggerFB : MonoBehaviour
 	void OnTriggerExit (Collider col)
 	{
 		
-		if (triggerType == MTriggerType.Front) {
-			if (col.tag == "Front") {
-				manager.tFront = false;
-			}
+		// if (triggerType == MTriggerType.Front) {
+		// 	if (col.tag == "Front") {
+		// 		manager.tFront = false;
+		// 	}
 		
-		} else {
-			if (col.tag == "Back") {
-				manager.tBack = false;
-			}
+		// } else {
+		// 	if (col.tag == "Back") {
+		// 		manager.tBack = false;
+		// 	}
 
-		}
+		// }
 	}
 }

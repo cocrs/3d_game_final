@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MParkingManager : MonoBehaviour
 {
-    public bool t1, t2, t3, t0, tFront, tBack;
+    public bool t1, t2, t3, t0;
     public GameObject TimerCountMen;
     public MeshRenderer ParkRenderer;
     public Text CountDownText;
@@ -31,13 +31,10 @@ public class MParkingManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
 	{
-		/*if (Input.GetKeyDown (KeyCode.V))
-			Debug.Log (" t0 " + t0 + " t1 " + t1 + " t2 " + t2 + " t3 " + t3 + " tFront " + tFront + " tBack    " + tBack);
-			*/
 		// Is parking finished?
 		if (!FinisheD) {// No ,parking isn't finish, check parking state
 
-			if (t0 && t2 && t3 && t1 && tFront && tBack) {// If all of car triggers being entered in parking place
+			if (t0 && t2 && t3 && t1) {// If all of car triggers being entered in parking place
 				// Checking when timer is reached 0(from    3)
 				StartCoroutine (CheckTimeToFinisheD ());
 				// Level is finished
@@ -90,11 +87,14 @@ public class MParkingManager : MonoBehaviour
             print("finish");
 
 			// disable car moving
-			GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody> ().isKinematic = true;
+			GameManager.StopPlyerControll();
 			// Stop timer menu
 			TimerCountMen.SetActive (false);
 
 			CountDownText.gameObject.SetActive (false);
+
+			GameManager.playing = false;
+			GameManager.finishParking = true;
         }
     }
 }
