@@ -15,10 +15,11 @@ public class CarCollision : MonoBehaviour
                 if(other.transform.parent.tag == "Building"){
                     GameObject.Find("GameManager").GetComponent<GameManager>().adjustScore(-100);
                 }
-            }
-            else if(other.gameObject.tag == "AutonomousVehicle"){
+                if(other.gameObject.tag == "AutonomousVehicle"){
                 GameObject.Find("GameManager").GetComponent<GameManager>().adjustScore(-200);
+                }
             }
+            
         }
     }
 }

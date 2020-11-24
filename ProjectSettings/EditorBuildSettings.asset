@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Quantum Tek/Quantum UI/Scenes/Main Menu Demo.unity
+    guid: 2ea1e15421ef1436d902c08e7005e6c7
+  - enabled: 1
+    path: Assets/my/test.unity
+    guid: 21fceedc4d1d4f442a89ff5ed13fdeed
   m_configObjects: {}
