@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /.vscode/
+/.mp4/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
