@@ -18,6 +18,7 @@ public class MParkingManager : MonoBehaviour
     {
         TimerCountMen = GameObject.Find("TimerCount");
         CountDownText = GameObject.Find("TimerCountTXT").GetComponent<Text>();
+		// TimerCountMen.SetActive(false);
         
 		//This is parking timer
 		endTime = Time.time + 4;
@@ -87,13 +88,13 @@ public class MParkingManager : MonoBehaviour
             print("finish");
 
 			// disable car moving
-			GameManager.StopPlyerControll();
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
 			// Stop timer menu
 			TimerCountMen.SetActive (false);
 
 			CountDownText.gameObject.SetActive (false);
 
-			GameManager.playing = false;
+			GameManager.inQuest = false;
 			GameManager.finishParking = true;
         }
     }
