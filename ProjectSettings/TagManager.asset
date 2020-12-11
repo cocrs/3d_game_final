@@ -18,6 +18,8 @@ TagManager:
   - Building
   - Waypoint
   - AutonomousVehicle
+  - GoalTown1
+  - GoalTown2
   layers:
   - Default
   - TransparentFX
