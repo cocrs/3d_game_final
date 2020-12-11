@@ -28,7 +28,6 @@ namespace TrafficSimulation {
         VehiclePhysics carController;
         NavMeshAgent agent;
         int curWp = 0;
-        [HideInInspector]
         public int curSeg = 0;
         float initialTopSpeed;
 
