@@ -20,10 +20,6 @@ public class ParkingTrigger : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        TimerCountMen = GameObject.Find("TimerCount");
-        CountDownText = GameObject.Find("TimerCountTXT").GetComponent<Text>();
-
-
         //This is parking timer
         endTime = Time.time + 4;
 
@@ -111,6 +107,8 @@ public class ParkingTrigger : MonoBehaviour
             CountDownText.text = "3";
             endTime = Time.time + 4;
             repark = true;
+            print("run");
+
             endDayWindow.SetActive(true);
         }
     }
