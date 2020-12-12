@@ -6,11 +6,12 @@ using UnityEngine.EventSystems;
 using TMPro;
 using QuantumTek.QuantumUI;
 
+
 public class ShopSystem : MonoBehaviour {
     // Start is called before the first frame update
     public GameObject ShopWindow;
     public GameObject infoWindow;
-    public GameObject confirmWindow;
+    public QUI_Window confirmWindow;
     List<GameObject> shopButtons;
     TextMeshProUGUI infoText;
     Dictionary<string, dynamic>[] shopItems;
@@ -71,6 +72,7 @@ public class ShopSystem : MonoBehaviour {
 
     public void BuyItem() {
         Debug.Log("Buy " + currentChoice);
+        confirmWindow.SetActive(false);
     }
     public void CancelConfirm() {
         confirmWindow.SetActive(false);

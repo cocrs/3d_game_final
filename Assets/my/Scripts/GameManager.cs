@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public static bool finishParking = false;
     public static bool questFinished = false;
     public static float limitDistance;
-    // public Animation lightAnime;
+    public Animation lightAnime;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -155,12 +155,17 @@ public class GameManager : MonoBehaviour
             EnergyNotEnoughTXT.GetComponent<Animation>().Play();
         }
     }
-    public void addDate()
+    public void toNextDay(){
+        StartCoroutine(addDate());
+    }
+    IEnumerator addDate()
     {
-        // lightAnime.Play();
-        // while(lightAnime.isPlaying);
+        PlayerControll(false);
+        lightAnime.Play();
+        yield return new WaitForSeconds(3);
         curDay += 1;
         DayTXT.text = "Day " + curDay;
+        PlayerControll(true);
     }
 
     public void adjustScore(int change)
