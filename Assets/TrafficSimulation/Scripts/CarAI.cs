@@ -25,6 +25,7 @@ namespace TrafficSimulation {
 
         public bool hasToStop = false;
         public bool hasToGo = false;
+        public bool crushIntoPlayer = false;
 
         VehiclePhysics carController;
         NavMeshAgent agent;
@@ -48,6 +49,8 @@ namespace TrafficSimulation {
             agent.radius = 0.7f;
             agent.height = 1;
             agent.speed = 1;
+
+            crushIntoPlayer = Random.Range(0f, 1f) > 0.5f;
 
             playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 
@@ -80,8 +83,9 @@ namespace TrafficSimulation {
 
             //Set navmesh agent in front of the car
             agent.transform.position = this.transform.position + (this.transform.forward * carController.MotorWheels[0].transform.localPosition.z);
-
-            playerTargetChecker();
+            if (crushIntoPlayer) {
+                playerTargetChecker();
+            }
 
             WaypointChecker();
             float topSpeed = GetCarSpeed();
@@ -173,7 +177,7 @@ namespace TrafficSimulation {
 
             //If car is turning then decrease it's maximum
             float topSpeed = _topSpeed;
-            if (steering > 0.2f || steering < -0.2f && carController.Topspeed > 15) topSpeed = initialTopSpeed / 2f;
+            if (steering > 0.2f || steering < -0.2f && carController.Topspeed > 15) topSpeed = initialTopSpeed / 3f;
             carController.Topspeed = topSpeed;
 
             //Move the car
