@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QuantumTek.QuantumUI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,38 +16,62 @@ public class GameManager : MonoBehaviour
     public GameObject goal;
     public GameObject goalIcon;
     public GameObject WayPoint;
+    public GameObject parkingManagers;
+    public GameObject player;
+    public GameObject wayPointArrow;
 
     [Header("Timer")]
-    public GameObject timerMenu;
+    // public GameObject timerMenu;
     public Text timerText;
     public float timer;
     [Header("Game State")]
     public static bool playing = false;
     public static bool inQuest = false;
     public static bool finishParking = false;
+    public static bool questFinished = false;
+    public static float limitDistance;
 
-    [Header("Game Text")]
-    public GameObject failTXT;
+    [Header("Game Windows")]
+    public QUI_Window failWindow;
     public QUI_Window successWindow;
     public QUI_Window questWindow;
+
+    [Header("MainUI")]
+    public TextMeshProUGUI DayTXT;
+    private int curDay; 
+
+    [Header("QuestUI")]
     public Text successTXT;
-    public GameObject scorePanel;
+    // public GameObject scorePanel;
     public Text scoreTXT;
     public int score;
+    public GameObject timerCountMenu;
+    public GameObject questUI;
+    public TextMeshProUGUI goalDistanceTXT;
+    private static float goalDis;
+    public GameObject tooFarTXT;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        failWindow.SetActive(false);
         questWindow.SetActive(false);
         successWindow.SetActive(false);
-        timerMenu.SetActive(false);
-        scorePanel.SetActive(false);
+        questUI.SetActive(false);
+        timerCountMenu.SetActive(false);
+        parkingManagers.SetActive(false);
+        tooFarTXT.SetActive(false);
+        wayPointArrow.SetActive(false);
 
+        limitDistance = 0;
         playing = true;
 
         scoreTXT.text = "Score: " + score;
         parkingLotUsing = null;
+
+        curDay = 1;
+        adjustDate(curDay);
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
@@ -56,50 +81,62 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playing && inQuest == true)
+        if (playing)
         {
-            // timer
-            timer -= Time.deltaTime;
-            int minutes = Mathf.FloorToInt(timer / 60f);
-            int seconds = Mathf.FloorToInt(timer % 60f);
-            // int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
-            if (minutes == 0 && seconds <= 10)
+            if (inQuest)
             {
-                timerText.color = Color.red;
-            }
-            if (minutes != 0 || seconds != 0)
-            {
-                timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-            }
-            else
-            {
-                timerText.text = "00:00";
-                inQuest = false;
-                failTXT.SetActive(true);
-            }
-        }
-        else if(playing){
-            
-        }
-        else
-        {
-            PlayerControll(false);
-            if (finishParking)
-            {
-                // turn off some UI
-                timerMenu.SetActive(false);
-                scorePanel.SetActive(false);
+                goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
+                if (!questFinished && parkingLotUsing == null)
+                {
+                    // timer
+                    timer -= Time.deltaTime;
+                    int minutes = Mathf.FloorToInt(timer / 60f);
+                    int seconds = Mathf.FloorToInt(timer % 60f);
+                    // int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
+                    if (minutes == 0 && seconds <= 10)
+                    {
+                        timerText.color = Color.red;
+                    }
+                    if (minutes != 0 || seconds != 0)
+                    {
+                        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+                    }
+                    else
+                    {
+                        timerText.text = "00:00";
+                        questFinished = true;
+                    }
+                    goalDistanceTXT.text = "Goal Distance: " + goalDis.ToString("00") + " m";
+                }
+                else if(questFinished)
+                {
+                    // turn off some UI
+                    questUI.SetActive(false);
+                    parkingManagers.SetActive(false);
+                    wayPointArrow.SetActive(false);
+                    PlayerControll(false);
 
-                // show seccess menu
-                successWindow.SetActive(true);
-                int disTmp = (int)(GameObject.FindWithTag("Player").transform.position - goal.transform.position).magnitude;
-                successTXT.text = "Score: " + score + "\nTime Left: " + timerText.text + "\nDistacne: " + disTmp.ToString();
+                    if (finishParking)
+                    {
+                        // show success menu
+                        successWindow.SetActive(true);
+                        successTXT.text = "Score: " + score + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
+                        
+                    }
+                    else
+                    {
+                        failWindow.SetActive(true);
+                    }
+                    inQuest = false;
+                    Destroy(goalIcon);
+                }
             }
-            // else
-            // {
-            //     failTXT.SetActive(true);
-            // }
         }
+    }
+
+    public void adjustDate(int day)
+    {
+        DayTXT.text = "Day " + day;
     }
 
     public void adjustScore(int change)
@@ -111,6 +148,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void changeInQuestState(){
+        inQuest = !inQuest;
+
+    }
     void SetRandomGoal()
     {
         // random
@@ -123,11 +164,14 @@ public class GameManager : MonoBehaviour
         Instantiate(goalIcon, new Vector3(center.x, 30f, center.z), Quaternion.identity);
         WayPoint.transform.position = center;
     }
-    public void setGoal(string townName){
-        if(townName == "town1"){
+    public void setGoal(string townName)
+    {
+        if (townName == "town1")
+        {
             goal = goalTown1[Random.Range(0, goalTown1.Length)];
         }
-        else if(townName == "town2"){
+        else if (townName == "town2")
+        {
             goal = goalTown2[Random.Range(0, goalTown2.Length)];
         }
         // else if(townName == "city"){
@@ -135,19 +179,30 @@ public class GameManager : MonoBehaviour
         // }
 
         Vector3 center;
-        if(goal.transform.childCount != 0){
+        if (goal.transform.childCount != 0)
+        {
             center = goal.transform.GetChild(0).GetComponent<MeshRenderer>().bounds.center;
         }
-        else{
+        else
+        {
             center = goal.transform.GetComponent<MeshRenderer>().bounds.center;
         }
         Instantiate(goalIcon, new Vector3(center.x, 30f, center.z), Quaternion.identity);
         WayPoint.transform.position = center;
 
+        limitDistance = 100;
         inQuest = true;
+        questFinished = false;
+        finishParking = false;
+        wayPointArrow.SetActive(true);
         PlayerControll(true);
-        timerMenu.SetActive(true);
-        scorePanel.SetActive(true);
+        questUI.SetActive(true);
+        parkingManagers.SetActive(true);
+
+        // timer reset
+        timerText.color = Color.black;
+        timer = 20;
+        MParkingManager.endTime = Time.time + 4;
     }
     // void ColorChangerr()
     // {
@@ -159,6 +214,9 @@ public class GameManager : MonoBehaviour
     //         t += Time.deltaTime/duration;
     //     }
     // }
+    public static bool isTooFarFromGoal(){
+        return goalDis > limitDistance;
+    }
 
     public void PlayerControll(bool state)
     {
