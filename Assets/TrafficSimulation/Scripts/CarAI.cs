@@ -176,6 +176,7 @@ namespace TrafficSimulation {
             RaycastHit hit;
             if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerAuto | layerPlayer)) {
                 outCarAI = hit.collider.GetComponentInParent<CarAI>();
+                Debug.Log(hit.collider.gameObject.name);
                 outHitDistance = hit.distance;
             }
             if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerAuto | layerPlayer)) {
