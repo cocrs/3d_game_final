@@ -117,7 +117,7 @@ namespace TrafficSimulation {
             float dist = Vector3.Distance(this.gameObject.transform.position, target.transform.position);
             float dirZ = this.gameObject.transform.InverseTransformPoint(target.transform.position).z;
             float dirX = this.gameObject.transform.InverseTransformPoint(target.transform.position).x;
-            if (dist < 5f && dirZ > -2f && (dirX > 0.2f || dirX < -0.2f)) {
+            if (dist < 5f && dist > 0.5f && dirZ > -2f && (dirX > 0.2f || dirX < -0.2f)) {
                 regularPath = false;
                 agent.SetDestination(target.transform.position);
             } else {
