@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2117416829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117416830}
+  m_Layer: 10
+  m_Name: Target
+  m_TagString: playerTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2117416830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117416829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.35, z: 7.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8830296472282406033}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8834092398206178465
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +187,7 @@ WheelCollider:
   m_SuspensionSpring:
     spring: 70000
     damper: 3500
-    targetPosition: 0.1
+    targetPosition: 0.8
   m_SuspensionDistance: 0.06
   m_ForceAppPointDistance: 0
   m_Mass: 20
@@ -257,7 +287,7 @@ WheelCollider:
   m_SuspensionSpring:
     spring: 70000
     damper: 3500
-    targetPosition: 0.1
+    targetPosition: 0.8
   m_SuspensionDistance: 0.06
   m_ForceAppPointDistance: 0
   m_Mass: 20
@@ -318,7 +348,7 @@ WheelCollider:
   m_SuspensionSpring:
     spring: 70000
     damper: 3500
-    targetPosition: 0.1
+    targetPosition: 0.8
   m_SuspensionDistance: 0.06
   m_ForceAppPointDistance: 0
   m_Mass: 20
@@ -379,7 +409,7 @@ WheelCollider:
   m_SuspensionSpring:
     spring: 70000
     damper: 3500
-    targetPosition: 0.1
+    targetPosition: 0.8
   m_SuspensionDistance: 0.06
   m_ForceAppPointDistance: 0
   m_Mass: 20
@@ -661,7 +691,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8835806646455420961}
-  m_LocalRotation: {x: -0, y: 0.30334598, z: -0, w: 0.9528805}
+  m_LocalRotation: {x: 0, y: 0.30334297, z: 0, w: 0.95288146}
   m_LocalPosition: {x: 81.26, y: 7.21, z: 190.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -672,6 +702,7 @@ Transform:
   - {fileID: 8832826394154601027}
   - {fileID: 8834600939354462489}
   - {fileID: 8834600939830169186}
+  - {fileID: 2117416830}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 35.317, z: 0}
@@ -736,8 +767,8 @@ MonoBehaviour:
   - {fileID: 8834600940671812446}
   m_WheelMeshes:
   - {fileID: 8835457718197078399}
-  - {fileID: 8835729855684213019}
   - {fileID: 8835168010843651821}
+  - {fileID: 8835729855684213019}
   - {fileID: 8835824215287413657}
   m_WheelEffects:
   - {fileID: 0}
@@ -753,7 +784,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 1
-  m_Topspeed: 150
+  m_Topspeed: 60
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
