@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public static bool finishParking = false;
     public static bool questFinished = false;
     public static float limitDistance;
-    public Animation lightAnime;
+    // public Animation lightAnime;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        failWindow.SetActive(true);
+                        failWindow.SetActive(true); 
                     }
                     inQuest = false;
                 }
@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
     }
     public void addDate()
     {
-        lightAnime.Play();
+        // lightAnime.Play();
         // while(lightAnime.isPlaying);
         curDay += 1;
         DayTXT.text = "Day " + curDay;
