@@ -31,11 +31,13 @@ public class GameManager : MonoBehaviour
     public static bool finishParking = false;
     public static bool questFinished = false;
     public static float limitDistance;
+    public Animation lightAnime;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
     public QUI_Window successWindow;
     public QUI_Window questWindow;
+    public QUI_Window endDayWindow;
 
     [Header("MainUI")]
     public TextMeshProUGUI DayTXT;
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
         tooFarTXT.SetActive(false);
         wayPointArrow.SetActive(false);
         EnergyNotEnoughTXT.SetActive(false);
+        endDayWindow.SetActive(false);
 
         limitDistance = 0;
         playing = true;
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
         goalIcon.SetActive(false);
 
         curDay = 1;
-        adjustDate(curDay);
+        DayTXT.text = "Day " + curDay;
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
@@ -152,9 +155,12 @@ public class GameManager : MonoBehaviour
             EnergyNotEnoughTXT.GetComponent<Animation>().Play();
         }
     }
-    public void adjustDate(int day)
+    public void addDate()
     {
-        DayTXT.text = "Day " + day;
+        lightAnime.Play();
+        // while(lightAnime.isPlaying);
+        curDay += 1;
+        DayTXT.text = "Day " + curDay;
     }
 
     public void adjustScore(int change)
