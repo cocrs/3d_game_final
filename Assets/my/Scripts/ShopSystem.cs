@@ -40,6 +40,7 @@ public class ShopSystem : MonoBehaviour {
             },
         };
 
+        // get all buttons
         shopButtons = new List<GameObject>() { };
         foreach (Transform child in ShopWindow.transform.GetChild(0)) {
             Debug.Log(child.name);
