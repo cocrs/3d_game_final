@@ -21,6 +21,7 @@ namespace UnityStandardAssets.Vehicles.Car {
             float jvf = (Input.GetAxis("GasPedal") + 1) / 2;
             float jvb = (Input.GetAxis("BreakPedal") - 1) / 2;
             v += (jvf + jvb);
+            Debug.Log(v);
 #if !MOBILE_INPUT
             float handbrake = Input.GetAxis("Jump");
             m_Car.Move(h, v, v, handbrake);
