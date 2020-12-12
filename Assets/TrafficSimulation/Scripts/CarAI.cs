@@ -5,12 +5,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Vehicles.Car;
 
 namespace TrafficSimulation {
     public class CarAI : MonoBehaviour {
         [Header("Traffic System")]
         public TrafficSystem trafficSystem;
-        public int waypointThresh = 6;
+        public int waypointThresh = 2;
 
         [Header("Raycast")]
         public Transform raycastAnchor;
@@ -114,7 +115,7 @@ namespace TrafficSimulation {
 
             //Check if we are going to collide with a car in front
             CarAI otherCarAI = null;
-            GameObject hitObj = null;
+            CarController hitObj = null;
             float topSpeed = initialTopSpeed;
             float initRay = (raysNumber / 2f) * raySpacing;
 
@@ -161,7 +162,7 @@ namespace TrafficSimulation {
         }
 
 
-        void CastRay(Vector3 anchor, float angle, Vector3 dir, float length, out CarAI outCarAI, out float outHitDistance, out GameObject outHitObject) {
+        void CastRay(Vector3 anchor, float angle, Vector3 dir, float length, out CarAI outCarAI, out float outHitDistance, out CarController outHitObject) {
 
             outCarAI = null;
             outHitObject = null;
@@ -173,17 +174,15 @@ namespace TrafficSimulation {
             //Detect hit only on the autonomous vehicle layer
             int layerAuto = 1 << LayerMask.NameToLayer("AutonomousVehicle");
             int layerPlayer = 1 << LayerMask.NameToLayer("Player");
+            //int layerPlayer = 1 << LayerMask.NameToLayer("Player");
             RaycastHit hit;
-            if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerAuto | layerPlayer)) {
+            if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerAuto)) {
                 outCarAI = hit.collider.GetComponentInParent<CarAI>();
-                Debug.Log(hit.collider.gameObject.name);
                 outHitDistance = hit.distance;
             }
-            if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerAuto | layerPlayer)) {
-                if (hit.collider.gameObject.tag == "Player") {
-                    outHitObject = hit.collider.gameObject;
-                    outHitDistance = hit.distance;
-                }
+            if (Physics.Raycast(anchor, Quaternion.Euler(0, angle, 0) * dir, out hit, length, layerPlayer)) {
+                outHitObject = hit.collider.GetComponentInParent<CarController>();
+                outHitDistance = hit.distance;
             }
         }
 
