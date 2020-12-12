@@ -31,6 +31,8 @@ namespace TrafficSimulation {
         int curWp = 0;
         public int curSeg = 0;
         float initialTopSpeed;
+        bool regularPath = true;
+        GameObject[] playerTarget;
 
 
         void Start() {
@@ -46,6 +48,8 @@ namespace TrafficSimulation {
             agent.radius = 0.7f;
             agent.height = 1;
             agent.speed = 1;
+
+            playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 
             if (trafficSystem == null)
                 return;
@@ -77,6 +81,8 @@ namespace TrafficSimulation {
             //Set navmesh agent in front of the car
             agent.transform.position = this.transform.position + (this.transform.forward * carController.MotorWheels[0].transform.localPosition.z);
 
+            playerTargetChecker();
+
             WaypointChecker();
             float topSpeed = GetCarSpeed();
             MoveVehicle(topSpeed);
@@ -87,9 +93,10 @@ namespace TrafficSimulation {
             GameObject waypoint = trafficSystem.segments[curSeg].waypoints[curWp].gameObject;
             //Position of next waypoint relative to the car
             Vector3 nextWp = this.transform.InverseTransformPoint(new Vector3(waypoint.transform.position.x, this.transform.position.y, waypoint.transform.position.z));
-
-            //Set agent destination depending on waypoint
-            agent.SetDestination(waypoint.transform.position);
+            if (regularPath) {
+                //Set agent destination depending on waypoint
+                agent.SetDestination(waypoint.transform.position);
+            }
 
             //Go to next waypoint if arrived to current
             if (nextWp.magnitude < waypointThresh) {
@@ -98,6 +105,18 @@ namespace TrafficSimulation {
                     curSeg = GetNextSegmentId();
                     curWp = 0;
                 }
+            }
+        }
+
+        void playerTargetChecker() {
+            GameObject target = playerTarget[0];
+            float dist = Vector3.Distance(this.gameObject.transform.position, target.transform.position);
+            float dirZ = this.gameObject.transform.InverseTransformPoint(target.transform.position).z;
+            if (dist < 2f && dirZ > 0f) {
+                regularPath = false;
+                agent.SetDestination(target.transform.position);
+            } else {
+                regularPath = true;
             }
         }
 

@@ -20,6 +20,8 @@ TagManager:
   - AutonomousVehicle
   - GoalTown1
   - GoalTown2
+  - UICanvas
+  - playerTarget
   layers:
   - Default
   - TransparentFX
