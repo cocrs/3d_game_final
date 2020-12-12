@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject parkingManagers;
     public GameObject player;
     public GameObject wayPointArrow;
+    public GameObject questTester;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     [Header("MainUI")]
     public TextMeshProUGUI DayTXT;
     private int curDay; 
+    public GameObject EnergyNotEnoughTXT;
 
     [Header("QuestUI")]
     public Text successTXT;
@@ -63,12 +65,15 @@ public class GameManager : MonoBehaviour
         parkingManagers.SetActive(false);
         tooFarTXT.SetActive(false);
         wayPointArrow.SetActive(false);
+        EnergyNotEnoughTXT.SetActive(false);
 
         limitDistance = 0;
         playing = true;
 
         scoreTXT.text = "Score: " + score;
         parkingLotUsing = null;
+        Instantiate(goalIcon, new Vector3(0, 0, 0), Quaternion.identity);
+        goalIcon.SetActive(false);
 
         curDay = 1;
         adjustDate(curDay);
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
             if (inQuest)
             {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
+                goalDistanceTXT.text = "Goal Distance: " + goalDis.ToString("00") + " m";
                 if (!questFinished && parkingLotUsing == null)
                 {
                     // timer
@@ -106,7 +112,6 @@ public class GameManager : MonoBehaviour
                         timerText.text = "00:00";
                         questFinished = true;
                     }
-                    goalDistanceTXT.text = "Goal Distance: " + goalDis.ToString("00") + " m";
                 }
                 else if(questFinished)
                 {
@@ -128,12 +133,25 @@ public class GameManager : MonoBehaviour
                         failWindow.SetActive(true);
                     }
                     inQuest = false;
-                    Destroy(goalIcon);
                 }
             }
         }
     }
 
+    public void acceptQuest(string args){
+        string[] subs = args.Split(',');
+        int amount = System.Int32.Parse(subs[0]);
+        string townName = subs[1];
+        if(questTester.GetComponent<HealthTester>().consumeEnergy(amount)){
+            questWindow.SetActive(false);
+            setGoal(townName);
+        }
+        else{
+            EnergyNotEnoughTXT.SetActive(true);
+            EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
+            EnergyNotEnoughTXT.GetComponent<Animation>().Play();
+        }
+    }
     public void adjustDate(int day)
     {
         DayTXT.text = "Day " + day;
@@ -187,7 +205,8 @@ public class GameManager : MonoBehaviour
         {
             center = goal.transform.GetComponent<MeshRenderer>().bounds.center;
         }
-        Instantiate(goalIcon, new Vector3(center.x, 30f, center.z), Quaternion.identity);
+        goalIcon.SetActive(true);
+        goalIcon.transform.position = new Vector3(center.x, 30f, center.z);
         WayPoint.transform.position = center;
 
         limitDistance = 100;
