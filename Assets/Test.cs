@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Test : MonoBehaviour
-{
+public class Test : MonoBehaviour {
 
     public Dictionary<string, dynamic>[] items;
     public Image[] itemPos;
     public Sprite[] itemSprites;
     private int curShowItemIndex;
     public int playerDollars;
+    bool paused = false;
     // Start is called before the first frame update
-    void Awake()
-    {
+    void Awake() {
         items = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
                 {"name", "Map"},
@@ -46,11 +45,19 @@ public class Test : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("Call Pauser");
+            if (!paused) {
+                paused = true;
+                Pauser.Pause();
+            } else {
+                paused = false;
+                Pauser.Resume();
+            }
+        }
     }
-    public void playerGetItem(int itemIndex){
+    public void playerGetItem(int itemIndex) {
         itemPos[curShowItemIndex].sprite = itemSprites[itemIndex];
         itemPos[curShowItemIndex].color = new Color(255, 255, 255, 255);
         curShowItemIndex++;
