@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other) {
-        print("in");
-        if(other.tag == "Player"){
-            
-            other.GetComponent<Rigidbody>().AddForce(new Vector3(100, 0 ,0));
+    public GameManager gameManager;
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("in");
+        if (other.gameObject.tag == "Player")
+        {
+            if (gameManager.playerDollars < 1000)
+            {
+                other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(1000, 0, 0);
+            }
         }
     }
 }
