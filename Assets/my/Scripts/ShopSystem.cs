@@ -71,6 +71,8 @@ public class ShopSystem : MonoBehaviour
             confirmWindow.SetActive(false);
             shopButtons[currentChoice].GetComponent<Button>().interactable = false;
             gameManager.playerGetItem(currentChoice);
+            gameManager.playerDollars -= shopItems[currentChoice]["price"];
+            gameManager.updatePlayerDollars();
 
         }
         else{

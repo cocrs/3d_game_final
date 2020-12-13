@@ -68,6 +68,12 @@
 			if (waypointArrow == null)
 				FindArrow ();
 			waypointArrow.LookAt(arrowTarget);
+			if(GameManager.inQuest){
+				waypointArrow.transform.position = player.position + new Vector3(0, 2, 0);
+			}
+			else{
+				waypointArrow.transform.position = player.position;
+			}
 		}
 
 		public void WaypointEvent(int waypointEvent){

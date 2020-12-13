@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
     public GameObject startPos;
     public GameObject goal;
     public GameObject goalIcon;
+    private GameObject goalIconObj;
     public GameObject WayPoint;
     public GameObject parkingManagers;
     public GameObject player;
-    public GameObject wayPointArrow;
+    // private GameObject wayPointArrow;
     public GameObject questTester;
+    public GameObject homeParkingLot;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -38,11 +40,13 @@ public class GameManager : MonoBehaviour
     public QUI_Window successWindow;
     public QUI_Window questWindow;
     public QUI_Window endDayWindow;
+    public QUI_Window questConfirmWindow;
 
     [Header("MainUI")]
     public TextMeshProUGUI DayTXT;
-    private int curDay; 
+    private int curDay;
     public GameObject EnergyNotEnoughTXT;
+    public TextMeshProUGUI moneyTXT;
 
     [Header("QuestUI")]
     public Text successTXT;
@@ -63,7 +67,12 @@ public class GameManager : MonoBehaviour
     private int curShowItemIndex;
     public int playerDollars;
 
-     void Awake()
+
+    public Dictionary<string, dynamic>[] goalList;
+    private int chosedTown;
+
+
+    void Awake()
     {
         items = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
@@ -98,6 +107,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // wayPointArrow = GameObject.Find("Waypoint Arrow");
         failWindow.SetActive(false);
         questWindow.SetActive(false);
         successWindow.SetActive(false);
@@ -105,23 +115,26 @@ public class GameManager : MonoBehaviour
         timerCountMenu.SetActive(false);
         parkingManagers.SetActive(false);
         tooFarTXT.SetActive(false);
-        wayPointArrow.SetActive(false);
+        // wayPointArrow.SetActive(false);
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
 
         limitDistance = 0;
         playing = true;
 
+        moneyTXT.text = "$ " + playerDollars;
         scoreTXT.text = "Score: " + score;
         parkingLotUsing = null;
         Instantiate(goalIcon, new Vector3(0, 0, 0), Quaternion.identity);
-        goalIcon.SetActive(false);
+        goalIconObj = GameObject.FindWithTag("GoalIcon");
+        goalIconObj.SetActive(false);
 
         curDay = 1;
         DayTXT.text = "Day " + curDay;
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
+        setRandomGoalThisRound();
         // SetRandomGoal();
     }
 
@@ -155,24 +168,27 @@ public class GameManager : MonoBehaviour
                         questFinished = true;
                     }
                 }
-                else if(questFinished)
+                else if (questFinished)
                 {
                     // turn off some UI
                     questUI.SetActive(false);
                     parkingManagers.SetActive(false);
-                    wayPointArrow.SetActive(false);
+                    // wayPointArrow.SetActive(false);
                     PlayerControll(false);
+                    homeParkingLot.SetActive(true);
+                    setRandomGoalThisRound();
 
                     if (finishParking)
                     {
                         // show success menu
                         successWindow.SetActive(true);
-                        successTXT.text = "Score: " + score + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
-                        
+                        successTXT.text = "Reward: " + goalList[chosedTown]["reward"] + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
+                        playerDollars += goalList[chosedTown]["reward"];
+                        updatePlayerDollars();
                     }
                     else
                     {
-                        failWindow.SetActive(true); 
+                        failWindow.SetActive(true);
                     }
                     inQuest = false;
                 }
@@ -180,26 +196,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void playerGetItem(int itemIndex){
+    public void playerGetItem(int itemIndex)
+    {
         itemPos[curShowItemIndex].sprite = itemSprites[itemIndex];
         itemPos[curShowItemIndex].color = new Color(255, 255, 255, 255);
         curShowItemIndex++;
     }
-    public void acceptQuest(string args){
-        string[] subs = args.Split(',');
-        int amount = System.Int32.Parse(subs[0]);
-        string townName = subs[1];
-        if(questTester.GetComponent<HealthTester>().consumeEnergy(amount)){
+    public void updatePlayerDollars()
+    {
+        moneyTXT.text = "$ " + playerDollars;
+    }
+    public void acceptQuest()
+    {
+        if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"]))
+        {
             questWindow.SetActive(false);
-            setGoal(townName);
+            setGoal();
         }
-        else{
+        else
+        {
             EnergyNotEnoughTXT.SetActive(true);
             EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
             EnergyNotEnoughTXT.GetComponent<Animation>().Play();
         }
     }
-    public void toNextDay(){
+    public void toNextDay()
+    {
+        HealthTester.recoverEnergy = true;
         StartCoroutine(addDate());
     }
     IEnumerator addDate()
@@ -211,7 +234,20 @@ public class GameManager : MonoBehaviour
         DayTXT.text = "Day " + curDay;
         PlayerControll(true);
     }
-
+    public void setChosedTown(int choice)
+    {
+        chosedTown = choice;
+    }
+    public void openConfirmWindow(){
+        TextMeshProUGUI headerText = questConfirmWindow.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI infoText = questConfirmWindow.transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>();
+        headerText.text = goalList[chosedTown]["name"];
+        infoText.text = "Reward: " + goalList[chosedTown]["reward"] + "\n";
+        infoText.text += "Time limit: " + goalList[chosedTown]["time"] + " secs" + "\n";
+        infoText.text += "Distance limit: " + goalList[chosedTown]["distance"] + " m" + "\n";
+        infoText.text += "Consume energy: " + goalList[chosedTown]["consume"];
+        questConfirmWindow.SetActive(true);
+    }
     public void adjustScore(int change)
     {
         if (score + change >= 0)
@@ -221,32 +257,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void changeInQuestState(){
+    public void changeInQuestState()
+    {
         inQuest = !inQuest;
 
     }
-    void SetRandomGoal()
+    void setRandomGoalThisRound()
     {
-        // random
-        // goal = buildings[Random.Range(0, buildings.Length)];
+        GameObject goal1 = goalTown1[Random.Range(0, goalTown1.Length)];
+        GameObject goal2 = goalTown2[Random.Range(0, goalTown2.Length)];
 
-        // test
-        goal = buildings[1];
-
-        Vector3 center = goal.transform.GetChild(0).GetComponent<MeshRenderer>().bounds.center;
-        Instantiate(goalIcon, new Vector3(center.x, 30f, center.z), Quaternion.identity);
-        WayPoint.transform.position = center;
+        goalList = new Dictionary<string, dynamic>[]{
+            new Dictionary<string, dynamic>(){
+                {"name", "town1"},
+                {"goal", goal1},
+                {"reward", 500},
+                {"time", 300},
+                {"consume", 20},
+                {"distance", 150}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "town2"},
+                {"goal", goal2},
+                {"reward", 800},
+                {"time", 200},
+                {"consume", 30},
+                {"distance", 100}
+            }
+        };
     }
-    public void setGoal(string townName)
+    public void setGoal()
     {
-        if (townName == "town1")
-        {
-            goal = goalTown1[Random.Range(0, goalTown1.Length)];
-        }
-        else if (townName == "town2")
-        {
-            goal = goalTown2[Random.Range(0, goalTown2.Length)];
-        }
+        goal = goalList[chosedTown]["goal"];
+        timer = goalList[chosedTown]["time"];
+        limitDistance = goalList[chosedTown]["distance"];
+
         // else if(townName == "city"){
         //     goal = goalTown1[Random.Range(0, goalTown1.Length)];
         // }
@@ -260,35 +305,27 @@ public class GameManager : MonoBehaviour
         {
             center = goal.transform.GetComponent<MeshRenderer>().bounds.center;
         }
-        goalIcon.SetActive(true);
-        goalIcon.transform.position = new Vector3(center.x, 30f, center.z);
+        goalIconObj.SetActive(true);
+        goalIconObj.transform.position = new Vector3(center.x, 30f, center.z);
         WayPoint.transform.position = center;
 
-        limitDistance = 100;
+        
         inQuest = true;
         questFinished = false;
         finishParking = false;
-        wayPointArrow.SetActive(true);
+        // wayPointArrow.SetActive(true);
         PlayerControll(true);
         questUI.SetActive(true);
         parkingManagers.SetActive(true);
+        homeParkingLot.SetActive(false);
 
         // timer reset
         timerText.color = Color.black;
-        timer = 20;
         MParkingManager.endTime = Time.time + 4;
     }
-    // void ColorChangerr()
-    // {
-    //     float t;
-    //     Color ori = scoreTXT.color;
-    //     scoreTXT.color = Color.Lerp(Color.red, Color.red, t);
 
-    //     if (t < 1){ 
-    //         t += Time.deltaTime/duration;
-    //     }
-    // }
-    public static bool isTooFarFromGoal(){
+    public static bool isTooFarFromGoal()
+    {
         return goalDis > limitDistance;
     }
 

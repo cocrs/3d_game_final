@@ -133,8 +133,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893245182302310469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.536602, y: -30.93, z: 0}
-  m_LocalScale: {x: 0.24008274, y: 0.6632243, z: 0.42680478}
+  m_LocalPosition: {x: 44.544, y: -31.295, z: -0.072569}
+  m_LocalScale: {x: 0.36379457, y: 1.004976, z: 0.64673233}
   m_Children:
   - {fileID: 893245182301975139}
   m_Father: {fileID: 0}
@@ -157,6 +157,7 @@ MonoBehaviour:
   t3: 0
   t0: 0
   TimerCountMen: {fileID: 0}
+  tooFarTXT: {fileID: 0}
   ParkRenderer: {fileID: 893245182300112737}
   CountDownText: {fileID: 0}
   timeLimit: 0
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 893245182302324760}
   m_Layer: 0
   m_Name: Trigger0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,8 +403,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893245182302328281}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.06, y: -0.04, z: 0.33}
-  m_LocalScale: {x: 6.5333924, y: 20.64194, z: 1.0662223}
+  m_LocalPosition: {x: 10.837, y: -0.98192, z: -3.28}
+  m_LocalScale: {x: 4.8619475, y: 14.198034, z: 1.9718716}
   m_Children:
   - {fileID: 893245182302061087}
   - {fileID: 893245182302023133}

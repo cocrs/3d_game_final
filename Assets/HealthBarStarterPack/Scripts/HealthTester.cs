@@ -11,6 +11,7 @@ public class HealthTester : MonoBehaviour
     private float curHealth;
     [SerializeField]
     private GameObject healthBarPrefab;
+    public static bool recoverEnergy = false;
     void Start()
     {
         health = transform.GetComponent<Health>();
@@ -28,15 +29,27 @@ public class HealthTester : MonoBehaviour
         // 	float dmg = (Time.deltaTime * mult);
         // 	health.Damage (dmg);
         // }
-        if (health.GetHealth() > curHealth)
-        {
-            float mult = 10f;
-            float dmg = (Time.deltaTime * mult);
-            if (health.GetHealth() - dmg < curHealth)
+        float mult = 10f;
+        float change = (Time.deltaTime * mult);
+        if(recoverEnergy){
+            curHealth = 100;
+            if (health.GetHealth() + change > curHealth)
             {
-                dmg = health.GetHealth() - curHealth;
+                change = curHealth - health.GetHealth();
             }
-            health.Damage(dmg);
+            health.Damage(-change);
+            energyTXT.text = (int)health.GetHealth() + "/100";
+            if(health.GetHealth() == curHealth){
+                recoverEnergy = false;
+            }
+        }
+        else if (health.GetHealth() > curHealth)
+        {
+            if (health.GetHealth() - change < curHealth)
+            {
+                change = health.GetHealth() - curHealth;
+            }
+            health.Damage(change);
             energyTXT.text = (int)health.GetHealth() + "/100";
         }
     }

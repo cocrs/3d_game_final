@@ -121,6 +121,10 @@ public class MParkingManager : MonoBehaviour
             ParkRenderer.material.color = Color.white;
             isFinish = false;
             FinisheD = false;
+            t0 = false;
+            t1 = false;
+            t2 = false;
+            t3 = false;
             CountDownText.text = "3";
         }
     }
