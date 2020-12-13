@@ -3495,7 +3495,7 @@ MonoBehaviour:
   infoWindow: {fileID: 241860220}
   confirmWindow: {fileID: 1333198854}
   shopButtons: []
-  noEnoughMoneyTXT: {fileID: 1970298427}
+  notEnoughMoneyTXT: {fileID: 1970298427}
 --- !u!4 &128255354
 Transform:
   m_ObjectHideFlags: 0
