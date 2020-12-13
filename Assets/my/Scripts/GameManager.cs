@@ -57,8 +57,44 @@ public class GameManager : MonoBehaviour
 
     [Header("Shop")]
     public static Dictionary<string, dynamic>[] shopItems;
+    public Dictionary<string, dynamic>[] items;
+    public Image[] itemPos;
+    public Sprite[] itemSprites;
+    private int curShowItemIndex;
+    public int playerDollars;
 
+     void Awake()
+    {
+        items = new Dictionary<string, dynamic>[]{
+            new Dictionary<string, dynamic>(){
+                {"name", "Map"},
+                {"discription", "You can see the whole view using this map."},
+                {"price", 2000},
+                {"belong", "shop"}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Bomb"},
+                {"discription", "Attack the cars that block in front of you!"},
+                {"price", 500},
+                {"belong", "shop"}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Hourglass"},
+                {"discription", "Looks like something can affect #?!*&"},
+                {"price", 1000},
+                {"belong", "shop"}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Magical Cake"},
+                {"discription", "A magical cake. You don't know what will happen if you eat it."},
+                {"price", 1000},
+                {"belong", "shop"}
+            },
+        };
 
+        playerDollars = -1000;
+        curShowItemIndex = 0;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -87,28 +123,6 @@ public class GameManager : MonoBehaviour
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
         // SetRandomGoal();
-        shopItems = new Dictionary<string, dynamic>[]{
-            new Dictionary<string, dynamic>(){
-                {"name", "Item1"},
-                {"discription", "Discription1"},
-                {"price", 100}
-            },
-            new Dictionary<string, dynamic>(){
-                {"name", "Item2"},
-                {"discription", "Discription2"},
-                {"price", 200}
-            },
-            new Dictionary<string, dynamic>(){
-                {"name", "Item3"},
-                {"discription", "Discription3"},
-                {"price", 300}
-            },
-            new Dictionary<string, dynamic>(){
-                {"name", "Item4"},
-                {"discription", "Discription4"},
-                {"price", 400}
-            },
-        };
     }
 
     // Update is called once per frame
@@ -166,6 +180,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void playerGetItem(int itemIndex){
+        itemPos[curShowItemIndex].sprite = itemSprites[itemIndex];
+        itemPos[curShowItemIndex].color = new Color(255, 255, 255, 255);
+        curShowItemIndex++;
+    }
     public void acceptQuest(string args){
         string[] subs = args.Split(',');
         int amount = System.Int32.Parse(subs[0]);

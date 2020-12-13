@@ -10,7 +10,7 @@ using QuantumTek.QuantumUI;
 public class ShopSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Test gameManager;
+    public GameManager gameManager;
     public GameObject ShopWindow;
     public GameObject infoWindow;
     public QUI_Window confirmWindow;
