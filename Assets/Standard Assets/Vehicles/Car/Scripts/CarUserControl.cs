@@ -21,12 +21,13 @@ namespace UnityStandardAssets.Vehicles.Car {
             float v = Input.GetAxis("Vertical");
             float jvf = (Input.GetAxis("GasPedal") + 1) / 2;
             float jvb = (Input.GetAxis("BreakPedal") - 1) / 2;
+            float rawV = v;
             v += (jvf + jvb);
             // Debug.Log(v);
 #if !MOBILE_INPUT
             bool jump = Input.GetAxis("Jump") > 0f;
             m_Car.Move(h, v, v, 0f);
-            if (Input.GetKeyDown(KeyCode.JoystickButton3)) {
+            if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Jump");
 
                 if (Time.time - lastJump > 1f) {
@@ -34,6 +35,7 @@ namespace UnityStandardAssets.Vehicles.Car {
                     lastJump = Time.time;
                 }
             }
+            this.gameObject.GetComponent<Rigidbody>().angularVelocity += this.GetComponent<Transform>().TransformDirection(new Vector3(rawV * 0.01f, 0f, -1 * h * 0.01f));
 #else
             m_Car.Move(h, v, v, 0f);
 #endif
