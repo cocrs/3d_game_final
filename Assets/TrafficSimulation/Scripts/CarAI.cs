@@ -34,6 +34,7 @@ namespace TrafficSimulation {
         float initialTopSpeed;
         bool regularPath = true;
         GameObject[] playerTarget;
+        bool pause = false;
 
 
         void Start() {
@@ -81,15 +82,19 @@ namespace TrafficSimulation {
             if (trafficSystem == null)
                 return;
 
-            //Set navmesh agent in front of the car
-            agent.transform.position = this.transform.position + (this.transform.forward * carController.MotorWheels[0].transform.localPosition.z);
-            if (crushIntoPlayer) {
-                playerTargetChecker();
-            }
+            if (this.pause) {
+                Debug.Log("pause");
+            } else {
+                //Set navmesh agent in front of the car
+                agent.transform.position = this.transform.position + (this.transform.forward * carController.MotorWheels[0].transform.localPosition.z);
+                if (crushIntoPlayer) {
+                    playerTargetChecker();
+                }
 
-            WaypointChecker();
-            float topSpeed = GetCarSpeed();
-            MoveVehicle(topSpeed);
+                WaypointChecker();
+                float topSpeed = GetCarSpeed();
+                MoveVehicle(topSpeed);
+            }
         }
 
 
@@ -225,5 +230,21 @@ namespace TrafficSimulation {
             if (Mathf.Abs(diff.x) < 0.3f && Mathf.Abs(diff.z) < 0.3f) return true;
             else return false;
         }
+        public void Pause() {
+            Debug.Log("Pause");
+            this.pause = true;
+            this.enabled = false;
+            this.carController.enabled = false;
+        }
+        public void Resume() {
+            Debug.Log("Resume");
+            this.pause = false;
+            this.enabled = true;
+            this.carController.enabled = true;
+        }
+        public bool IsPaused() {
+            return this.pause;
+        }
     }
+
 }
