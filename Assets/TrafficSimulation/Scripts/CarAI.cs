@@ -113,6 +113,9 @@ namespace TrafficSimulation {
         }
 
         void playerTargetChecker() {
+            if (playerTarget.Length == 0) {
+                return;
+            }
             GameObject target = playerTarget[0];
             float dist = Vector3.Distance(this.gameObject.transform.position, target.transform.position);
             float dirZ = this.gameObject.transform.InverseTransformPoint(target.transform.position).z;
