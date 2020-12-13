@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7554465034301733705}
   m_Layer: 11
   m_Name: Car Long
-  m_TagString: Untagged
+  m_TagString: AutonomousVehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
