@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     private static float goalDis;
     public GameObject tooFarTXT;
 
+    [Header("Shop")]
+    public static Dictionary<string, dynamic>[] shopItems;
+
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +87,28 @@ public class GameManager : MonoBehaviour
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
         // SetRandomGoal();
+        shopItems = new Dictionary<string, dynamic>[]{
+            new Dictionary<string, dynamic>(){
+                {"name", "Item1"},
+                {"discription", "Discription1"},
+                {"price", 100}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Item2"},
+                {"discription", "Discription2"},
+                {"price", 200}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Item3"},
+                {"discription", "Discription3"},
+                {"price", 300}
+            },
+            new Dictionary<string, dynamic>(){
+                {"name", "Item4"},
+                {"discription", "Discription4"},
+                {"price", 400}
+            },
+        };
     }
 
     // Update is called once per frame
