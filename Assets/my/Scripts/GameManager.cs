@@ -61,18 +61,16 @@ public class GameManager : MonoBehaviour {
     private static float goalDis;
     public GameObject tooFarTXT;
     
+    [Header("Quest")]
+    private int chosedTown;
+    public Dictionary<string, dynamic>[] goalList;
 
     [Header("Shop")]
-    public static Dictionary<string, dynamic>[] shopItems;
-    public Dictionary<string, dynamic>[] items;
     public Image[] itemPos;
     public Sprite[] itemSprites;
     private int curShowItemIndex;
     public int playerDollars;
-
-
-    public Dictionary<string, dynamic>[] goalList;
-    private int chosedTown;
+    public Dictionary<string, dynamic>[] items;
 
 
     void Awake() {
@@ -217,8 +215,7 @@ public class GameManager : MonoBehaviour {
         curDay += 1;
         DayTXT.text = "Day " + curDay;
         PlayerControll(true);
-        questBtn.SetActive(true);
-        pauseBtn.SetActive(true);
+        OpenMainUIButton();
     }
     public void setChosedTown(int choice) {
         chosedTown = choice;
@@ -308,6 +305,10 @@ public class GameManager : MonoBehaviour {
         questWindow.SetActive(false);
         pauseWindow.SetActive(false);
         questConfirmWindow.SetActive(false);
+    }
+    public void OpenMainUIButton(){
+        questBtn.SetActive(true);
+        pauseBtn.SetActive(true);
     }
     public static bool isTooFarFromGoal() {
         return goalDis > limitDistance;

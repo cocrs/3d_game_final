@@ -17,6 +17,6 @@ public class PlayBtn : MonoBehaviour
         
     }
     public void LoadGame(){
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("Game");
     }
 }
