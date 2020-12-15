@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QuantumTek.QuantumUI;
 
-public class ParkingTrigger : MonoBehaviour
-{
+public class ParkingTrigger : MonoBehaviour {
     public bool t1, t2, t3, t0;
     public GameObject TimerCountMen;
     public MeshRenderer ParkRenderer;
@@ -18,8 +17,7 @@ public class ParkingTrigger : MonoBehaviour
     private bool repark = false;
 
     // Start is called before the first frame update
-    IEnumerator Start()
-    {
+    IEnumerator Start() {
         //This is parking timer
         endTime = Time.time + 4;
 
@@ -30,33 +28,26 @@ public class ParkingTrigger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.playing)
-        {
+    void Update() {
+        if (GameManager.playing) {
             // Is parking finished?
-            if (!FinisheD)
-            {// No ,parking isn't finish, check parking state
+            if (!FinisheD) {// No ,parking isn't finish, check parking state
 
-                if (t0 && t2 && t3 && t1)
-                {
-                    if (!repark)
-                    {
+                if (t0 && t2 && t3 && t1) {
+                    if (!repark) {
                         // If all of car triggers being entered in parking place
                         // Checking when timer is reached 0(from    3)
                         StartCoroutine(CheckTimeToFinisheD());
                         // Park renderer is now green(Correct location on parking place)
                         ParkRenderer.material.color = Color.green;
 
-                        if (canLoadinnn)
-                        {
+                        if (canLoadinnn) {
                             TimerCountMen.SetActive(true);
                             CountDownText.gameObject.SetActive(true);
                         }
 
                         int timeLeft = (int)(endTime - Time.time);
-                        if (timeLeft <= 0)
-                        {
+                        if (timeLeft <= 0) {
                             timeLeft = 0;
                             isFinish = true;
                         }
@@ -65,9 +56,7 @@ public class ParkingTrigger : MonoBehaviour
                         CountDownText.text = timeLeft.ToString();
                     }
 
-                }
-                else
-                {
+                } else {
                     // Car doesn't on correct parking place
                     StopCoroutine(CheckTimeToFinisheD());
                     repark = false;
@@ -87,11 +76,9 @@ public class ParkingTrigger : MonoBehaviour
             }
         }
     }
-    IEnumerator CheckTimeToFinisheD()
-    {
+    IEnumerator CheckTimeToFinisheD() {
         yield return new WaitForSeconds(4f);
-        if (isFinish == true)
-        {
+        if (isFinish == true) {
             FinisheD = true;
 
             // disable car moving

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MParkingManager : MonoBehaviour
-{
+public class MParkingManager : MonoBehaviour {
     public bool t1, t2, t3, t0;
     public GameObject TimerCountMen;
     public GameObject tooFarTXT;
@@ -15,8 +14,7 @@ public class MParkingManager : MonoBehaviour
     public static float endTime;
 
     // Start is called before the first frame update
-    IEnumerator Start()
-    {
+    IEnumerator Start() {
         TimerCountMen = GameObject.Find("TimerCount");
         CountDownText = GameObject.Find("TimerCountTXT").GetComponent<Text>();
         tooFarTXT = GameObject.Find("TooFarTXT");
@@ -31,40 +29,31 @@ public class MParkingManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.inQuest)
-        {
+    void Update() {
+        if (GameManager.inQuest) {
             // Is parking finished?
-            if (!FinisheD)
-            {// No ,parking isn't finish, check parking state
+            if (!FinisheD) {// No ,parking isn't finish, check parking state
 
-                if (t0 && t2 && t3 && t1)
-                {// If all of car triggers being entered in parking place
-                 // Checking when timer is reached 0(from    3)
-                    if (GameManager.isTooFarFromGoal())
-                    {
+                if (t0 && t2 && t3 && t1) {// If all of car triggers being entered in parking place
+                                           // Checking when timer is reached 0(from    3)
+                    if (GameManager.isTooFarFromGoal()) {
                         tooFarTXT.SetActive(true);
                         ParkRenderer.material.color = Color.red;
                         GameManager.parkingLotUsing = this.gameObject;
-                    }
-                    else
-                    {
+                    } else {
                         StartCoroutine(CheckTimeToFinisheD());
                         // Level is finished
                         GameManager.parkingLotUsing = this.gameObject;
                         // Park renderer is now green(Correct location on parking place)
                         ParkRenderer.material.color = Color.green;
 
-                        if (canLoadinnn)
-                        {
+                        if (canLoadinnn) {
                             TimerCountMen.SetActive(true);
                             CountDownText.gameObject.SetActive(true);
                         }
 
                         int timeLeft = (int)(endTime - Time.time);
-                        if (timeLeft <= 0)
-                        {
+                        if (timeLeft <= 0) {
                             timeLeft = 0;
                             isFinish = true;
                         }
@@ -72,19 +61,15 @@ public class MParkingManager : MonoBehaviour
                         //Timer Info  3...2...1....
                         CountDownText.text = timeLeft.ToString();
                     }
-                }
-                else if (GameManager.parkingLotUsing == this.gameObject)
-                { // only same parking lot can stop its coroutine
-                  // Stop checking car parking state
+                } else if (GameManager.parkingLotUsing == this.gameObject) { // only same parking lot can stop its coroutine
+                                                                             // Stop checking car parking state
                     StopCoroutine(CheckTimeToFinisheD());
                     tooFarTXT.SetActive(false);
                     // ParkRenderer.material.color = Color.white;
                     GameManager.parkingLotUsing = null; // no parking lot is active
 
-                }
-                else if (GameManager.parkingLotUsing == null)
-                { // Car doesn't on correct parking place
-                  // Car parking doesn't finish
+                } else if (GameManager.parkingLotUsing == null) { // Car doesn't on correct parking place
+                                                                  // Car parking doesn't finish
                     isFinish = false;
                     // Stop Count down timer
                     TimerCountMen.SetActive(false);
@@ -100,11 +85,9 @@ public class MParkingManager : MonoBehaviour
             }
         }
     }
-    IEnumerator CheckTimeToFinisheD()
-    {
+    IEnumerator CheckTimeToFinisheD() {
         yield return new WaitForSeconds(4f);
-        if (isFinish == true)
-        {
+        if (isFinish == true) {
             FinisheD = true;
 
             // print("finish");
@@ -127,5 +110,11 @@ public class MParkingManager : MonoBehaviour
             t3 = false;
             CountDownText.text = "3";
         }
+    }
+    public void ResetTireTrigger() {
+        t0 = false;
+        t1 = false;
+        t2 = false;
+        t3 = false;
     }
 }

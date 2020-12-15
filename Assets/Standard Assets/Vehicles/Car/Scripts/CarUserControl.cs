@@ -26,7 +26,11 @@ namespace UnityStandardAssets.Vehicles.Car {
             // Debug.Log(v);
 #if !MOBILE_INPUT
             bool jump = Input.GetAxis("Jump") > 0f;
-            m_Car.Move(h, v, v, 0f);
+            if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift)) {
+                m_Car.Move(h, v, v, 1f);
+            } else {
+                m_Car.Move(h, v, v, 0f);
+            }
             if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Jump");
 
