@@ -29,9 +29,10 @@ public class HealthTester : MonoBehaviour
         // 	float dmg = (Time.deltaTime * mult);
         // 	health.Damage (dmg);
         // }
-        float mult = 10f;
-        float change = (Time.deltaTime * mult);
+        
         if(recoverEnergy){
+            float mult = 30f;
+            float change = (Time.deltaTime * mult);
             curHealth = 100;
             if (health.GetHealth() + change > curHealth)
             {
@@ -45,6 +46,8 @@ public class HealthTester : MonoBehaviour
         }
         else if (health.GetHealth() > curHealth)
         {
+            float mult = 10f;
+            float change = (Time.deltaTime * mult);
             if (health.GetHealth() - change < curHealth)
             {
                 change = health.GetHealth() - curHealth;

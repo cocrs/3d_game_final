@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     public QUI_Window failWindow;
     public QUI_Window successWindow;
     public QUI_Window questWindow;
+    public QUI_Window pauseWindow;
     public QUI_Window endDayWindow;
     public QUI_Window questConfirmWindow;
 
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour {
     private int curDay;
     public GameObject EnergyNotEnoughTXT;
     public TextMeshProUGUI moneyTXT;
+    public GameObject questBtn;
+    public GameObject pauseBtn;
 
     [Header("QuestUI")]
     public Text successTXT;
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour {
     public TextMeshProUGUI goalDistanceTXT;
     private static float goalDis;
     public GameObject tooFarTXT;
+    
 
     [Header("Shop")]
     public static Dictionary<string, dynamic>[] shopItems;
@@ -194,6 +198,7 @@ public class GameManager : MonoBehaviour {
     public void acceptQuest() {
         if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
             questWindow.SetActive(false);
+            questConfirmWindow.SetActive(false);
             setGoal();
         } else {
             EnergyNotEnoughTXT.SetActive(true);
@@ -212,6 +217,8 @@ public class GameManager : MonoBehaviour {
         curDay += 1;
         DayTXT.text = "Day " + curDay;
         PlayerControll(true);
+        questBtn.SetActive(true);
+        pauseBtn.SetActive(true);
     }
     public void setChosedTown(int choice) {
         chosedTown = choice;
@@ -295,6 +302,13 @@ public class GameManager : MonoBehaviour {
         MParkingManager.endTime = Time.time + 4;
     }
 
+    public void CloseMainUI(){
+        questBtn.SetActive(false);
+        pauseBtn.SetActive(false);
+        questWindow.SetActive(false);
+        pauseWindow.SetActive(false);
+        questConfirmWindow.SetActive(false);
+    }
     public static bool isTooFarFromGoal() {
         return goalDis > limitDistance;
     }

@@ -13,12 +13,13 @@ public class MParkingManager : MonoBehaviour {
     public bool timeLimit;
     public static float endTime;
 
-    // Start is called before the first frame update
-    IEnumerator Start() {
+    void Awake() {
         TimerCountMen = GameObject.Find("TimerCount");
         CountDownText = GameObject.Find("TimerCountTXT").GetComponent<Text>();
         tooFarTXT = GameObject.Find("TooFarTXT");
-
+    }
+    // Start is called before the first frame update
+    IEnumerator Start() {
         //This is parking timer
         endTime = Time.time + 4;
 

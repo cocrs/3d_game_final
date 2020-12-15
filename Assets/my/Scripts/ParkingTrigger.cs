@@ -96,6 +96,7 @@ public class ParkingTrigger : MonoBehaviour {
             repark = true;
             print("run");
 
+            gameManager.CloseMainUI();
             endDayWindow.SetActive(true);
         }
     }
