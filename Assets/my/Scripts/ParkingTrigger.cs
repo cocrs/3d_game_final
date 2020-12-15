@@ -99,4 +99,10 @@ public class ParkingTrigger : MonoBehaviour {
             endDayWindow.SetActive(true);
         }
     }
+    public void ResetTireTrigger() {
+        t0 = false;
+        t1 = false;
+        t2 = false;
+        t3 = false;
+    }
 }

@@ -162,6 +162,7 @@ public class GameManager : MonoBehaviour {
                     parkingManagers.SetActive(false);
                     // wayPointArrow.SetActive(false);
                     PlayerControll(false);
+                    homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
                     homeParkingLot.SetActive(true);
                     setRandomGoalThisRound();
 
