@@ -233,6 +233,8 @@ public class GameManager : MonoBehaviour {
         lightAnime.Play();
         yield return new WaitForSeconds(3);
         curDay += 1;
+        playerDollars -= 500;
+        updatePlayerDollars();
         DayTXT.text = "Day " + curDay;
         PlayerControll(true);
         OpenMainUIButton();
@@ -264,21 +266,24 @@ public class GameManager : MonoBehaviour {
     void setRandomGoalThisRound() {
         GameObject goal1 = goalTown1[Random.Range(0, goalTown1.Length)];
         GameObject goal2 = goalTown2[Random.Range(0, goalTown2.Length)];
+        float goal1Dis = Vector3.Distance(player.transform.position, goal1.transform.position);
+        float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
+        int reward = Random.Range(100, 500);
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
                 {"name", "town1"},
                 {"goal", goal1},
-                {"reward", 1000},
-                {"time", 300},
+                {"reward", reward},
+                {"time", Mathf.Max((int)goal1Dis / 5, 30)},
                 {"consume", 50},
-                {"distance", 150}
+                {"distance", 100}
             },
             new Dictionary<string, dynamic>(){
                 {"name", "town2"},
                 {"goal", goal2},
-                {"reward", 1500},
-                {"time", 200},
+                {"reward", reward},
+                {"time", Mathf.Max((int)goal2Dis / 5, 30)},
                 {"consume", 80},
                 {"distance", 100}
             }

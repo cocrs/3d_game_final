@@ -8,7 +8,7 @@ public class HealthTester : MonoBehaviour
 {
     private Health health;
     private TextMeshProUGUI energyTXT;
-    private float curHealth;
+    public float curHealth;
     [SerializeField]
     private GameObject healthBarPrefab;
     public static bool recoverEnergy = false;
@@ -29,8 +29,9 @@ public class HealthTester : MonoBehaviour
         // 	float dmg = (Time.deltaTime * mult);
         // 	health.Damage (dmg);
         // }
-        
-        if(recoverEnergy){
+
+        if (recoverEnergy)
+        {
             float mult = 30f;
             float change = (Time.deltaTime * mult);
             curHealth = 100;
@@ -40,7 +41,8 @@ public class HealthTester : MonoBehaviour
             }
             health.Damage(-change);
             energyTXT.text = (int)health.GetHealth() + "/100";
-            if(health.GetHealth() == curHealth){
+            if (health.GetHealth() == curHealth)
+            {
                 recoverEnergy = false;
             }
         }
@@ -59,11 +61,18 @@ public class HealthTester : MonoBehaviour
 
     public bool consumeEnergy(float amount)
     {
-        if (curHealth - amount >= 0)
+        if (curHealth > 0)
         {
-            curHealth -= amount;
-			return true;
+            if (curHealth - amount < 0)
+            {
+                curHealth = 0;
+            }
+            else{
+                curHealth -= amount;
+            }
+            return true;
         }
-		return false;
+
+        return false;
     }
 }

@@ -676,9 +676,9 @@ GameObject:
   - component: {fileID: 8834600939119112135}
   - component: {fileID: 8834600939119112134}
   - component: {fileID: 6207652070356653181}
-  - component: {fileID: 8834600939119112136}
-  - component: {fileID: 8834600939119112137}
-  - component: {fileID: -3623595916289640179}
+  - component: {fileID: 6503256419654705979}
+  - component: {fileID: 1337714904342635292}
+  - component: {fileID: 8139991464128766053}
   m_Layer: 10
   m_Name: Car_2
   m_TagString: Untagged
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnergyTester: {fileID: 0}
---- !u!114 &8834600939119112136
+--- !u!114 &6503256419654705979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -759,10 +759,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8835806646455420961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
+  m_Script: {fileID: 11500000, guid: 504f0565a832f72439499ebccf668bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8834600939119112137
+--- !u!114 &1337714904342635292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8835806646455420961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
+  m_Script: {fileID: 11500000, guid: b1b2f1ed5e3d40b4984a7f25c79a4af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CarDriveType: 2
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
---- !u!114 &-3623595916289640179
+--- !u!114 &8139991464128766053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8835806646455420961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fa55eb64c5cea4aa3c71ae19c434bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 42e38f8e4aad11646979af2fdc1068ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   engineSoundStyle: 1
