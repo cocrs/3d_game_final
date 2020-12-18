@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour {
     public GameObject goal;
     public GameObject goalIcon;
     private GameObject goalIconObj;
-    public GameObject WayPoint;
+    public GameObject wayPointGoal;
+    public GameObject waypoints;
     public GameObject parkingManagers;
     public GameObject player;
     // private GameObject wayPointArrow;
@@ -106,7 +107,6 @@ public class GameManager : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
-        // wayPointArrow = GameObject.Find("Waypoint Arrow");
         failWindow.SetActive(false);
         questWindow.SetActive(false);
         successWindow.SetActive(false);
@@ -114,9 +114,11 @@ public class GameManager : MonoBehaviour {
         timerCountMenu.SetActive(false);
         parkingManagers.SetActive(false);
         tooFarTXT.SetActive(false);
-        // wayPointArrow.SetActive(false);
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
+
+        // waypoints.SetActive(false);
+        RandomDisactiveWaypoints();
 
         limitDistance = 0;
         playing = true;
@@ -162,23 +164,26 @@ public class GameManager : MonoBehaviour {
                     // turn off some UI
                     questUI.SetActive(false);
                     parkingManagers.SetActive(false);
-                    // wayPointArrow.SetActive(false);
-                    PlayerControll(false);
+                    waypoints.SetActive(true);
+                    RandomDisactiveWaypoints();
+                    // PlayerControll(false);
                     homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
                     homeParkingLot.SetActive(true);
+                    goalIconObj.SetActive(false);
                     setRandomGoalThisRound();
 
                     if (finishParking) {
                         // show success menu
-                        successWindow.SetActive(true);
-                        successTXT.text = "Reward: " + goalList[chosedTown]["reward"] + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
+                        // successWindow.SetActive(true);
+                        // successTXT.text = "Reward: " + goalList[chosedTown]["reward"] + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
                         playerDollars += goalList[chosedTown]["reward"];
                         updatePlayerDollars();
                         parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
                         parkingLotUsing = null;
-                    } else {
-                        failWindow.SetActive(true);
-                    }
+                    } 
+                    // else {
+                    //     failWindow.SetActive(true);
+                    // }
                     inQuest = false;
                 }
             }
@@ -194,14 +199,29 @@ public class GameManager : MonoBehaviour {
         moneyTXT.text = "$ " + playerDollars;
     }
     public void acceptQuest() {
-        if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
-            questWindow.SetActive(false);
-            questConfirmWindow.SetActive(false);
-            setGoal();
-        } else {
-            EnergyNotEnoughTXT.SetActive(true);
-            EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
-            EnergyNotEnoughTXT.GetComponent<Animation>().Play();
+        chosedTown = Random.Range(1, 2);
+        // if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
+        questWindow.SetActive(false);
+        questConfirmWindow.SetActive(false);
+        waypoints.SetActive(false);
+        setGoal();
+        // } else {
+        //     EnergyNotEnoughTXT.SetActive(true);
+        //     EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
+        //     EnergyNotEnoughTXT.GetComponent<Animation>().Play();
+        // }
+    }
+    public void RandomDisactiveWaypoints(){
+        int count = 0;
+        foreach (Transform child in waypoints.transform) {
+            int state = Random.Range(1, 10);
+            if(state <= 2){
+                count++;
+                child.gameObject.SetActive(false);
+            }
+            if(count == 3){
+                break;
+            }
         }
     }
     public void toNextDay() {
@@ -281,7 +301,7 @@ public class GameManager : MonoBehaviour {
         }
         goalIconObj.SetActive(true);
         goalIconObj.transform.position = new Vector3(center.x, 30f, center.z);
-        WayPoint.transform.position = center;
+        wayPointGoal.transform.position = center;
 
 
         inQuest = true;

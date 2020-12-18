@@ -11,7 +11,7 @@
 		void Update(){
 			if (waypointController.player) {
 				if(Vector3.Distance(transform.position, waypointController.player.position) < radius){
-					waypointController.ChangeTarget ();
+					// waypointController.ChangeTarget ();
 				}
 			}
 		}
@@ -19,7 +19,7 @@
 		void OnTriggerEnter (Collider col) {
 			if(col.gameObject.tag == "Player"){
 				waypointController.WaypointEvent (waypointNumber);
-				waypointController.ChangeTarget ();
+				// waypointController.ChangeTarget ();
 			}
 		}
 

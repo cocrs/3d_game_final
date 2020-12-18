@@ -10,7 +10,6 @@ public class CarCollision : MonoBehaviour
         lastCollideTime = Time.time;
     }
     void OnCollisionEnter(Collision other) {
-        Debug.Log("sdf");
         if(Time.time - lastCollideTime > 1f){
             lastCollideTime = Time.time;
             

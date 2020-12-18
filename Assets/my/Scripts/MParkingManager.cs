@@ -66,7 +66,6 @@ public class MParkingManager : MonoBehaviour {
                                                                              // Stop checking car parking state
                     StopCoroutine(CheckTimeToFinisheD());
                     tooFarTXT.SetActive(false);
-                    // ParkRenderer.material.color = Color.white;
                     GameManager.parkingLotUsing = null; // no parking lot is active
 
                 } else if (GameManager.parkingLotUsing == null) { // Car doesn't on correct parking place
@@ -94,7 +93,7 @@ public class MParkingManager : MonoBehaviour {
             // print("finish");
 
             // disable car moving
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
+            // GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
             // Stop timer menu
             TimerCountMen.SetActive(false);
 
