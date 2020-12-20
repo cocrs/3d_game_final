@@ -28,59 +28,65 @@ namespace UnityStandardAssets.Vehicles.Car
             float rawV = v;
             v += (jvf + jvb);
             // print(v);
-            if (EnergyTester.curHealth > 0)
+            if (GameManager.playing)
             {
-
-                if (v != 0)
+                if (EnergyTester.curHealth > 0)
                 {
-                    EnergyTester.consumeEnergy(m_Car.GetComponent<Rigidbody>().velocity.magnitude * 0.001f);
-                }
-                // Debug.Log(v);
-#if !MOBILE_INPUT
-                bool jump = Input.GetAxis("Jump") > 0f;
-                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
-                {
-                    m_Car.Move(h, v, v, 1f);
-                }
-                else
-                {
-                    m_Car.Move(h, v, v, 0f);
-                }
-                if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (EnergyTester.curHealth >= 10)
+                    if (v != 0)
                     {
-                        Debug.Log("Jump");
-                        if (Time.time - lastJump > 1f)
-                        {
-                            EnergyTester.consumeEnergy(10);
-                            this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity + new Vector3(0f, 5f, 0f);
-                            lastJump = Time.time;
-                        }
+                        EnergyTester.consumeEnergy(m_Car.GetComponent<Rigidbody>().velocity.magnitude * 0.001f);
+                    }
+                    // Debug.Log(v);
+#if !MOBILE_INPUT
+                    bool jump = Input.GetAxis("Jump") > 0f;
+                    if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
+                    {
+                        m_Car.Move(h, v, v, 1f);
                     }
                     else
                     {
-                        gameManager.EnergyNotEnoughTXT.SetActive(true);
-                        gameManager.EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
-                        gameManager.EnergyNotEnoughTXT.GetComponent<Animation>().Play();
+                        m_Car.Move(h, v, v, 0f);
                     }
-                }
+                    if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Space))
+                    {
+                        if (EnergyTester.curHealth >= 10)
+                        {
+                            Debug.Log("Jump");
+                            if (Time.time - lastJump > 1f)
+                            {
+                                EnergyTester.consumeEnergy(10);
+                                this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity + new Vector3(0f, 5f, 0f);
+                                lastJump = Time.time;
+                            }
+                        }
+                        else
+                        {
+                            gameManager.EnergyNotEnoughTXT.SetActive(true);
+                            gameManager.EnergyNotEnoughTXT.GetComponent<Animation>().Stop();
+                            gameManager.EnergyNotEnoughTXT.GetComponent<Animation>().Play();
+                        }
+                    }
 
-                this.gameObject.GetComponent<Rigidbody>().angularVelocity += this.GetComponent<Transform>().TransformDirection(new Vector3(rawV * 0.01f, 0f, -1 * h * 0.01f));
+                    this.gameObject.GetComponent<Rigidbody>().angularVelocity += this.GetComponent<Transform>().TransformDirection(new Vector3(rawV * 0.01f, 0f, -1 * h * 0.01f));
 #else
             m_Car.Move(h, v, v, 0f);
 #endif
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
-                {
-                    m_Car.Move(h, 0, 0, 1f);
                 }
                 else
                 {
-                    m_Car.Move(h, 0, 0, 0f);
+                    if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
+                    {
+                        m_Car.Move(h, 0, 0, 1f);
+                    }
+                    else
+                    {
+                        m_Car.Move(h, 0, 0, 0f);
+                    }
                 }
+            }
+            else if(GameManager.gameFinished)
+            {
+                m_Car.Move(0, 5, 0, 0f);
             }
         }
     }

@@ -22,7 +22,6 @@ public class GateTrigger : MonoBehaviour
         {
             if (gameManager.playerDollars >= 10000)
             {
-                animator.SetInteger("state", 1);
                 Flowchart.BroadcastFungusMessage("playerWithEnoughMoney");
             }
             else
@@ -36,7 +35,6 @@ public class GateTrigger : MonoBehaviour
         if (other.tag == "Player" && animator.GetInteger("state") == 1)
         {
             animator.SetInteger("state", 2);
-
         }
     }
 }

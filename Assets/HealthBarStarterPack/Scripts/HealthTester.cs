@@ -55,7 +55,14 @@ public class HealthTester : MonoBehaviour
                 change = health.GetHealth() - curHealth;
             }
             health.Damage(change);
-            energyTXT.text = (int)health.GetHealth() + "/100";
+            if (health.GetHealth() > 0 && health.GetHealth() < 1)
+            {
+                energyTXT.text = "1/100";
+            }
+            else
+            {
+                energyTXT.text = (int)health.GetHealth() + "/100";
+            }
         }
     }
 
@@ -67,7 +74,8 @@ public class HealthTester : MonoBehaviour
             {
                 curHealth = 0;
             }
-            else{
+            else
+            {
                 curHealth -= amount;
             }
             return true;

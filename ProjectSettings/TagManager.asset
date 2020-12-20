@@ -23,6 +23,7 @@ TagManager:
   - UICanvas
   - playerTarget
   - GoalIcon
+  - GoalCity
   layers:
   - Default
   - TransparentFX

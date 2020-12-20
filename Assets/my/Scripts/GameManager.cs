@@ -22,16 +22,19 @@ public class GameManager : MonoBehaviour {
     // private GameObject wayPointArrow;
     public GameObject questTester;
     public GameObject homeParkingLot;
+    public Transform gateFrontPose;
+    public Cinemachine.CinemachineVirtualCamera cinemachine;
 
     [Header("Timer")]
     // public GameObject timerMenu;
     public Text timerText;
     public float timer;
     [Header("Game State")]
-    public static bool playing = false;
+    public static bool playing = true;
     public static bool inQuest = false;
     public static bool finishParking = false;
     public static bool questFinished = false;
+    public static bool gameFinished = false;
     public static float limitDistance;
     public Animation lightAnime;
 
@@ -102,7 +105,7 @@ public class GameManager : MonoBehaviour {
             },
         };
 
-        playerDollars = -1000;
+        playerDollars = 10000;
         curShowItemIndex = 0;
     }
     // Start is called before the first frame update
@@ -189,7 +192,13 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-
+    public void SetPlayingState(bool state){
+        playing = state;
+    }
+    public void SetGameFinishedState(bool state){
+        gameFinished = state;
+        cinemachine.Follow = null;
+    }
     public void playerGetItem(int itemIndex) {
         itemPos[curShowItemIndex].sprite = itemSprites[itemIndex];
         itemPos[curShowItemIndex].color = new Color(255, 255, 255, 255);
@@ -275,7 +284,7 @@ public class GameManager : MonoBehaviour {
                 {"name", "town1"},
                 {"goal", goal1},
                 {"reward", reward},
-                {"time", Mathf.Max((int)goal1Dis / 5, 30)},
+                {"time", Mathf.Max((int)goal1Dis / 3, 30)},
                 {"consume", 50},
                 {"distance", 100}
             },
@@ -283,7 +292,7 @@ public class GameManager : MonoBehaviour {
                 {"name", "town2"},
                 {"goal", goal2},
                 {"reward", reward},
-                {"time", Mathf.Max((int)goal2Dis / 5, 30)},
+                {"time", Mathf.Max((int)goal2Dis / 3, 30)},
                 {"consume", 80},
                 {"distance", 100}
             }
@@ -338,7 +347,11 @@ public class GameManager : MonoBehaviour {
     public static bool isTooFarFromGoal() {
         return goalDis > limitDistance;
     }
-
+    public void SetPlayerPosition(){
+        player.transform.position = gateFrontPose.transform.position;
+        player.transform.rotation = gateFrontPose.transform.rotation;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
     public void PlayerControll(bool state) {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = !state;
     }
