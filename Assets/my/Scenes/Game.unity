@@ -438,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chainlink_barbwire-3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 261.67
@@ -958,6 +962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_7B (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 30ed3ff5c8264ad4d8466c22ebbdebe7, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30ed3ff5c8264ad4d8466c22ebbdebe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.93283
@@ -1452,6 +1460,10 @@ PrefabInstance:
     - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_Name
       value: Tree_6C (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2323,6 +2335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 130.1
@@ -2877,6 +2893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.1
@@ -3049,6 +3069,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3373,7 +3397,7 @@ PrefabInstance:
     - target: {fileID: 3286184185377122833, guid: 3b64b45e63cbd8a458cb0c3e78fe232a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3286184185377122833, guid: 3b64b45e63cbd8a458cb0c3e78fe232a,
         type: 3}
@@ -3620,6 +3644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_K_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1646639913439324, guid: ac16a24c584766f4e905adc7db85b93d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4539606987814986, guid: ac16a24c584766f4e905adc7db85b93d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -253.79718
@@ -3676,6 +3704,10 @@ PrefabInstance:
     - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_Name
       value: Tree_7A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4332717665654868, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4312,6 +4344,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4990,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big_trash_bin prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1520711273483040, guid: 331560f2206dc024cb084301a19c05ad, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4884130492571914, guid: 331560f2206dc024cb084301a19c05ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 380.57532
@@ -5187,6 +5227,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a17fa7fd4bfd8ce429a57dde2fc1f3aa, type: 3}
       propertyPath: m_Name
       value: Building_7C
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a17fa7fd4bfd8ce429a57dde2fc1f3aa, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a17fa7fd4bfd8ce429a57dde2fc1f3aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5631,6 +5675,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6326,6 +6374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.1
@@ -6509,6 +6561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 131.1
@@ -6610,6 +6666,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6753,6 +6813,10 @@ PrefabInstance:
     - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_Name
       value: Streetlight_1C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4120510040622602, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7566,7 +7630,7 @@ Transform:
   - {fileID: 1033041285}
   - {fileID: 520404271}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167556087
 GameObject:
@@ -7623,6 +7687,10 @@ PrefabInstance:
     - target: {fileID: 1421433746022104, guid: 84bb406b82cecb24cb1ffe5d4359339d, type: 3}
       propertyPath: m_Name
       value: Building_M_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421433746022104, guid: 84bb406b82cecb24cb1ffe5d4359339d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4499070825876286, guid: 84bb406b82cecb24cb1ffe5d4359339d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8697,7 +8765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 21.776001, y: -39.993, z: -325.273}
 --- !u!111 &181301897
 Animation:
@@ -9320,6 +9388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gas_Station_1A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d6d3d27bd2e2974cb4fe11aa1febd04, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d6d3d27bd2e2974cb4fe11aa1febd04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -307.57
@@ -9427,6 +9499,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10434,6 +10510,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11828,6 +11908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trees_6A (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -83.9
@@ -11998,6 +12082,10 @@ PrefabInstance:
     - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_Name
       value: Tree_7D
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4452258199979792, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12217,6 +12305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 64.4
@@ -12325,6 +12417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.3
@@ -12381,6 +12477,10 @@ PrefabInstance:
     - target: {fileID: 1164899596817984, guid: ba33f5f0a254c9443956b40146028648, type: 3}
       propertyPath: m_Name
       value: Building_A_prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164899596817984, guid: ba33f5f0a254c9443956b40146028648, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4872864705531724, guid: ba33f5f0a254c9443956b40146028648, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12858,6 +12958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7G (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.1
@@ -12914,6 +13018,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13051,6 +13159,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13321,6 +13433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gas_Station_2A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalPosition.x
       value: -307.59
@@ -13583,6 +13699,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13884,27 +14004,31 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1722660495}
     m_Modifications:
     - target: {fileID: 100000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_Name
       value: Gas_Station_2A
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
+      propertyPath: m_TagString
+      value: GoalTown1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 442.69
+      value: 61.43808
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000095367
+      value: -45.103195
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 131.15
+      value: 16.143257
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalRotation.y
@@ -13920,7 +14044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14352,6 +14476,10 @@ PrefabInstance:
     - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_Name
       value: Tree_7D (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4452258199979792, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15092,6 +15220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Cluster_1C
       objectReference: {fileID: 0}
+    - target: {fileID: 1678190606960506, guid: 401aa6fa1f294c54a915af5d306e5137, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4865847638064244, guid: 401aa6fa1f294c54a915af5d306e5137, type: 3}
       propertyPath: m_LocalPosition.x
       value: 417.15033
@@ -15238,6 +15370,10 @@ PrefabInstance:
     - target: {fileID: 1899946360806954, guid: 7d569c6acdec3c2428d7b39889d89720, type: 3}
       propertyPath: m_Name
       value: Building_J_prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899946360806954, guid: 7d569c6acdec3c2428d7b39889d89720, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4195813060877534, guid: 7d569c6acdec3c2428d7b39889d89720, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15658,6 +15794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_A_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1164899596817984, guid: ba33f5f0a254c9443956b40146028648, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4812498178293638, guid: ba33f5f0a254c9443956b40146028648, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1
@@ -15734,6 +15874,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16409,6 +16553,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17725,7 +17873,7 @@ Transform:
   - {fileID: 1415965711}
   - {fileID: 702605340}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &350351700 stripped
 Transform:
@@ -18002,6 +18150,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18705,6 +18857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -118.9
@@ -18875,6 +19031,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19779,6 +19939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7C (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.9
@@ -20408,7 +20572,7 @@ Transform:
   m_LocalScale: {x: 1.6492603, y: 32.985207, z: 82.46301}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &422994650
 BoxCollider:
@@ -20892,6 +21056,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21479,6 +21647,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22405,6 +22577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Cluster_1A
       objectReference: {fileID: 0}
+    - target: {fileID: 1995239772941410, guid: bba84dffd74116f409ff2fdb22a8855d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4203735794463848, guid: bba84dffd74116f409ff2fdb22a8855d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 398.17395
@@ -22757,6 +22933,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23556,6 +23736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.1
@@ -23965,6 +24149,10 @@ PrefabInstance:
     - target: {fileID: 1385491797830740, guid: f9526b7c12770f14aa830082aa6d9b45, type: 3}
       propertyPath: m_Name
       value: Building_D1_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385491797830740, guid: f9526b7c12770f14aa830082aa6d9b45, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4583176950735566, guid: f9526b7c12770f14aa830082aa6d9b45, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24415,6 +24603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chainlink_barbwire-3 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 279.02002
@@ -24543,6 +24735,10 @@ PrefabInstance:
     - target: {fileID: 1164899596817984, guid: ba33f5f0a254c9443956b40146028648, type: 3}
       propertyPath: m_Name
       value: Building_A_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164899596817984, guid: ba33f5f0a254c9443956b40146028648, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4872864705531724, guid: ba33f5f0a254c9443956b40146028648, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25063,7 +25259,7 @@ Transform:
   - {fileID: 294309903}
   - {fileID: 1210901060}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &497576312 stripped
 Transform:
@@ -26104,6 +26300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 133.1
@@ -26840,6 +27040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.2
@@ -27078,6 +27282,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27780,6 +27988,10 @@ PrefabInstance:
     - target: {fileID: 1313561039655254, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
       propertyPath: m_Name
       value: Police_station_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313561039655254, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4665181676838408, guid: 28e73319f340c644db3fdb95596c6596, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28511,7 +28723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567756091}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.7000084, y: -0.100034416, z: 0.090025425}
+  m_LocalPosition: {x: 167.70001, y: 83.900055, z: 0.08996582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2096589582}
@@ -29154,6 +29366,10 @@ PrefabInstance:
     - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_Name
       value: Tree_6C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30532,6 +30748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -121.9
@@ -30633,6 +30853,10 @@ PrefabInstance:
     - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_Name
       value: Tree_7C (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30831,7 +31055,7 @@ Transform:
   - {fileID: 339819413}
   - {fileID: 1531656087}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605351949
 GameObject:
@@ -30963,6 +31187,10 @@ PrefabInstance:
     - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_Name
       value: Building_B1_prefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 1913871558650214, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31492,6 +31720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74.1
@@ -31599,6 +31831,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31811,6 +32047,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32068,6 +32308,10 @@ PrefabInstance:
     - target: {fileID: 1631595132073662, guid: 2c1f60045e2f58f48966f8cea8354944, type: 3}
       propertyPath: m_Name
       value: Bank_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631595132073662, guid: 2c1f60045e2f58f48966f8cea8354944, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4826099665648010, guid: 2c1f60045e2f58f48966f8cea8354944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32839,6 +33083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chainlink_barbwire-3 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 278.95
@@ -33243,7 +33491,7 @@ Transform:
   - {fileID: 567756093}
   - {fileID: 817154623}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &663398133
 GameObject:
@@ -33420,6 +33668,10 @@ PrefabInstance:
     - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_Name
       value: Tree_6C (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33808,7 +34060,7 @@ Transform:
   m_LocalScale: {x: 1.6492603, y: 32.985207, z: 82.46301}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677833113
 GameObject:
@@ -34114,6 +34366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trees_6A (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.9
@@ -34251,6 +34507,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35713,6 +35973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.1
@@ -35976,6 +36240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -97.9
@@ -36163,7 +36431,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 40.799004, y: -601.054, z: -176.001}
 --- !u!1 &706682178
 GameObject:
@@ -36313,6 +36581,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37051,6 +37323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Streetlight_1C
       objectReference: {fileID: 0}
+    - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4120510040622602, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 400.51956
@@ -37296,6 +37572,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37854,6 +38134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 70.1
@@ -38250,6 +38534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7D (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4452258199979792, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.5
@@ -38306,6 +38594,10 @@ PrefabInstance:
     - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_Name
       value: Tree_7C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39366,7 +39658,7 @@ Transform:
   - {fileID: 284224867}
   - {fileID: 1246793786}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &769484766 stripped
 Transform:
@@ -39384,6 +39676,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39642,6 +39938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.1
@@ -39792,6 +40092,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41334,6 +41638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 129.80002
@@ -42223,6 +42531,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43338,6 +43650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bench prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1228088659953116, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4488567837450824, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 398.7
@@ -43578,6 +43894,10 @@ PrefabInstance:
     - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_Name
       value: Tree_7C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44034,6 +44354,10 @@ PrefabInstance:
     - target: {fileID: 1468578926959842, guid: 1fbdccb55fd15bc4f92646bd818aca51, type: 3}
       propertyPath: m_Name
       value: Building_C1_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468578926959842, guid: 1fbdccb55fd15bc4f92646bd818aca51, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4819851783926722, guid: 1fbdccb55fd15bc4f92646bd818aca51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45107,6 +45431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 64.1
@@ -45163,6 +45491,10 @@ PrefabInstance:
     - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_Name
       value: Tree_7C (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45308,6 +45640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 94.1
@@ -45385,7 +45721,7 @@ Transform:
   - {fileID: 1146504068}
   - {fileID: 1272569716}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &894668753
 PrefabInstance:
@@ -45397,6 +45733,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45471,6 +45811,10 @@ PrefabInstance:
     - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_Name
       value: Tree_7A
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4332717665654868, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45675,6 +46019,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47667,6 +48015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.1
@@ -48167,6 +48519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 154.06006
@@ -48305,8 +48661,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.16645241, y: 0.74902916, z: -0.6075679, w: -0.20520787}
-  m_LocalPosition: {x: 409.42725, y: 78.67004, z: 80.22576}
+  m_LocalRotation: {x: -0.1664523, y: 0.7490292, z: -0.6075679, w: -0.20520777}
+  m_LocalPosition: {x: 325.42725, y: 78.67004, z: 242.22577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48729,6 +49085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bin prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1646961398783488, guid: dd28fe4d5eb7bcb479b5338f128cdf70, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4096586194150716, guid: dd28fe4d5eb7bcb479b5338f128cdf70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 371.26086
@@ -49031,7 +49391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4483306839220528, guid: dec6e1dfe0585314386ba9c3b833424a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4483306839220528, guid: dec6e1dfe0585314386ba9c3b833424a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -49241,7 +49601,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &996803008
 GameObject:
@@ -49720,6 +50080,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50464,6 +50828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bench 2 prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1307031912822190, guid: c954a7e383194f246b3502f6c815acb4, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4061433567504106, guid: c954a7e383194f246b3502f6c815acb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 405.02
@@ -50829,6 +51197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7A (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4332717665654868, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3
@@ -50891,6 +51263,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51915,6 +52291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: -106.9
@@ -52386,6 +52766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.3
@@ -52442,6 +52826,10 @@ PrefabInstance:
     - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_Name
       value: Streetlight_1C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4120510040622602, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52582,7 +52970,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1076363631
 BoxCollider:
@@ -52663,7 +53051,7 @@ Transform:
   - {fileID: 2030266278}
   - {fileID: 1879295145}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1078637071
 Transform:
@@ -53553,7 +53941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1088098688
 MonoBehaviour:
@@ -54321,13 +54709,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094886759}
-  m_LocalRotation: {x: 0.00054210814, y: -0.7183313, z: 0.0005597424, w: 0.6957008}
-  m_LocalPosition: {x: 401, y: 0.75, z: 66}
+  m_LocalRotation: {x: 0.0004692066, y: -0.8390386, z: 0.00072358636, w: 0.5440712}
+  m_LocalPosition: {x: 317, y: 0.75, z: 228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 967164940}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095089306
 GameObject:
@@ -55106,7 +55494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113940577}
   m_LocalRotation: {x: -0.22391467, y: 0.7341945, z: -0.57320577, w: -0.28680265}
-  m_LocalPosition: {x: -5.9207153, y: 51.31452, z: 4.6825943}
+  m_LocalPosition: {x: -89.920715, y: 51.31452, z: 166.6826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597131777}
@@ -55543,6 +55931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_K_prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1646639913439324, guid: ac16a24c584766f4e905adc7db85b93d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4539606987814986, guid: ac16a24c584766f4e905adc7db85b93d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -117.8
@@ -55894,6 +56286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.1
@@ -55956,6 +56352,10 @@ PrefabInstance:
     - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_Name
       value: Tree_7D (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4452258199979792, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56449,6 +56849,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57677,6 +58081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 127.92734
@@ -58308,6 +58716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 137.84222
@@ -58376,6 +58788,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59985,6 +60401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7C
       objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 81.697235
@@ -60205,6 +60625,10 @@ PrefabInstance:
     - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_Name
       value: Tree_7G
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61725,6 +62149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trees_6A
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.200714
@@ -62697,6 +63125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 132.1
@@ -62986,6 +63418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7A
       objectReference: {fileID: 0}
+    - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4332717665654868, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 92.43036
@@ -63048,6 +63484,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63272,6 +63712,10 @@ PrefabInstance:
     - target: {fileID: 1681277682126416, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
       propertyPath: m_Name
       value: Building_N_Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681277682126416, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4828993989590112, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63783,6 +64227,10 @@ PrefabInstance:
     - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_Name
       value: Streetlight_1C (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059719019635558, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4120510040622602, guid: fa1171c4c28a81e40a4541222c24d8ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64444,6 +64892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100.9
@@ -65076,6 +65528,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67876,6 +68332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.1
@@ -68170,6 +68630,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68971,6 +69435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.4
@@ -69067,6 +69535,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e,
     type: 3}
   m_PrefabInstance: {fileID: 699483357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1416751083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: fbc41d202fa9fd94bb3b9147ccc3b861,
+    type: 3}
+  m_PrefabInstance: {fileID: 279781600}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418993825
 GameObject:
@@ -69391,6 +69865,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70146,7 +70624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!154 &1435555205
 TerrainCollider:
@@ -70202,6 +70680,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70989,7 +71471,7 @@ RectTransform:
   - {fileID: 902664526}
   - {fileID: 36881030}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -71163,6 +71645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_B1_prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4531674893020386, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.49991274
@@ -71288,7 +71774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4485059992272672, guid: 416db31efad293d4da73c87b615cf55a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4485059992272672, guid: 416db31efad293d4da73c87b615cf55a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -71359,6 +71845,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72021,6 +72511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: building_X_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1516307884609076, guid: 1c6290f76fd11c74fa326bdf8cd95a9f, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4604579876288746, guid: 1c6290f76fd11c74fa326bdf8cd95a9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.902832
@@ -72335,6 +72829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7A (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1770748592829744, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4332717665654868, guid: 2e13d51711ba7be49a2291044d249a56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62.5
@@ -72481,7 +72979,7 @@ PrefabInstance:
     - target: {fileID: 5121258889201612317, guid: 5d32668dd4a79d24ab029c5e75ccd9ad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5121258889201612317, guid: 5d32668dd4a79d24ab029c5e75ccd9ad,
         type: 3}
@@ -73469,6 +73967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Z_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1785044199738478, guid: a6cd0c657da915144bd367d385c0fc31, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4571776215605590, guid: a6cd0c657da915144bd367d385c0fc31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -258.79718
@@ -73678,6 +74180,10 @@ PrefabInstance:
     - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_Name
       value: Tree_7D (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435101090956490, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4452258199979792, guid: 89259a8f42c263445b95c40f917f798e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75259,6 +75765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_7C (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a17fa7fd4bfd8ce429a57dde2fc1f3aa, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a17fa7fd4bfd8ce429a57dde2fc1f3aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -279.54
@@ -75586,7 +76096,7 @@ Transform:
   - {fileID: 1068027370}
   - {fileID: 301474931}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1536160223 stripped
 Transform:
@@ -75610,6 +76120,10 @@ PrefabInstance:
     - target: {fileID: 1019492974369894, guid: 14cbbc4aabee1584895f6723e09fbbec, type: 3}
       propertyPath: m_Name
       value: Building_7B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019492974369894, guid: 14cbbc4aabee1584895f6723e09fbbec, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4772202873533380, guid: 14cbbc4aabee1584895f6723e09fbbec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75824,7 +76338,7 @@ Transform:
   - {fileID: 962393313}
   - {fileID: 2127340806}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1540909736
 PrefabInstance:
@@ -76600,6 +77114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: -96.9
@@ -77006,6 +77524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_T_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1244854885922768, guid: 90045d2ccf59b6f45afd8bab908bb038, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4208510527079596, guid: 90045d2ccf59b6f45afd8bab908bb038, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.602814
@@ -77354,6 +77876,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77840,6 +78366,10 @@ PrefabInstance:
     - target: {fileID: 1681277682126416, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
       propertyPath: m_Name
       value: Building_N_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681277682126416, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4828993989590112, guid: bbad862e7e06efe4a8ad0346a53e3cde, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78434,7 +78964,7 @@ Transform:
   - {fileID: 2010032682}
   - {fileID: 1113940579}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1597626805
 PrefabInstance:
@@ -79805,7 +80335,7 @@ Transform:
   m_LocalScale: {x: 1.6492603, y: 1.6492603, z: 1.6492603}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1624500869
 PrefabInstance:
@@ -80882,6 +81412,10 @@ PrefabInstance:
     - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_Name
       value: Tree_6C (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82341,6 +82875,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83914,6 +84452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7G (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 96.1
@@ -84234,6 +84776,10 @@ PrefabInstance:
     - target: {fileID: 1228088659953116, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
       propertyPath: m_Name
       value: bench prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228088659953116, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4488567837450824, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -84690,6 +85236,7 @@ Transform:
   - {fileID: 86721794}
   - {fileID: 1540447034}
   - {fileID: 1152098225}
+  - {fileID: 1416751083}
   m_Father: {fileID: 894324298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84703,6 +85250,10 @@ PrefabInstance:
     - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_Name
       value: Tree_6D (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -85293,6 +85844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trees_6A (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.9
@@ -85789,6 +86344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 102.798676
@@ -85857,6 +86416,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86671,6 +87234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trees_6A (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.9
@@ -87208,6 +87775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop_C_prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1964126759934866, guid: 1b917d070ca78d8458d7db3681a2c913, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4310553293729058, guid: 1b917d070ca78d8458d7db3681a2c913, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.250854
@@ -87575,6 +88146,10 @@ PrefabInstance:
     - target: {fileID: 1678190606960506, guid: 401aa6fa1f294c54a915af5d306e5137, type: 3}
       propertyPath: m_Name
       value: Rock_Cluster_1C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678190606960506, guid: 401aa6fa1f294c54a915af5d306e5137, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4865847638064244, guid: 401aa6fa1f294c54a915af5d306e5137, type: 3}
       propertyPath: m_LocalPosition.x
@@ -88195,6 +88770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7F (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 57.1
@@ -88514,6 +89093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7B (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 133.1
@@ -88570,6 +89153,10 @@ PrefabInstance:
     - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_Name
       value: Tree_7F (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079709474768766, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4605024689629894, guid: 92c4112ee51924f42b69ff579ab762bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91154,6 +91741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7G (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 140.70001
@@ -91883,7 +92474,7 @@ Transform:
   m_LocalScale: {x: 1.6492603, y: 32.985207, z: 82.46301}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865264483
 GameObject:
@@ -92224,6 +92815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 95.100006
@@ -92280,6 +92875,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93368,6 +93967,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94478,6 +95081,7 @@ GameObject:
   - component: {fileID: 1917843788}
   - component: {fileID: 1917843787}
   - component: {fileID: 1917843786}
+  - component: {fileID: 1917843789}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -94560,6 +95164,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1917843789
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917843784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1918631312
 GameObject:
   m_ObjectHideFlags: 0
@@ -95561,6 +96182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7E (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.1
@@ -95692,6 +96317,10 @@ PrefabInstance:
     - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_Name
       value: Tree_7C (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804864812298322, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4991504705637490, guid: b5a3243d18d43d4489e81103fae5d5e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96104,6 +96733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6C (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1039248322824360, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4612201341456972, guid: 0fcab555f304cd84d8d77e9af3b7e843, type: 3}
       propertyPath: m_LocalPosition.x
       value: 92.1
@@ -96213,6 +96846,11 @@ PrefabInstance:
       propertyPath: EnergyTester
       value: 
       objectReference: {fileID: 1306134946}
+    - target: {fileID: 6207652070356653181, guid: d8764c2fa829f2d479f58962be79e3ae,
+        type: 3}
+      propertyPath: cinemachine
+      value: 
+      objectReference: {fileID: 2010032681}
     - target: {fileID: 6503256419654705979, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
       propertyPath: EnergyTester
@@ -96226,7 +96864,7 @@ PrefabInstance:
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 401
+      value: 317
       objectReference: {fileID: 0}
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
@@ -96236,7 +96874,7 @@ PrefabInstance:
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 66
+      value: 228
       objectReference: {fileID: 0}
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
@@ -96261,7 +96899,7 @@ PrefabInstance:
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8830296472282406033, guid: d8764c2fa829f2d479f58962be79e3ae,
         type: 3}
@@ -97171,6 +97809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7G (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
       value: -53.9
@@ -98025,6 +98667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_B1_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 1913871558650214, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -98873,8 +99519,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010032680}
-  m_LocalRotation: {x: -0.16645241, y: 0.74902916, z: -0.6075679, w: -0.20520787}
-  m_LocalPosition: {x: -5.9207153, y: 51.31452, z: 4.6825943}
+  m_LocalRotation: {x: -0.1664523, y: 0.7490292, z: -0.6075679, w: -0.20520777}
+  m_LocalPosition: {x: -89.920715, y: 51.31452, z: 166.6826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1917843785}
@@ -98903,6 +99549,10 @@ PrefabInstance:
     - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_Name
       value: Building_B1_prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378370071209536, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 1913871558650214, guid: a60988b24f8ff094ba511054edf48a9d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -99186,7 +99836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309172695357830, guid: 4fd286b338658f84db100ebd31338c7e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4309172695357830, guid: 4fd286b338658f84db100ebd31338c7e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -99267,6 +99917,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_Name
       value: Trees_6A (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feaa2fb5acb574a42bdd05d8d919847d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100000,6 +100654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bench prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1228088659953116, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4488567837450824, guid: 80c5916b9606ce646be16611d9a06d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 390.73
@@ -100113,6 +100771,10 @@ PrefabInstance:
     - target: {fileID: 1516307884609076, guid: 1c6290f76fd11c74fa326bdf8cd95a9f, type: 3}
       propertyPath: m_Name
       value: building_X_prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516307884609076, guid: 1c6290f76fd11c74fa326bdf8cd95a9f, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4604579876288746, guid: 1c6290f76fd11c74fa326bdf8cd95a9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100246,6 +100908,10 @@ PrefabInstance:
     - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_Name
       value: chainlink_barbwire-3 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101161,6 +101827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_6D
       objectReference: {fileID: 0}
+    - target: {fileID: 1392457562248114, guid: ad41226cf815d854487b83868699253e, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4731580565549682, guid: ad41226cf815d854487b83868699253e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 138.70245
@@ -101495,6 +102165,10 @@ PrefabInstance:
     - target: {fileID: 1772776456942506, guid: 406aca78ed1cb18449485b10b9cffa85, type: 3}
       propertyPath: m_Name
       value: Building_F_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772776456942506, guid: 406aca78ed1cb18449485b10b9cffa85, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4619626185693152, guid: 406aca78ed1cb18449485b10b9cffa85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101999,6 +102673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_C1_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1468578926959842, guid: 1fbdccb55fd15bc4f92646bd818aca51, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4819851783926722, guid: 1fbdccb55fd15bc4f92646bd818aca51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -281.79718
@@ -102354,6 +103032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_7G (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785628531801790, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4584600193964926, guid: e47eeb5d02201e849b057cf2b2bc3455, type: 3}
       propertyPath: m_LocalPosition.x
       value: -92.9
@@ -102607,6 +103289,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103041,7 +103727,7 @@ Transform:
   - {fileID: 55040486}
   - {fileID: 1679284969}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099363473
 GameObject:
@@ -103173,6 +103859,10 @@ PrefabInstance:
     - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_Name
       value: Tree_7B (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490590143711124, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4192711908275344, guid: 2665d0437ea360543bcc0a9608507809, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103568,6 +104258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Cluster_1B
       objectReference: {fileID: 0}
+    - target: {fileID: 1179635076886432, guid: 4bfd76daaa0019345a2683685787cf68, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4128306671338548, guid: 4bfd76daaa0019345a2683685787cf68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 411.22195
@@ -103877,6 +104571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chainlink_barbwire-3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012855196106, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011240085458, guid: a52d55d99a7b23e42b2d401f956a3e52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 226.32533
@@ -103950,6 +104648,10 @@ PrefabInstance:
     - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_Name
       value: Tree_7E (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668545484058420, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4424246767687630, guid: f2e803525a1b9e14d9979fe774a35d4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104506,6 +105208,10 @@ PrefabInstance:
     - target: {fileID: 1444809901064490, guid: 4410dff019705d648959a9ceea02bfbb, type: 3}
       propertyPath: m_Name
       value: Building_O_PREFAB
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444809901064490, guid: 4410dff019705d648959a9ceea02bfbb, type: 3}
+      propertyPath: m_TagString
+      value: SceneObject
       objectReference: {fileID: 0}
     - target: {fileID: 4105636034932398, guid: 4410dff019705d648959a9ceea02bfbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -105268,7 +105974,7 @@ PrefabInstance:
     - target: {fileID: 2394901491852257768, guid: 7f15cae380f15c14395bda696a430a82,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2394901491852257768, guid: 7f15cae380f15c14395bda696a430a82,
         type: 3}
@@ -105935,7 +106641,7 @@ Transform:
   m_Children:
   - {fileID: 5254674842353908821}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &5254674842353824487
 Transform:

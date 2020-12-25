@@ -24,6 +24,7 @@ TagManager:
   - playerTarget
   - GoalIcon
   - GoalCity
+  - SceneObject
   layers:
   - Default
   - TransparentFX
