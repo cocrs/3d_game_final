@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public GameObject questTester;
     public GameObject homeParkingLot;
     public Transform gateFrontPose;
+    public GameObject checkMark;
     public Cinemachine.CinemachineVirtualCamera cinemachine;
 
     [Header("Timer")]
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour {
     public static bool gameFinished = false;
     public static float limitDistance;
     public Animation lightAnime;
+    public Animation stretch1;
+    public Animation stretch2;
+    public GameObject getMoney;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour {
     public QUI_Window pauseWindow;
     public QUI_Window endDayWindow;
     public QUI_Window questConfirmWindow;
+    public QUI_Window questDetailWindow;
 
     [Header("MainUI")]
     public TextMeshProUGUI DayTXT;
@@ -119,6 +124,7 @@ public class GameManager : MonoBehaviour {
         tooFarTXT.SetActive(false);
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
+        getMoney.SetActive(false);
 
         // waypoints.SetActive(false);
         RandomDisactiveWaypoints();
@@ -148,6 +154,12 @@ public class GameManager : MonoBehaviour {
             if (inQuest) {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
                 goalDistanceTXT.text = "Goal Distance: " + goalDis.ToString("00") + " m";
+                if(goalDis <= limitDistance){
+                    checkMark.SetActive(true);
+                }
+                else{
+                    checkMark.SetActive(false);
+                }
                 if (!questFinished && parkingLotUsing == null) {
                     // timer
                     timer -= Time.deltaTime;
@@ -165,7 +177,6 @@ public class GameManager : MonoBehaviour {
                     }
                 } else if (questFinished) {
                     // turn off some UI
-                    questUI.SetActive(false);
                     parkingManagers.SetActive(false);
                     waypoints.SetActive(true);
                     RandomDisactiveWaypoints();
@@ -173,13 +184,15 @@ public class GameManager : MonoBehaviour {
                     homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
                     homeParkingLot.SetActive(true);
                     goalIconObj.SetActive(false);
+                    
                     setRandomGoalThisRound();
 
                     if (finishParking) {
                         // show success menu
                         // successWindow.SetActive(true);
                         // successTXT.text = "Reward: " + goalList[chosedTown]["reward"] + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
-                        playerDollars += goalList[chosedTown]["reward"];
+                        StartCoroutine(addMoney());
+                        playerDollars += goalList[chosedTown]["reward"] + (int)(limitDistance / goalDis);
                         updatePlayerDollars();
                         parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
                         parkingLotUsing = null;
@@ -191,6 +204,19 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
+    }
+    IEnumerator addMoney(){
+        stretch1.Play();
+        yield return new WaitForSeconds(1);
+        stretch2.Play();
+        yield return new WaitForSeconds(1);
+        getMoney.SetActive(true);
+        getMoney.GetComponent<TextMeshProUGUI>().text = "+" + (goalList[chosedTown]["reward"] + (int)(limitDistance / goalDis));
+        getMoney.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(1);
+        getMoney.SetActive(false);
+        questUI.SetActive(false);
+        questDetailWindow.SetActive(false);
     }
     public void SetPlayingState(bool state){
         playing = state;
@@ -278,6 +304,7 @@ public class GameManager : MonoBehaviour {
         float goal1Dis = Vector3.Distance(player.transform.position, goal1.transform.position);
         float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
         int reward = Random.Range(100, 500);
+        int distance = Random.Range(100, 150);
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
@@ -286,7 +313,7 @@ public class GameManager : MonoBehaviour {
                 {"reward", reward},
                 {"time", Mathf.Max((int)goal1Dis / 3, 30)},
                 {"consume", 50},
-                {"distance", 100}
+                {"distance", distance}
             },
             new Dictionary<string, dynamic>(){
                 {"name", "town2"},
@@ -294,7 +321,7 @@ public class GameManager : MonoBehaviour {
                 {"reward", reward},
                 {"time", Mathf.Max((int)goal2Dis / 3, 30)},
                 {"consume", 80},
-                {"distance", 100}
+                {"distance", distance}
             }
         };
     }
@@ -325,6 +352,9 @@ public class GameManager : MonoBehaviour {
         // wayPointArrow.SetActive(true);
         PlayerControll(true);
         questUI.SetActive(true);
+        questDetailWindow.SetActive(true);
+        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
+        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
         parkingManagers.SetActive(true);
         homeParkingLot.SetActive(false);
 

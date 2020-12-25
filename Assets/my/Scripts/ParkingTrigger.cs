@@ -97,7 +97,7 @@ public class ParkingTrigger : MonoBehaviour {
             print("run");
 
             gameManager.CloseMainUI();
-            endDayWindow.SetActive(true);
+            gameManager.toNextDay();
         }
     }
     public void ResetTireTrigger() {

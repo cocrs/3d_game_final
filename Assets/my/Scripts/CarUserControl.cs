@@ -54,8 +54,19 @@ namespace UnityStandardAssets.Vehicles.Car
                             Debug.Log("Jump");
                             if (Time.time - lastJump > 1f)
                             {
+                                // int move;
+                                // if(v == 0){
+                                //     move = 0;
+                                // }
+                                // else if(v > 0){
+                                //     move = 1;
+                                // }
+                                // else{
+                                //     move = -1;
+                                // }
                                 EnergyTester.consumeEnergy(10);
                                 this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity + new Vector3(0f, 5f, 0f);
+
                                 lastJump = Time.time;
                             }
                         }

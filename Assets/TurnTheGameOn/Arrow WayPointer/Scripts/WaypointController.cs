@@ -72,7 +72,7 @@
 				waypointArrow.transform.position = player.position + new Vector3(0, 2, 0);
 			}
 			else{
-				waypointArrow.transform.position = player.position;
+				waypointArrow.transform.position = player.position + new Vector3(0, 0.5f, 0);;
 			}
 		}
 
