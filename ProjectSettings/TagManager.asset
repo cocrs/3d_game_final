@@ -25,6 +25,13 @@ TagManager:
   - GoalIcon
   - GoalCity
   - SceneObject
+  - Gib
+  - WaitZone
+  - RoadConnection
+  - Unit
+  - TrainJunction
+  - Road
+  - Pavement
   layers:
   - Default
   - TransparentFX
@@ -38,7 +45,7 @@ TagManager:
   - Arrow
   - Player
   - AutonomousVehicle
-  - 
+  - Pedestrian
   - 
   - 
   - 

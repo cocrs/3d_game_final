@@ -51,7 +51,7 @@ namespace TrafficSimulation {
             agent.height = 1;
             agent.speed = 1;
 
-            crushIntoPlayer = Random.Range(0f, 1f) > 0.5f;
+            crushIntoPlayer = Random.Range(0f, 1f) > 0.2f;
 
             playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 

@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
         questWindow.SetActive(false);
         successWindow.SetActive(false);
         questUI.SetActive(false);
+        questDetailWindow.SetActive(false);
         timerCountMenu.SetActive(false);
         parkingManagers.SetActive(false);
         tooFarTXT.SetActive(false);
@@ -223,11 +224,11 @@ public class GameManager : MonoBehaviour
     IEnumerator addMoney()
     {
         stretch1.Play();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(stretch1["stretch"].length);
         getMoney.SetActive(true);
         getMoney.GetComponent<TextMeshProUGUI>().text = "+" + goalList[chosedTown]["reward"];
         getMoney.GetComponent<Animation>().Play();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(getMoney.GetComponent<Animation>()["money"].length);
         getMoney.SetActive(false);
         playerDollars += goalList[chosedTown]["reward"];
         updatePlayerDollars();
@@ -242,10 +243,14 @@ public class GameManager : MonoBehaviour
             {
                 questTester.GetComponent<HealthTester>().consumeEnergy((int)(goalDis / 5));
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(stretch2["stretch"].length);
         }
-        questUI.SetActive(false);
+        questUI.transform.GetComponent<Animation>()["questIn"].speed = -1;
+        questUI.transform.GetComponent<Animation>()["questIn"].time = questUI.transform.GetComponent<Animation>()["questIn"].length;
+        questUI.transform.GetComponent<Animation>().Play();
         questDetailWindow.SetActive(false);
+        yield return new WaitForSeconds(questUI.transform.GetComponent<Animation>()["questIn"].length);
+        questUI.SetActive(false);
     }
     public void SetPlayingState(bool state)
     {
@@ -306,7 +311,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerControll(false);
         lightAnime.Play();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(lightAnime["change day"].length);
         curDay += 1;
         playerDollars -= 500;
         updatePlayerDollars();
@@ -405,6 +410,8 @@ public class GameManager : MonoBehaviour
         questDetailWindow.SetActive(true);
         questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
         questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
+        questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
+        questUI.transform.GetComponent<Animation>().Play();
         parkingManagers.SetActive(true);
         homeParkingLot.SetActive(false);
 

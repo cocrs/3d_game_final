@@ -17,7 +17,8 @@ public class SpawnCar : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Time.time - lastSpawn > 5f) {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 5, 1<<11 | 1<<10);
+        if (colliders.Length == 0 && Time.time - lastSpawn > 10f) {
             GameObject spawnedCar = Instantiate(carPrefab, this.transform.position, this.transform.rotation);
             spawnedCar.GetComponent<CarAI>().trafficSystem = trafficSystem;
             cars.Enqueue(spawnedCar);

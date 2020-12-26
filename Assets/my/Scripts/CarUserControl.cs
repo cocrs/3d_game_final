@@ -30,7 +30,7 @@ namespace UnityStandardAssets.Vehicles.Car
             // print(v);
             if (GameManager.playing)
             {
-                if (EnergyTester.curHealth > 0)
+                if (true)//EnergyTester.curHealth > 0
                 {
                     if (v != 0)
                     {

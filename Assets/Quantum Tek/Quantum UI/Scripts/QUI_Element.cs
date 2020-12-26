@@ -32,8 +32,8 @@ namespace QuantumTek.QuantumUI
         {
             SetActive(startActive);
 
-            if (animator)
-                animator.PlayAnimation(active ? startActiveAnimation : startInactiveAnimation, 1);
+            // if (animator)
+            //     animator.PlayAnimation(active ? startActiveAnimation : startInactiveAnimation, 1);
         }
 
         /// <summary>
