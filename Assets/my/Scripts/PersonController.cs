@@ -11,12 +11,17 @@ public class PersonController : MonoBehaviour
     private bool changeDirection = false;
     private bool died = false;
     private bool endRoutine = true;
+    private float lastRotateTime;
+    public Transform player;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         timer = 0;
         changeTime = Random.Range(0f, 10f);
+        lastRotateTime = Time.time;
+        player = GameObject.Find("Car").transform;
     }
 
     // Update is called once per frame
@@ -41,7 +46,7 @@ public class PersonController : MonoBehaviour
             }
             else if (timer > changeTime && endRoutine)
             {
-                print("change");
+                // print("change");
                 int state = Random.Range(0, 7);
                 if (state > 4)
                 {
@@ -58,15 +63,12 @@ public class PersonController : MonoBehaviour
                 timer = 0;
                 changeTime = Random.Range(0, 10);
             }
-            else if ((animator.GetInteger("state") == 1 || animator.GetInteger("state") == 2) && endRoutine)
+            else if ((animator.GetInteger("state") == 1 || animator.GetInteger("state") == 2) && endRoutine && Time.time - lastRotateTime > 30)
             {
                 endRoutine = false;
                 Vector3 rotate = new Vector3(0, Random.Range(-45f, 45f), 0);
                 StartCoroutine(RotateMe(rotate, 5));
-            }
-            if ((animator.GetInteger("state") == 1 || animator.GetInteger("state") == 2) && gameObject.GetComponent<Rigidbody>().velocity.y == 0)
-            {
-                gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, 2f, 0);
+                lastRotateTime = Time.time;
             }
         }
     }
@@ -78,41 +80,44 @@ public class PersonController : MonoBehaviour
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
                 print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
-                if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 8)
+                if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 8)
                 {
                     animator.SetInteger("state", 3);
                     died = true;
                     Destroy(gameObject, 10);
                 }
-                else
-                {
-                    animator.SetInteger("state", 4);
-                }
             }
-            // else if (other.gameObject.tag == "Road")
-            // {
-            //     animator.SetInteger("state", 0);
-            //     // inFrontOfRoad = true;
-            // }
-            else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Pavement" && other.gameObject.tag != "Road")
+            else if ((animator.GetInteger("state") == 1 || animator.GetInteger("state") == 2) && (other.gameObject.tag == "Pavement" || other.gameObject.tag == "Road"))
+            {
+                print("jump");
+                // animator.SetInteger("state", 0);
+                gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, 3f, 0) + gameObject.transform.forward;
+            }
+            else if (other.gameObject.tag != "Untagged")
             {
                 animator.SetInteger("state", 0);
                 changeDirection = true;
             }
+
         }
     }
-    // private void OnCollisionStay(Collision other)
-    // {
-    //     if(other.gameObject.tag == "Pavement" || other.gameObject.tag == "Road"){
-    //         if (!died && (animator.GetInteger("state") == 1 || animator.GetInteger("state") == 2) && gameObject.GetComponent<Rigidbody>().velocity.y == 0)
-    //         {
-    //             gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, 2f, 0);
-    //         }
-    //     }
-    // }
+    private void OnCollisionStay(Collision other)
+    {
+        if (!died)
+        {
+            if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
+            {
+                Transform tmp = player;
+                tmp.position = new Vector3(tmp.position.x, gameObject.transform.position.y, tmp.position.z); 
+                transform.LookAt(tmp);
+                animator.SetInteger("state", 4);
+
+            }
+        }
+    }
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
     {
-        print("start");
+        // print("start");
         var fromAngle = transform.rotation;
         var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
         for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
@@ -121,7 +126,7 @@ public class PersonController : MonoBehaviour
             yield return null;
         }
         endRoutine = true;
-        print("end");
+        // print("end");
     }
 
 }

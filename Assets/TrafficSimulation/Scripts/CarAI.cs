@@ -22,6 +22,7 @@ namespace TrafficSimulation {
         [Header("Vehicle")]
         public float minTopSpeed;
         public float maxTopSpeed;
+        public float probability;
 
         public bool hasToStop = false;
         public bool hasToGo = false;
@@ -51,7 +52,7 @@ namespace TrafficSimulation {
             agent.height = 1;
             agent.speed = 1;
 
-            crushIntoPlayer = Random.Range(0f, 1f) > 0.2f;
+            crushIntoPlayer = Random.Range(0f, 1f) > probability;
 
             playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 
@@ -125,7 +126,7 @@ namespace TrafficSimulation {
             float dist = Vector3.Distance(this.gameObject.transform.position, target.transform.position);
             float dirZ = this.gameObject.transform.InverseTransformPoint(target.transform.position).z;
             float dirX = this.gameObject.transform.InverseTransformPoint(target.transform.position).x;
-            if (dist < 5f && dist > 0.5f && dirZ > -2f && (dirX > 0.2f || dirX < -0.2f)) {
+            if (dist < 15f && dist > 0.5f && dirZ > -2f && (dirX > 0.2f || dirX < -0.2f)) {
                 regularPath = false;
                 agent.SetDestination(target.transform.position);
             } else {
@@ -190,7 +191,13 @@ namespace TrafficSimulation {
             carController.Topspeed = topSpeed;
 
             //Move the car
-            carController.Move(steering, 1f, 0f);
+            if(regularPath){
+                carController.Move(steering, 1f, 0f);
+            }
+            else{
+                carController.Topspeed = 1000;
+                carController.Move(steering, 100f, 0f);
+            }
         }
 
 

@@ -72,8 +72,14 @@ public class GameManager : MonoBehaviour
     public GameObject tooFarTXT;
 
     [Header("Quest")]
+    public GameObject[] foodList;
+    Queue<GameObject> foodInScene;
+    Dictionary<string, int>[] foodPrice;
+    List<int> indices;
+    public Transform spawnPointFood;
     private int chosedTown;
     public Dictionary<string, dynamic>[] goalList;
+
 
     [Header("Shop")]
     public Image[] itemPos;
@@ -85,6 +91,26 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        foodPrice = new Dictionary<string, int>[]{
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+            new Dictionary<string, int>(){
+                {"price", 2000},
+            },
+        };
         items = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
                 {"name", "Map"},
@@ -112,7 +138,7 @@ public class GameManager : MonoBehaviour
             },
         };
 
-        playerDollars = 10000;
+        playerDollars = -2000;
         curShowItemIndex = 0;
     }
     // Start is called before the first frame update
@@ -129,6 +155,9 @@ public class GameManager : MonoBehaviour
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
         getMoney.SetActive(false);
+
+        indices = new List<int>();
+        foodInScene = new Queue<GameObject>();
 
         // waypoints.SetActive(false);
         RandomDisactiveWaypoints();
@@ -212,9 +241,9 @@ public class GameManager : MonoBehaviour
                         parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
                         parkingLotUsing = null;
                     }
-                    else {
-                        questUI.SetActive(false);
-                        questDetailWindow.SetActive(false);
+                    else
+                    {
+                        StartCoroutine(closeQuestUI());
                     }
                     inQuest = false;
                 }
@@ -245,10 +274,18 @@ public class GameManager : MonoBehaviour
             }
             yield return new WaitForSeconds(stretch2["stretch"].length);
         }
+        StartCoroutine(closeQuestUI());
+    }
+    IEnumerator closeQuestUI()
+    {
         questUI.transform.GetComponent<Animation>()["questIn"].speed = -1;
         questUI.transform.GetComponent<Animation>()["questIn"].time = questUI.transform.GetComponent<Animation>()["questIn"].length;
         questUI.transform.GetComponent<Animation>().Play();
         questDetailWindow.SetActive(false);
+        while (foodInScene.Count > 0)
+        {
+            Destroy(foodInScene.Dequeue());
+        }
         yield return new WaitForSeconds(questUI.transform.GetComponent<Animation>()["questIn"].length);
         questUI.SetActive(false);
     }
@@ -356,6 +393,15 @@ public class GameManager : MonoBehaviour
         float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
         int reward = Random.Range(100, 501);
         int distance = Random.Range(100, 151);
+        indices.Clear();
+        while (indices.Count < 3)
+        {
+            int index = Random.Range(0, foodList.Length);
+            if (!indices.Contains(index))
+            {
+                indices.Add(index);
+            }
+        }
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
@@ -399,6 +445,7 @@ public class GameManager : MonoBehaviour
         goalIconObj.transform.position = new Vector3(center.x, 30f, center.z);
         wayPointGoal.transform.position = center;
 
+        StartCoroutine(spawnFood());
 
         inQuest = true;
         questFinished = false;
@@ -420,6 +467,17 @@ public class GameManager : MonoBehaviour
         MParkingManager.endTime = Time.time + 4;
     }
 
+    IEnumerator spawnFood()
+    {
+        print(this.transform.position);
+        foreach (int index in indices)
+        {
+            GameObject spawnedFood = Instantiate(foodList[index], spawnPointFood.position, Quaternion.identity);
+            spawnedFood.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+            foodInScene.Enqueue(spawnedFood);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
     public void CloseMainUI()
     {
         questBtn.SetActive(false);
