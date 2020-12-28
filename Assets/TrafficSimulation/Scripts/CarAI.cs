@@ -22,7 +22,6 @@ namespace TrafficSimulation {
         [Header("Vehicle")]
         public float minTopSpeed;
         public float maxTopSpeed;
-        public float probability;
 
         public bool hasToStop = false;
         public bool hasToGo = false;
@@ -51,8 +50,6 @@ namespace TrafficSimulation {
             agent.radius = 0.7f;
             agent.height = 1;
             agent.speed = 1;
-
-            crushIntoPlayer = Random.Range(0f, 1f) > probability;
 
             playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 
@@ -191,10 +188,9 @@ namespace TrafficSimulation {
             carController.Topspeed = topSpeed;
 
             //Move the car
-            if(regularPath){
+            if (regularPath) {
                 carController.Move(steering, 1f, 0f);
-            }
-            else{
+            } else {
                 carController.Topspeed = 1000;
                 carController.Move(steering, 100f, 0f);
             }
