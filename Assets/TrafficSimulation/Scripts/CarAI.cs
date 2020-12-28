@@ -35,6 +35,8 @@ namespace TrafficSimulation {
         bool regularPath = true;
         GameObject[] playerTarget;
         bool pause = false;
+        public float notTurnOver;
+        public float nonStopTime;
 
 
         void Start() {
@@ -50,6 +52,8 @@ namespace TrafficSimulation {
             agent.radius = 0.7f;
             agent.height = 1;
             agent.speed = 1;
+
+            notTurnOver = Time.time;
 
             playerTarget = GameObject.FindGameObjectsWithTag("playerTarget");
 
@@ -92,6 +96,18 @@ namespace TrafficSimulation {
                 WaypointChecker();
                 float topSpeed = GetCarSpeed();
                 MoveVehicle(topSpeed);
+            }
+
+            float angleZ = this.transform.rotation.eulerAngles.z > 180f ? this.transform.rotation.eulerAngles.z - 360f : this.transform.rotation.eulerAngles.z;
+
+            if (angleZ < -30f || angleZ > 30f) {
+            } else {
+                notTurnOver = Time.time;
+            }
+            if (this.GetComponent<Rigidbody>().velocity.magnitude == 0f) {
+
+            } else {
+                nonStopTime = Time.time;
             }
         }
 

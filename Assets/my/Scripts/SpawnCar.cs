@@ -8,12 +8,13 @@ public class SpawnCar : MonoBehaviour {
     public GameObject carPrefab;
     public GameObject carUnusualPrefab;
     public TrafficSystem trafficSystem;
+    public GameObject explosion;
     public float crushPropability = 0.5f;
     public int maxCarCount = 50;
-    Queue<GameObject> cars;
+    List<GameObject> cars;
     float lastSpawn;
     void Start() {
-        cars = new Queue<GameObject>();
+        cars = new List<GameObject>();
         lastSpawn = Time.time;
         crushPropability = crushPropability < 0f ? 0f : crushPropability > 1f ? 1f : crushPropability;
     }
@@ -32,9 +33,33 @@ public class SpawnCar : MonoBehaviour {
                 spawnedCar.GetComponent<CarAI>().trafficSystem = trafficSystem;
                 spawnedCar.GetComponent<CarAI>().crushIntoPlayer = true;
             }
-            cars.Enqueue(spawnedCar);
-            if (cars.Count > maxCarCount) {
-                Destroy(cars.Dequeue());
+            cars.Add(spawnedCar);
+            while (cars.Count > maxCarCount) {
+                GameObject toDestroy = cars[maxCarCount];
+                cars.RemoveAt(maxCarCount);
+                Destroy(toDestroy);
+            }
+            for (int i = 0; i < cars.Count; i++) {
+                CarAI carai = cars[i].GetComponent<CarAI>();
+                if ((Time.time - carai.notTurnOver > 5f && carai.notTurnOver != 0f) || (Time.time - carai.nonStopTime > 5f && carai.nonStopTime != 0f)) {
+                    Debug.Log("自爆");
+                    Debug.Log(Time.time);
+                    Debug.Log(carai.notTurnOver);
+                    GameObject toDestroy = cars[i];
+                    cars.RemoveAt(i);
+                    Vector3 explodePos = toDestroy.transform.position;
+                    Instantiate(explosion, explodePos, Quaternion.Euler(0f, 0f, 0f));
+                    float explodeRadius = 10f;
+                    Collider[] explosionEffect = UnityEngine.Physics.OverlapSphere(explodePos, explodeRadius);
+                    foreach (Collider c in explosionEffect) {
+                        Rigidbody r = c.GetComponent<Rigidbody>();
+                        if (r) {
+                            Debug.Log(r.name);
+                            r.AddExplosionForce(800000f, explodePos, explodeRadius);
+                        }
+                    }
+                    Destroy(toDestroy);
+                }
             }
             lastSpawn = Time.time;
         }
