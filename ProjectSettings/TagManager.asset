@@ -32,6 +32,7 @@ TagManager:
   - TrainJunction
   - Road
   - Pavement
+  - Pedestrian
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ public class SpawnPedestrian : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 5, 1 << 12);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 5, 1 << 12 | 1 << 10);
         if (colliders.Length == 0 && Time.time - lastSpawn > 5f && persons.Count < maxCount) {
             GameObject spawnedPerson = Instantiate(prefab[Random.Range(0, prefab.Length)], this.transform.position, this.transform.rotation);
             persons.Enqueue(spawnedPerson);

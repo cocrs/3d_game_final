@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 3642653656997201386}
   m_Layer: 12
   m_Name: TT_demo_male_B
-  m_TagString: SceneObject
+  m_TagString: Pedestrian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,7 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6115abb200d4ef4f99340c4247c28bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &3642653657735685624
 GameObject:
   m_ObjectHideFlags: 0
