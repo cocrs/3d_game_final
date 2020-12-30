@@ -151,14 +151,14 @@ public class GameManager : MonoBehaviour
         playing = true;
 
         moneyTXT.text = "$ " + playerDollars;
-        scoreTXT.text = "Score: " + score;
+        scoreTXT.text = "得分: " + score;
         parkingLotUsing = null;
         Instantiate(goalIcon, new Vector3(0, 0, 0), Quaternion.identity);
         goalIconObj = GameObject.FindWithTag("GoalIcon");
         goalIconObj.SetActive(false);
 
         curDay = 1;
-        DayTXT.text = "Day " + curDay;
+        DayTXT.text = "第 " + curDay + " 天";
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
             if (inQuest)
             {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
-                goalDistanceTXT.text = "Goal Distance: " + goalDis.ToString("00") + " m";
+                goalDistanceTXT.text = "距離目標 " + goalDis.ToString("00") + " 公尺";
                 if (goalDis <= limitDistance)
                 {
                     checkMark.SetActive(true);
@@ -365,10 +365,10 @@ public class GameManager : MonoBehaviour
         TextMeshProUGUI headerText = questConfirmWindow.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI infoText = questConfirmWindow.transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>();
         headerText.text = goalList[chosedTown]["name"];
-        infoText.text = "Reward: " + goalList[chosedTown]["reward"] + "\n";
-        infoText.text += "Time limit: " + goalList[chosedTown]["time"] + " secs" + "\n";
-        infoText.text += "Distance limit: " + goalList[chosedTown]["distance"] + " m" + "\n";
-        infoText.text += "Consume energy: " + goalList[chosedTown]["consume"];
+        infoText.text = "報酬: " + goalList[chosedTown]["reward"] + "\n";
+        infoText.text += "時間限制: " + goalList[chosedTown]["time"] + " secs" + "\n";
+        infoText.text += "距離限制: " + goalList[chosedTown]["distance"] + " m" + "\n";
+        infoText.text += "消耗體力: " + goalList[chosedTown]["consume"];
         questConfirmWindow.SetActive(true);
     }
     public void adjustScore(int change)
@@ -485,7 +485,7 @@ public class GameManager : MonoBehaviour
         questUI.SetActive(true);
         questDetailWindow.SetActive(true);
         questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
-        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
+        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "報酬: " + goalList[chosedTown]["reward"];
         questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
         questUI.transform.GetComponent<Animation>().Play();
     }
