@@ -1,0 +1,12 @@
+Font: Noto Sans CJK JP  Style: Regular
+Point Size: 47   SP/PD Ratio: 10.6%
+
+Characters included: 5402/5402
+Missing characters: 0
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------
