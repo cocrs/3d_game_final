@@ -104,7 +104,7 @@ namespace TrafficSimulation {
             } else {
                 notTurnOver = Time.time;
             }
-            if (this.GetComponent<Rigidbody>().velocity.magnitude == 0f) {
+            if (this.GetComponent<Rigidbody>().velocity.magnitude <= 0.001f) {
 
             } else {
                 nonStopTime = Time.time;
