@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QuantumTek.QuantumUI;
 using TMPro;
+using cakeslice;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] goalTown1;
     public GameObject[] goalTown2;
     public GameObject[] goalCity;
-    public GameObject startPos;
-    public GameObject goal;
+    private GameObject goal;
     public GameObject goalIcon;
     private GameObject goalIconObj;
     public GameObject wayPointGoal;
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Transform gateFrontPose;
     public GameObject checkMark;
     public Cinemachine.CinemachineVirtualCamera cinemachine;
+    public GameObject Camera;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     public Animation lightAnime;
     public Animation stretch1;
     public Animation stretch2;
+    public GameObject fail;
     public GameObject getMoney;
     public GameObject minusReward;
     public GameObject minusEnergy;
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI moneyTXT;
     public GameObject questBtn;
     public GameObject pauseBtn;
+    public GameObject notifyText;
 
     [Header("QuestUI")]
     public Text successTXT;
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
     [Header("Quest")]
     public GameObject[] foodList;
     Queue<GameObject> foodInScene;
+    public GameObject successEffect;
     int[] foodPrice;
     List<int> indices;
     public Transform spawnPointFood;
@@ -139,8 +143,9 @@ public class GameManager : MonoBehaviour
         endDayWindow.SetActive(false);
         getMoney.SetActive(false);
         minusEnergy.SetActive(false);
-        minusReward.SetActive(false);
-
+        fail.SetActive(false);
+        Camera.GetComponent<OutlineEffect>().enabled = false;
+        
         indices = new List<int>();
         foodInScene = new Queue<GameObject>();
 
@@ -172,6 +177,7 @@ public class GameManager : MonoBehaviour
     {
         if (playing)
         {
+            
             if (inQuest)
             {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
@@ -183,6 +189,9 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     checkMark.SetActive(false);
+                }
+                if(goalList[chosedTown]["reward"] == 0){
+                    questFinished = true;
                 }
                 if (!questFinished && parkingLotUsing == null)
                 {
@@ -215,21 +224,21 @@ public class GameManager : MonoBehaviour
                     homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
                     homeParkingLot.SetActive(true);
                     goalIconObj.SetActive(false);
-
-                    setRandomGoalThisRound();
+                    Camera.GetComponent<OutlineEffect>().enabled = false;
 
                     if (finishParking)
                     {
-                        // show success menu
-                        // successWindow.SetActive(true);
-                        // successTXT.text = "Reward: " + goalList[chosedTown]["reward"] + "\nTime Left: " + timerText.text + "\nDistacne: " + goalDis.ToString();
                         StartCoroutine(addMoney());
                         parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
                         parkingLotUsing = null;
                     }
                     else
                     {
+                        fail.SetActive(true);
+                        fail.GetComponent<Animation>().Stop();
+                        fail.GetComponent<Animation>().Play();
                         StartCoroutine(closeQuestUI());
+                        setRandomGoalThisRound();
                     }
                     inQuest = false;
                 }
@@ -238,6 +247,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator addMoney()
     {
+        Instantiate(successEffect, spawnPointFood.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
         stretch1.Play();
         yield return new WaitForSeconds(stretch1["stretch"].length);
         getMoney.SetActive(true);
@@ -246,7 +256,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(getMoney.GetComponent<Animation>()["money"].length);
         getMoney.SetActive(false);
         playerDollars += goalList[chosedTown]["reward"];
-        updatePlayerDollars();
+        updatePlayerDollars();     
         if ((int)(goalDis / 5) > 0)
         {
             stretch2.Play();
@@ -268,6 +278,7 @@ public class GameManager : MonoBehaviour
             minusEnergy.SetActive(false);
         }
         StartCoroutine(closeQuestUI());
+        setRandomGoalThisRound();
     }
     IEnumerator closeQuestUI()
     {
@@ -282,12 +293,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(questUI.transform.GetComponent<Animation>()["questIn"].length);
         questUI.SetActive(false);
     }
+    public void UpdateRewardText(){
+        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "報酬: " + goalList[chosedTown]["reward"];
+    }
     public IEnumerator MinusRewardPlay(int price){
-        minusReward.SetActive(true);
-        minusReward.GetComponent<TextMeshProUGUI>().text = "-$" + price;
-        minusReward.GetComponent<Animation>().Play();
-        yield return new WaitForSeconds(minusReward.GetComponent<Animation>()["minusReward"].length);
-        minusReward.SetActive(false);
+        GameObject spawnedText = Instantiate(minusReward);
+        spawnedText.transform.SetParent(notifyText.transform);
+        spawnedText.GetComponent<TextMeshProUGUI>().text = "-$" + price;
+        spawnedText.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(spawnedText.GetComponent<Animation>()["minusReward"].length);
+        goalList[chosedTown]["reward"] -= price;
+        UpdateRewardText();
+        Destroy(spawnedText);
     }
     public void SetPlayingState(bool state)
     {
@@ -451,6 +468,7 @@ public class GameManager : MonoBehaviour
         goalIconObj.SetActive(true);
         goalIconObj.transform.position = new Vector3(center.x, 30f, center.z);
         wayPointGoal.transform.position = center;
+        Camera.GetComponent<OutlineEffect>().enabled = true;
 
         StartCoroutine(spawnFood());
 
@@ -470,19 +488,20 @@ public class GameManager : MonoBehaviour
 
     IEnumerator spawnFood()
     {
-        print(this.transform.position);
         foreach (int index in indices)
         {
             GameObject spawnedFood = Instantiate(foodList[index], spawnPointFood.position, Quaternion.identity);
             spawnedFood.AddComponent<DropFood>();
+            spawnedFood.AddComponent<cakeslice.Outline>();
+            spawnedFood.GetComponent<cakeslice.Outline>().color = 1;
             foodInScene.Enqueue(spawnedFood);
+            // print("hi" + spawnedFood.GetComponent<DropFood>().price);
             goalList[chosedTown]["reward"] += spawnedFood.GetComponent<DropFood>().price;
             yield return new WaitForSeconds(0.5f);
         }
-        print("hi" + goalList[chosedTown]["reward"]);
         questUI.SetActive(true);
         questDetailWindow.SetActive(true);
-        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "距離限制: " + limitDistance;
+        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "距離目標 " + limitDistance + " 公尺以內";
         questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "報酬: " + goalList[chosedTown]["reward"];
         questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
         questUI.transform.GetComponent<Animation>().Play();

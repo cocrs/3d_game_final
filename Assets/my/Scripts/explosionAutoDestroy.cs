@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class explosionAutoDestroy : MonoBehaviour
 {
+    public float duration;
     float startTime;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class explosionAutoDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - startTime > 2f){
+        if(Time.time - startTime > duration){
             Destroy(this.gameObject);
         }
     }
