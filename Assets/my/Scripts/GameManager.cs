@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public Animation stretch1;
     public Animation stretch2;
     public GameObject getMoney;
+    public GameObject minusReward;
+    public GameObject minusEnergy;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -136,6 +138,8 @@ public class GameManager : MonoBehaviour
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
         getMoney.SetActive(false);
+        minusEnergy.SetActive(false);
+        minusReward.SetActive(false);
 
         indices = new List<int>();
         foodInScene = new Queue<GameObject>();
@@ -158,6 +162,7 @@ public class GameManager : MonoBehaviour
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
+        // goalCity = GameObject.FindGameObjectsWithTag("GoalCity");
         setRandomGoalThisRound();
         // SetRandomGoal();
     }
@@ -236,7 +241,7 @@ public class GameManager : MonoBehaviour
         stretch1.Play();
         yield return new WaitForSeconds(stretch1["stretch"].length);
         getMoney.SetActive(true);
-        getMoney.GetComponent<TextMeshProUGUI>().text = "+" + goalList[chosedTown]["reward"];
+        getMoney.GetComponent<TextMeshProUGUI>().text = "+$" + goalList[chosedTown]["reward"];
         getMoney.GetComponent<Animation>().Play();
         yield return new WaitForSeconds(getMoney.GetComponent<Animation>()["money"].length);
         getMoney.SetActive(false);
@@ -245,15 +250,22 @@ public class GameManager : MonoBehaviour
         if ((int)(goalDis / 5) > 0)
         {
             stretch2.Play();
+            float energy;
             if ((int)(goalDis / 5) > questTester.GetComponent<HealthTester>().curHealth)
             {
-                questTester.GetComponent<HealthTester>().consumeEnergy(questTester.GetComponent<HealthTester>().curHealth);
+                energy = questTester.GetComponent<HealthTester>().curHealth;
             }
             else
             {
-                questTester.GetComponent<HealthTester>().consumeEnergy((int)(goalDis / 5));
+                energy = (int)(goalDis / 5);
             }
             yield return new WaitForSeconds(stretch2["stretch"].length);
+            questTester.GetComponent<HealthTester>().consumeEnergy(energy);
+            minusEnergy.SetActive(true);
+            minusEnergy.GetComponent<TextMeshProUGUI>().text = "-" + (int)energy;
+            minusEnergy.GetComponent<Animation>().Play();
+            yield return new WaitForSeconds(minusEnergy.GetComponent<Animation>()["minusEnergy"].length);
+            minusEnergy.SetActive(false);
         }
         StartCoroutine(closeQuestUI());
     }
@@ -269,6 +281,13 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(questUI.transform.GetComponent<Animation>()["questIn"].length);
         questUI.SetActive(false);
+    }
+    public IEnumerator MinusRewardPlay(int price){
+        minusReward.SetActive(true);
+        minusReward.GetComponent<TextMeshProUGUI>().text = "-$" + price;
+        minusReward.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(minusReward.GetComponent<Animation>()["minusReward"].length);
+        minusReward.SetActive(false);
     }
     public void SetPlayingState(bool state)
     {
@@ -373,7 +392,6 @@ public class GameManager : MonoBehaviour
         float goal1Dis = Vector3.Distance(player.transform.position, goal1.transform.position);
         float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
         int distance = Random.Range(100, 151);
-        int reward = 0;
 
         indices.Clear();
         while (indices.Count < 3)
@@ -384,27 +402,31 @@ public class GameManager : MonoBehaviour
                 indices.Add(index);
             }
         }
-        for(int i = 0; i < foodPrice.Length; i++){
-            foodPrice[i] = Random.Range(50, 101);
-            reward += foodPrice[i];
-        }
+        
         
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
                 {"name", "town1"},
                 {"goal", goal1},
-                {"reward", reward},
+                {"reward", 0},
                 {"time", Mathf.Max((int)goal1Dis / 3, 30)},
                 {"distance", distance}
             },
             new Dictionary<string, dynamic>(){
                 {"name", "town2"},
                 {"goal", goal2},
-                {"reward", reward},
+                {"reward", 0},
                 {"time", Mathf.Max((int)goal2Dis / 3, 30)},
                 {"distance", distance}
-            }
+            },
+            // new Dictionary<string, dynamic>(){
+            //     {"name", "city"},
+            //     {"goal", city},
+            //     {"reward", 0},
+            //     {"time", Mathf.Max((int)goal2Dis / 3, 30)},
+            //     {"distance", distance}
+            // }
         };
     }
     public void setGoal()
@@ -439,11 +461,6 @@ public class GameManager : MonoBehaviour
         // wayPointArrow.SetActive(true);
         PlayerControll(true);
         questUI.SetActive(true);
-        questDetailWindow.SetActive(true);
-        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
-        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
-        questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
-        questUI.transform.GetComponent<Animation>().Play();
         parkingManagers.SetActive(true);
         homeParkingLot.SetActive(false);
 
@@ -458,10 +475,20 @@ public class GameManager : MonoBehaviour
         foreach (int index in indices)
         {
             GameObject spawnedFood = Instantiate(foodList[index], spawnPointFood.position, Quaternion.identity);
+            spawnedFood.AddComponent<DropFood>();
             spawnedFood.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
             foodInScene.Enqueue(spawnedFood);
+            for(int i = 0; i < goalList.Length; i++){
+                print(spawnedFood.GetComponent<DropFood>().price);
+                goalList[i]["reward"] += spawnedFood.GetComponent<DropFood>().price;
+            }
             yield return new WaitForSeconds(0.5f);
         }
+        questDetailWindow.SetActive(true);
+        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
+        questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
+        questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
+        questUI.transform.GetComponent<Animation>().Play();
     }
     public void CloseMainUI()
     {
