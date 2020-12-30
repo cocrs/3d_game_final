@@ -24301,7 +24301,7 @@ PrefabInstance:
     - target: {fileID: 3317234164137091681, guid: 59004e2d9368943e4bd1b117b7a18ee2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 207
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 3317234164137091681, guid: 59004e2d9368943e4bd1b117b7a18ee2,
         type: 3}
@@ -55926,8 +55926,8 @@ MonoBehaviour:
   stretch1: {fileID: 643153383}
   stretch2: {fileID: 2005210378}
   getMoney: {fileID: 173324954}
-  minusReward: {fileID: 0}
-  minusEnergy: {fileID: 0}
+  minusReward: {fileID: 1490361644}
+  minusEnergy: {fileID: 1136991771}
   failWindow: {fileID: 902664527}
   successWindow: {fileID: 1023417424}
   questWindow: {fileID: 708472435}

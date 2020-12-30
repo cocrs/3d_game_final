@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour
         EnergyNotEnoughTXT.SetActive(false);
         endDayWindow.SetActive(false);
         getMoney.SetActive(false);
+        minusEnergy.SetActive(false);
+        minusReward.SetActive(false);
 
         indices = new List<int>();
         foodInScene = new Queue<GameObject>();
@@ -259,9 +261,10 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(stretch2["stretch"].length);
             questTester.GetComponent<HealthTester>().consumeEnergy(energy);
             minusEnergy.SetActive(true);
-            minusEnergy.GetComponent<TextMeshProUGUI>().text = "-" + energy;
+            minusEnergy.GetComponent<TextMeshProUGUI>().text = "-" + (int)energy;
             minusEnergy.GetComponent<Animation>().Play();
             yield return new WaitForSeconds(minusEnergy.GetComponent<Animation>()["minusEnergy"].length);
+            minusEnergy.SetActive(false);
         }
         StartCoroutine(closeQuestUI());
     }
