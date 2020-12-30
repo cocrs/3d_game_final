@@ -33,6 +33,7 @@ TagManager:
   - Road
   - Pavement
   - Pedestrian
+  - Food
   layers:
   - Default
   - TransparentFX

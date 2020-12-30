@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8637808040163976582}
   m_Layer: 0
   m_Name: Steak_Uncooked
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

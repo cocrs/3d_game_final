@@ -352,7 +352,7 @@ public class GameManager : MonoBehaviour
         curDay += 1;
         playerDollars -= 500;
         updatePlayerDollars();
-        DayTXT.text = "Day " + curDay;
+        DayTXT.text = "第" + curDay + "天";
         PlayerControll(true);
         OpenMainUIButton();
     }
@@ -476,15 +476,13 @@ public class GameManager : MonoBehaviour
             GameObject spawnedFood = Instantiate(foodList[index], spawnPointFood.position, Quaternion.identity);
             spawnedFood.AddComponent<DropFood>();
             foodInScene.Enqueue(spawnedFood);
-            for(int i = 0; i < goalList.Length; i++){
-                print(spawnedFood.GetComponent<DropFood>().price);
-                goalList[i]["reward"] += spawnedFood.GetComponent<DropFood>().price;
-            }
+            goalList[chosedTown]["reward"] += spawnedFood.GetComponent<DropFood>().price;
             yield return new WaitForSeconds(0.5f);
         }
+        print("hi" + goalList[chosedTown]["reward"]);
         questUI.SetActive(true);
         questDetailWindow.SetActive(true);
-        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
+        questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "距離限制: " + limitDistance;
         questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "報酬: " + goalList[chosedTown]["reward"];
         questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
         questUI.transform.GetComponent<Animation>().Play();
