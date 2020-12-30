@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     [Header("Quest")]
     public GameObject[] foodList;
     Queue<GameObject> foodInScene;
-    Dictionary<string, int>[] foodPrice;
+    int[] foodPrice;
     List<int> indices;
     public Transform spawnPointFood;
     private int chosedTown;
@@ -91,26 +91,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        foodPrice = new Dictionary<string, int>[]{
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-            new Dictionary<string, int>(){
-                {"price", 2000},
-            },
-        };
+        foodPrice = new int[3];
         items = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
                 {"name", "Map"},
@@ -391,8 +372,9 @@ public class GameManager : MonoBehaviour
         GameObject goal2 = goalTown2[Random.Range(0, goalTown2.Length)];
         float goal1Dis = Vector3.Distance(player.transform.position, goal1.transform.position);
         float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
-        int reward = Random.Range(100, 501);
         int distance = Random.Range(100, 151);
+        int reward = 0;
+
         indices.Clear();
         while (indices.Count < 3)
         {
@@ -402,6 +384,11 @@ public class GameManager : MonoBehaviour
                 indices.Add(index);
             }
         }
+        for(int i = 0; i < foodPrice.Length; i++){
+            foodPrice[i] = Random.Range(50, 101);
+            reward += foodPrice[i];
+        }
+        
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
@@ -409,7 +396,6 @@ public class GameManager : MonoBehaviour
                 {"goal", goal1},
                 {"reward", reward},
                 {"time", Mathf.Max((int)goal1Dis / 3, 30)},
-                {"consume", 50},
                 {"distance", distance}
             },
             new Dictionary<string, dynamic>(){
@@ -417,7 +403,6 @@ public class GameManager : MonoBehaviour
                 {"goal", goal2},
                 {"reward", reward},
                 {"time", Mathf.Max((int)goal2Dis / 3, 30)},
-                {"consume", 80},
                 {"distance", distance}
             }
         };
