@@ -5,12 +5,13 @@ using UnityEngine;
 public class DropFood : MonoBehaviour
 {
     public GameManager gameManager;
+    public int price;
     void Start() {
-
+        price = Random.Range(50, 101);
     }
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag != "Player"){
-            gameManager.minusEnergy();
+            StartCoroutine(gameManager.MinusRewardPlay(price));
         }
     }
 }
