@@ -460,7 +460,6 @@ public class GameManager : MonoBehaviour
         parkingLotUsing = null;
         // wayPointArrow.SetActive(true);
         PlayerControll(true);
-        questUI.SetActive(true);
         parkingManagers.SetActive(true);
         homeParkingLot.SetActive(false);
 
@@ -476,7 +475,6 @@ public class GameManager : MonoBehaviour
         {
             GameObject spawnedFood = Instantiate(foodList[index], spawnPointFood.position, Quaternion.identity);
             spawnedFood.AddComponent<DropFood>();
-            spawnedFood.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
             foodInScene.Enqueue(spawnedFood);
             for(int i = 0; i < goalList.Length; i++){
                 print(spawnedFood.GetComponent<DropFood>().price);
@@ -484,6 +482,7 @@ public class GameManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
+        questUI.SetActive(true);
         questDetailWindow.SetActive(true);
         questDetailWindow.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Limit Distance: " + limitDistance;
         questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Reward: " + goalList[chosedTown]["reward"];
