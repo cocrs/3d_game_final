@@ -9,10 +9,13 @@ public class DropFood : MonoBehaviour
     private bool initializing = true;
     void Start() {
         price = Random.Range(50, 101);
-        gameManager = GameObject.Find("GameMangaer").GetComponent<GameManager>();
+        gameManager = GameObject.FindWithTag("Manager").GetComponent<GameManager>();
+        if(gameManager){
+            print("Game Manager Exist");
+        }
     }
     void Update(){
-        if(initializing){
+        if(initializing){            
             gameObject.GetComponent<Rigidbody>().velocity = gameManager.player.GetComponent<Rigidbody>().velocity;
         }
     }
