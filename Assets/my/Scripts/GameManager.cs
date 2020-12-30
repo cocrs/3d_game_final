@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public Animation stretch1;
     public Animation stretch2;
     public GameObject getMoney;
+    public GameObject minusReward;
+    public GameObject minusEnergy;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -236,7 +238,7 @@ public class GameManager : MonoBehaviour
         stretch1.Play();
         yield return new WaitForSeconds(stretch1["stretch"].length);
         getMoney.SetActive(true);
-        getMoney.GetComponent<TextMeshProUGUI>().text = "+" + goalList[chosedTown]["reward"];
+        getMoney.GetComponent<TextMeshProUGUI>().text = "+$" + goalList[chosedTown]["reward"];
         getMoney.GetComponent<Animation>().Play();
         yield return new WaitForSeconds(getMoney.GetComponent<Animation>()["money"].length);
         getMoney.SetActive(false);
@@ -245,15 +247,21 @@ public class GameManager : MonoBehaviour
         if ((int)(goalDis / 5) > 0)
         {
             stretch2.Play();
+            float energy;
             if ((int)(goalDis / 5) > questTester.GetComponent<HealthTester>().curHealth)
             {
-                questTester.GetComponent<HealthTester>().consumeEnergy(questTester.GetComponent<HealthTester>().curHealth);
+                energy = questTester.GetComponent<HealthTester>().curHealth;
             }
             else
             {
-                questTester.GetComponent<HealthTester>().consumeEnergy((int)(goalDis / 5));
+                energy = (int)(goalDis / 5);
             }
             yield return new WaitForSeconds(stretch2["stretch"].length);
+            questTester.GetComponent<HealthTester>().consumeEnergy(energy);
+            minusEnergy.SetActive(true);
+            minusEnergy.GetComponent<TextMeshProUGUI>().text = "-" + energy;
+            minusEnergy.GetComponent<Animation>().Play();
+            yield return new WaitForSeconds(minusEnergy.GetComponent<Animation>()["minusEnergy"].length);
         }
         StartCoroutine(closeQuestUI());
     }
