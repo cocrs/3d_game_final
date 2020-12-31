@@ -136,7 +136,7 @@ public class PersonController : MonoBehaviour
             {
                 Transform tmp = other.gameObject.transform;
                 tmp.position = new Vector3(tmp.position.x, gameObject.transform.position.y, tmp.position.z);
-                // transform.LookAt(tmp);
+                transform.LookAt(tmp);
                 animator.SetInteger("state", 4);
             }
         }
