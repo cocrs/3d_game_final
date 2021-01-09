@@ -10,6 +10,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private CarController m_Car; // the car controller we want to use
         public HealthTester EnergyTester;
         public GameManager gameManager;
+        private bool first;
 
         private void Awake()
         {
@@ -30,11 +31,12 @@ namespace UnityStandardAssets.Vehicles.Car
             // print(v);
             if (GameManager.playing)
             {
-                if (true)//EnergyTester.curHealth > 0
+                if (EnergyTester.curHealth > 0)
                 {
+                    first = true;
                     if (v != 0)
                     {
-                        EnergyTester.consumeEnergy(m_Car.GetComponent<Rigidbody>().velocity.magnitude * 0.001f);
+                        EnergyTester.consumeEnergy(0.01f);
                     }
                     // Debug.Log(v);
 #if !MOBILE_INPUT
@@ -49,7 +51,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     }
                     if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Space))
                     {
-                        if (EnergyTester.curHealth >= 10)
+                        if (EnergyTester.curHealth >= 5)
                         {
                             Debug.Log("Jump");
                             if (Time.time - lastJump > 1f)
@@ -64,7 +66,7 @@ namespace UnityStandardAssets.Vehicles.Car
                                 // else{
                                 //     move = -1;
                                 // }
-                                EnergyTester.consumeEnergy(10);
+                                EnergyTester.consumeEnergy(5);
                                 this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity + new Vector3(0f, 5f, 0f);
 
                                 lastJump = Time.time;
@@ -85,6 +87,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
                 else
                 {
+                    
                     if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
                     {
                         m_Car.Move(h, 0, 0, 1f);
@@ -92,6 +95,10 @@ namespace UnityStandardAssets.Vehicles.Car
                     else
                     {
                         m_Car.Move(h, 0, 0, 0f);
+                    }
+                    if(first){
+                        StartCoroutine(gameManager.SendBackToHome());
+                        first = false;
                     }
                 }
             }

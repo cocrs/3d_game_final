@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public GameObject fail;
     public GameObject getMoney;
     public GameObject minusReward;
+    public GameObject minusMoney;
     public GameObject minusEnergy;
 
     [Header("Game Windows")]
@@ -328,6 +329,16 @@ public class GameManager : MonoBehaviour
         UpdateRewardText();
         Destroy(spawnedText);
     }
+    public IEnumerator MinusMoneyPlay(int price){
+        GameObject spawnedText = Instantiate(minusMoney);
+        spawnedText.transform.SetParent(notifyText.transform);
+        spawnedText.GetComponent<TextMeshProUGUI>().text = "-$" + price;
+        spawnedText.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(spawnedText.GetComponent<Animation>()["minusMoney"].length);
+        playerDollars -= price;
+        updatePlayerDollars();
+        Destroy(spawnedText);
+    }
     public void SetPlayingState(bool state)
     {
         playing = state;
@@ -563,6 +574,11 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerControll(bool state)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = !state;
+        player.GetComponent<Rigidbody>().isKinematic = !state;
+    }
+    public IEnumerator SendBackToHome(){
+        yield return new WaitForSeconds(2f);
+        player.transform.position = homeParkingLot.transform.position;
+        player.transform.rotation = Quaternion.identity;
     }
 }

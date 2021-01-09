@@ -82,7 +82,7 @@ public class ParkingTrigger : MonoBehaviour {
             FinisheD = true;
 
             // disable car moving
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
+            gameManager.PlayerControll(false);
             // Stop timer menu
             TimerCountMen.SetActive(false);
 

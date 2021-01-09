@@ -12,6 +12,7 @@ public class PersonController : MonoBehaviour
     private bool died = false;
     private bool endRoutine = true;
     private float lastRotateTime;
+    private float lastCollideTime;
     private float detectDis;
     private float detectRadius;
     public bool jump = false;
@@ -25,6 +26,7 @@ public class PersonController : MonoBehaviour
         timer = 0;
         changeTime = Random.Range(0f, 10f);
         lastRotateTime = Time.time;
+        lastCollideTime = Time.time;
         detectDis = 0.4f;
         detectRadius = 0.2f;
     }
@@ -116,9 +118,10 @@ public class PersonController : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
-                print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
-                if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 8)
+                // print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+                if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 10)
                 {
+                    StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(1000));
                     animator.SetInteger("state", 3);
                     died = true;
                     Destroy(gameObject, 10);
@@ -134,9 +137,13 @@ public class PersonController : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
-                Transform tmp = other.gameObject.transform;
-                tmp.position = new Vector3(tmp.position.x, gameObject.transform.position.y, tmp.position.z);
-                transform.LookAt(tmp);
+                if(other.gameObject.tag == "Player" && Time.time - lastCollideTime > 5){
+                    StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(100));
+                    lastCollideTime = Time.time;
+                }
+                // Transform tmp = other.gameObject.transform;
+                // tmp.position = new Vector3(tmp.position.x, gameObject.transform.position.y, tmp.position.z);
+                // transform.LookAt(tmp);
                 animator.SetInteger("state", 4);
             }
         }
