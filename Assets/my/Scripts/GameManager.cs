@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject Camera;
     public GameObject startCamera;
     public GameObject cameraObj;
+    public GameObject moneyBar;
     public GameObject mainMenu;
     public GameObject spawnPoints;
 
@@ -151,6 +152,9 @@ public class GameManager : MonoBehaviour
         cameraObj.SetActive(false);
         waypoints.SetActive(false);
         spawnPoints.SetActive(false);
+        moneyBar.SetActive(false);
+        questTester.SetActive(false);
+        DayTXT.gameObject.SetActive(false);
         player.SetActive(false);
         
         indices = new List<int>();
@@ -168,12 +172,12 @@ public class GameManager : MonoBehaviour
         goalIconObj = GameObject.FindWithTag("GoalIcon");
         goalIconObj.SetActive(false);
 
-        curDay = 1;
-        DayTXT.text = "第 " + curDay + " 天";
+        curDay = 30;
+        DayTXT.text = "剩餘 " + curDay + " 天";
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
         goalTown2 = GameObject.FindGameObjectsWithTag("GoalTown2");
-        // goalCity = GameObject.FindGameObjectsWithTag("GoalCity");
+        goalCity = GameObject.FindGameObjectsWithTag("GoalCity");
         setRandomGoalThisRound();
         // SetRandomGoal();
     }
@@ -258,6 +262,9 @@ public class GameManager : MonoBehaviour
         waypoints.SetActive(true);
         spawnPoints.SetActive(true);
         player.SetActive(true);
+        moneyBar.SetActive(true);
+        questTester.SetActive(true);
+        DayTXT.gameObject.SetActive(true);
         GameManager.playing = true;
     }
     IEnumerator addMoney()
@@ -325,6 +332,16 @@ public class GameManager : MonoBehaviour
     {
         playing = state;
     }
+    public void CloseUIForTalk(){
+        moneyBar.SetActive(false);
+        questTester.SetActive(false);
+        DayTXT.gameObject.SetActive(false);
+    }
+    public void OpenUIForTalk(){
+        moneyBar.SetActive(true);
+        questTester.SetActive(true);
+        DayTXT.gameObject.SetActive(true);
+    }
     public void SetGameFinishedState(bool state)
     {
         gameFinished = state;
@@ -342,7 +359,7 @@ public class GameManager : MonoBehaviour
     }
     public void acceptQuest()
     {
-        chosedTown = Random.Range(0, 2);
+        chosedTown = Random.Range(0, 3);
         // if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
         questWindow.SetActive(false);
         questConfirmWindow.SetActive(false);
@@ -381,10 +398,10 @@ public class GameManager : MonoBehaviour
         PlayerControll(false);
         lightAnime.Play();
         yield return new WaitForSeconds(lightAnime["change day"].length);
-        curDay += 1;
+        curDay -= 1;
         playerDollars -= 500;
         updatePlayerDollars();
-        DayTXT.text = "第" + curDay + "天";
+        DayTXT.text = "剩餘 " + curDay + " 天";
         PlayerControll(true);
         OpenMainUIButton();
     }
@@ -421,8 +438,10 @@ public class GameManager : MonoBehaviour
     {
         GameObject goal1 = goalTown1[Random.Range(0, goalTown1.Length)];
         GameObject goal2 = goalTown2[Random.Range(0, goalTown2.Length)];
+        GameObject goal3 = goalCity[Random.Range(0, goalCity.Length)];
         float goal1Dis = Vector3.Distance(player.transform.position, goal1.transform.position);
         float goal2Dis = Vector3.Distance(player.transform.position, goal2.transform.position);
+        float goal3Dis = Vector3.Distance(player.transform.position, goal3.transform.position);
         int distance = Random.Range(100, 151);
 
         indices.Clear();
@@ -434,8 +453,6 @@ public class GameManager : MonoBehaviour
                 indices.Add(index);
             }
         }
-        
-        
 
         goalList = new Dictionary<string, dynamic>[]{
             new Dictionary<string, dynamic>(){
@@ -452,13 +469,13 @@ public class GameManager : MonoBehaviour
                 {"time", Mathf.Max((int)goal2Dis / 3, 30)},
                 {"distance", distance}
             },
-            // new Dictionary<string, dynamic>(){
-            //     {"name", "city"},
-            //     {"goal", city},
-            //     {"reward", 0},
-            //     {"time", Mathf.Max((int)goal2Dis / 3, 30)},
-            //     {"distance", distance}
-            // }
+            new Dictionary<string, dynamic>(){
+                {"name", "city"},
+                {"goal", goal3},
+                {"reward", 0},
+                {"time", Mathf.Max((int)goal2Dis / 3, 30)},
+                {"distance", distance}
+            }
         };
     }
     public void setGoal()
