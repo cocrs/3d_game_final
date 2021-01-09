@@ -132,7 +132,7 @@ namespace TrafficSimulation {
         }
 
         void playerTargetChecker() {
-            if (playerTarget.Length == 0) {
+            if (playerTarget.Length == 0 || GameManager.gameFinished) {
                 return;
             }
             GameObject target = playerTarget[0];

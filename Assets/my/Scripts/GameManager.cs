@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject checkMark;
     public Cinemachine.CinemachineVirtualCamera cinemachine;
     public GameObject Camera;
+    public GameObject startCamera;
+    public GameObject cameraObj;
+    public GameObject mainMenu;
+    public GameObject spawnPoints;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -125,7 +129,6 @@ public class GameManager : MonoBehaviour
             },
         };
 
-        playerDollars = -2000;
         curShowItemIndex = 0;
     }
     // Start is called before the first frame update
@@ -145,6 +148,10 @@ public class GameManager : MonoBehaviour
         minusEnergy.SetActive(false);
         fail.SetActive(false);
         Camera.GetComponent<OutlineEffect>().enabled = false;
+        cameraObj.SetActive(false);
+        waypoints.SetActive(false);
+        spawnPoints.SetActive(false);
+        player.SetActive(false);
         
         indices = new List<int>();
         foodInScene = new Queue<GameObject>();
@@ -153,7 +160,6 @@ public class GameManager : MonoBehaviour
         RandomDisactiveWaypoints();
 
         limitDistance = 0;
-        playing = true;
 
         moneyTXT.text = "$ " + playerDollars;
         scoreTXT.text = "得分: " + score;
@@ -244,6 +250,15 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void StartGame(){
+        mainMenu.SetActive(false);
+        cameraObj.SetActive(true);
+        startCamera.SetActive(false);
+        waypoints.SetActive(true);
+        spawnPoints.SetActive(true);
+        player.SetActive(true);
+        GameManager.playing = true;
     }
     IEnumerator addMoney()
     {
