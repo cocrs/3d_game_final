@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayBtn : MonoBehaviour
 {
     public GameManager gameManager;
+    public GameObject tutorial;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,6 @@ public class PlayBtn : MonoBehaviour
         
     }
     public void LoadGame(){
-        gameManager.StartGame();
+        tutorial.SetActive(true);
     }
 }

@@ -10,7 +10,6 @@ namespace UnityStandardAssets.Vehicles.Car
         private CarController m_Car; // the car controller we want to use
         public HealthTester EnergyTester;
         public GameManager gameManager;
-        private bool first;
 
         private void Awake()
         {
@@ -33,7 +32,6 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 if (EnergyTester.curHealth > 0)
                 {
-                    first = true;
                     if (v != 0)
                     {
                         EnergyTester.consumeEnergy(0.01f);
@@ -95,10 +93,6 @@ namespace UnityStandardAssets.Vehicles.Car
                     else
                     {
                         m_Car.Move(h, 0, 0, 0f);
-                    }
-                    if(first){
-                        StartCoroutine(gameManager.SendBackToHome());
-                        first = false;
                     }
                 }
             }

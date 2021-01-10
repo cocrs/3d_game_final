@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public GameObject moneyBar;
     public GameObject mainMenu;
     public GameObject spawnPoints;
+    public GameObject tutorial;
+    private bool first;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -52,6 +54,12 @@ public class GameManager : MonoBehaviour
     public GameObject minusReward;
     public GameObject minusMoney;
     public GameObject minusEnergy;
+
+    [Header("Statistics")]
+    public GameObject statisticsWindow;
+    private int acceptQuestCount;
+    private int questSuccessCount;
+    private int dropFoodCount;
 
     [Header("Game Windows")]
     public QUI_Window failWindow;
@@ -92,14 +100,13 @@ public class GameManager : MonoBehaviour
     private int chosedTown;
     public Dictionary<string, dynamic>[] goalList;
 
-
     [Header("Shop")]
     public Image[] itemPos;
     public Sprite[] itemSprites;
     private int curShowItemIndex;
     public int playerDollars;
+    private int initialMoney;
     public Dictionary<string, dynamic>[] items;
-
 
     void Awake()
     {
@@ -157,14 +164,19 @@ public class GameManager : MonoBehaviour
         questTester.SetActive(false);
         DayTXT.gameObject.SetActive(false);
         player.SetActive(false);
-        
+
         indices = new List<int>();
         foodInScene = new Queue<GameObject>();
+        initialMoney = playerDollars;
 
         // waypoints.SetActive(false);
         RandomDisactiveWaypoints();
 
         limitDistance = 0;
+
+        questSuccessCount = 0;
+        dropFoodCount = 0;
+        acceptQuestCount = 0;
 
         moneyTXT.text = "$ " + playerDollars;
         scoreTXT.text = "得分: " + score;
@@ -188,7 +200,7 @@ public class GameManager : MonoBehaviour
     {
         if (playing)
         {
-            
+
             if (inQuest)
             {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
@@ -201,7 +213,8 @@ public class GameManager : MonoBehaviour
                 {
                     checkMark.SetActive(false);
                 }
-                if(goalList[chosedTown]["reward"] == 0){
+                if (goalList[chosedTown]["reward"] == 0 || questTester.GetComponent<HealthTester>().curHealth <= 0)
+                {
                     questFinished = true;
                 }
                 if (!questFinished && parkingLotUsing == null)
@@ -242,6 +255,7 @@ public class GameManager : MonoBehaviour
                         StartCoroutine(addMoney());
                         parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
                         parkingLotUsing = null;
+                        questSuccessCount += 1;
                     }
                     else
                     {
@@ -250,13 +264,35 @@ public class GameManager : MonoBehaviour
                         fail.GetComponent<Animation>().Play();
                         StartCoroutine(closeQuestUI());
                         setRandomGoalThisRound();
+                        if (questTester.GetComponent<HealthTester>().curHealth <= 0)
+                        {
+                            StartCoroutine(SendBackToHome());
+                        }
                     }
                     inQuest = false;
                 }
             }
+            if (questTester.GetComponent<HealthTester>().curHealth <= 0)
+            {
+                if(first){
+                    StartCoroutine(SendBackToHome());
+                    first = false;
+                }
+            }
+            else{
+                first = true;
+            }
         }
     }
-    public void StartGame(){
+    public void ShowStatisticsWindow()
+    {
+        TextMeshProUGUI tmp = statisticsWindow.transform.GetChild(4).GetComponent<TextMeshProUGUI>();
+        tmp.text = (30 - curDay) + "\n" + (playerDollars - initialMoney) + "\n" + acceptQuestCount + "\n" + questSuccessCount + "\n" + dropFoodCount + "\n";
+        statisticsWindow.SetActive(true);
+    }
+    public void StartGame()
+    {
+        tutorial.SetActive(false);
         mainMenu.SetActive(false);
         cameraObj.SetActive(true);
         startCamera.SetActive(false);
@@ -279,7 +315,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(getMoney.GetComponent<Animation>()["money"].length);
         getMoney.SetActive(false);
         playerDollars += goalList[chosedTown]["reward"];
-        updatePlayerDollars();     
+        updatePlayerDollars();
         if ((int)(goalDis / 5) > 0)
         {
             stretch2.Play();
@@ -309,17 +345,34 @@ public class GameManager : MonoBehaviour
         questUI.transform.GetComponent<Animation>()["questIn"].time = questUI.transform.GetComponent<Animation>()["questIn"].length;
         questUI.transform.GetComponent<Animation>().Play();
         questDetailWindow.SetActive(false);
-        while (foodInScene.Count > 0)
+        if (playing)
         {
-            Destroy(foodInScene.Dequeue());
+            while (foodInScene.Count > 0)
+            {
+                Destroy(foodInScene.Dequeue());
+            }
         }
         yield return new WaitForSeconds(questUI.transform.GetComponent<Animation>()["questIn"].length);
         questUI.SetActive(false);
     }
-    public void UpdateRewardText(){
+    public void OpenQuestUIForTalk()
+    {
+        questUI.SetActive(true);
+        questDetailWindow.SetActive(true);
+        questUI.transform.GetComponent<Animation>()["questIn"].speed = 1;
+        questUI.transform.GetComponent<Animation>().Play();
+    }
+    public void CloseQuestUIForTalk()
+    {
+        StartCoroutine(closeQuestUI());
+    }
+    public void UpdateRewardText()
+    {
         questDetailWindow.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "報酬: " + goalList[chosedTown]["reward"];
     }
-    public IEnumerator MinusRewardPlay(int price){
+    public IEnumerator MinusRewardPlay(int price)
+    {
+        dropFoodCount += 1;
         GameObject spawnedText = Instantiate(minusReward);
         spawnedText.transform.SetParent(notifyText.transform);
         spawnedText.GetComponent<TextMeshProUGUI>().text = "-$" + price;
@@ -329,7 +382,8 @@ public class GameManager : MonoBehaviour
         UpdateRewardText();
         Destroy(spawnedText);
     }
-    public IEnumerator MinusMoneyPlay(int price){
+    public IEnumerator MinusMoneyPlay(int price)
+    {
         GameObject spawnedText = Instantiate(minusMoney);
         spawnedText.transform.SetParent(notifyText.transform);
         spawnedText.GetComponent<TextMeshProUGUI>().text = "-$" + price;
@@ -343,12 +397,14 @@ public class GameManager : MonoBehaviour
     {
         playing = state;
     }
-    public void CloseUIForTalk(){
+    public void CloseUIForTalk()
+    {
         moneyBar.SetActive(false);
         questTester.SetActive(false);
         DayTXT.gameObject.SetActive(false);
     }
-    public void OpenUIForTalk(){
+    public void OpenUIForTalk()
+    {
         moneyBar.SetActive(true);
         questTester.SetActive(true);
         DayTXT.gameObject.SetActive(true);
@@ -372,8 +428,8 @@ public class GameManager : MonoBehaviour
     {
         chosedTown = Random.Range(0, 3);
         // if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
-        questWindow.SetActive(false);
-        questConfirmWindow.SetActive(false);
+        // questWindow.SetActive(false);
+        // questConfirmWindow.SetActive(false);
         waypoints.SetActive(false);
         setGoal();
         // } else {
@@ -410,8 +466,7 @@ public class GameManager : MonoBehaviour
         lightAnime.Play();
         yield return new WaitForSeconds(lightAnime["change day"].length);
         curDay -= 1;
-        playerDollars -= 500;
-        updatePlayerDollars();
+        StartCoroutine(MinusMoneyPlay(500));
         DayTXT.text = "剩餘 " + curDay + " 天";
         PlayerControll(true);
         OpenMainUIButton();
@@ -523,6 +578,7 @@ public class GameManager : MonoBehaviour
         PlayerControll(true);
         parkingManagers.SetActive(true);
         homeParkingLot.SetActive(false);
+        acceptQuestCount += 1;
 
         // timer reset
         timerText.color = Color.black;
@@ -576,8 +632,10 @@ public class GameManager : MonoBehaviour
     {
         player.GetComponent<Rigidbody>().isKinematic = !state;
     }
-    public IEnumerator SendBackToHome(){
+    public IEnumerator SendBackToHome()
+    {
         yield return new WaitForSeconds(2f);
+        PlayerControll(false);
         player.transform.position = homeParkingLot.transform.position;
         player.transform.rotation = Quaternion.identity;
     }
