@@ -6,9 +6,11 @@ using TrafficSimulation;
 public class carBGMController : MonoBehaviour {
     public GameObject bgmControllerObject;
     BGMController bgmController;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start() {
         bgmController = bgmControllerObject.GetComponent<BGMController>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,5 +25,10 @@ public class carBGMController : MonoBehaviour {
             }
         }
         bgmController.setClip(changeClip ? 1 : 0);
+    }
+    void OnCollisionEnter(Collision collisionInfo) {
+        if (collisionInfo.collider.gameObject.tag == "AutonomousVehicle") {
+            AudioSource.PlayClipAtPoint(audioSource.clip, collisionInfo.transform.position);
+        }
     }
 }
