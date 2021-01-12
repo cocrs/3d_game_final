@@ -15,7 +15,7 @@ public class SEController : MonoBehaviour {
 
     }
 
-    void playClip(int clipNum) {
+    public void playClip(int clipNum) {
         this.audioSource.PlayOneShot(audioClips[clipNum]);
     }
 }

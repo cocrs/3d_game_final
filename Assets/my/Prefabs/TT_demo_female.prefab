@@ -163,6 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6115abb200d4ef4f99340c4247c28bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 0
+  bottomNotDetected: 1
+  gender: 1
 --- !u!1 &531006592230684214
 GameObject:
   m_ObjectHideFlags: 0

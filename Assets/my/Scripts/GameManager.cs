@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoints;
     public GameObject tutorial;
     private bool first;
+    public SEController seController;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -262,6 +263,7 @@ public class GameManager : MonoBehaviour
                         fail.SetActive(true);
                         fail.GetComponent<Animation>().Stop();
                         fail.GetComponent<Animation>().Play();
+                        seController.playClip(3);
                         StartCoroutine(closeQuestUI());
                         setRandomGoalThisRound();
                         if (questTester.GetComponent<HealthTester>().curHealth <= 0)
@@ -307,6 +309,8 @@ public class GameManager : MonoBehaviour
     IEnumerator addMoney()
     {
         Instantiate(successEffect, spawnPointFood.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+        seController.playClip(4);
+        seController.playClip(5);
         stretch1.Play();
         yield return new WaitForSeconds(stretch1["stretch"].length);
         getMoney.SetActive(true);
@@ -372,6 +376,7 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator MinusRewardPlay(int price)
     {
+        seController.playClip(Random.Range(0, 3));
         dropFoodCount += 1;
         GameObject spawnedText = Instantiate(minusReward);
         spawnedText.transform.SetParent(notifyText.transform);
@@ -426,6 +431,8 @@ public class GameManager : MonoBehaviour
     }
     public void acceptQuest()
     {
+        seController.playClip(6);
+        seController.playClip(7);
         chosedTown = Random.Range(0, 3);
         // if (questTester.GetComponent<HealthTester>().consumeEnergy(goalList[chosedTown]["consume"])) {
         // questWindow.SetActive(false);

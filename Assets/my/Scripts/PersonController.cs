@@ -17,6 +17,8 @@ public class PersonController : MonoBehaviour
     private float detectRadius;
     public bool jump = false;
     public bool bottomNotDetected = true;
+    public int gender;
+    SEController seController;
 
 
     // Start is called before the first frame update
@@ -29,6 +31,7 @@ public class PersonController : MonoBehaviour
         lastCollideTime = Time.time;
         detectDis = 0.4f;
         detectRadius = 0.2f;
+        seController = GameObject.FindWithTag("SEController").GetComponent<SEController>();
     }
 
     // Update is called once per frame
@@ -121,10 +124,24 @@ public class PersonController : MonoBehaviour
                 // print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
                 if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 10)
                 {
+                    if(gender == 1){
+                        seController.playClip(11);
+                    }
+                    else{
+                        seController.playClip(15);
+                    }
                     StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(1000));
                     animator.SetInteger("state", 3);
                     died = true;
                     Destroy(gameObject, 10);
+                }
+                else{
+                    if(gender == 1){
+                        seController.playClip(Random.Range(8, 11));
+                    }
+                    else{
+                        seController.playClip(Random.Range(12, 15));
+                    }
                 }
             }
 

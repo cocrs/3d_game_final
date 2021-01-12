@@ -35,6 +35,7 @@ TagManager:
   - Pedestrian
   - Food
   - UnusualCar
+  - SEController
   layers:
   - Default
   - TransparentFX

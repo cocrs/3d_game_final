@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Quantum Tek/Quantum UI/Scenes/Main Menu Demo.unity
     guid: 2ea1e15421ef1436d902c08e7005e6c7
   - enabled: 0

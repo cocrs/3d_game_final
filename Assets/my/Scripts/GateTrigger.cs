@@ -20,7 +20,7 @@ public class GateTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (gameManager.playerDollars >= 10000)
+            if (gameManager.playerDollars >= 0)
             {
                 Flowchart.BroadcastFungusMessage("playerWithEnoughMoney");
             }
