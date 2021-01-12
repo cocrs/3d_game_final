@@ -56,7 +56,8 @@ public class PersonController : MonoBehaviour
                 {
                     animator.SetInteger("state", 2);
                 }
-                else if (endRoutine){
+                else if (endRoutine)
+                {
                     endRoutine = false;
                     StartCoroutine(RotateMe(new Vector3(0, 90, 0), 2));
                 }
@@ -92,7 +93,8 @@ public class PersonController : MonoBehaviour
                     }
                 }
             }
-            else{
+            else
+            {
                 jump = false;
                 bottomNotDetected = true;
             }
@@ -121,26 +123,42 @@ public class PersonController : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
+                bool near = false;
+                if (Vector3.Distance(GameObject.Find("Car").transform.position, this.transform.position) <= 50)
+                {
+                    near = true;
+                }
                 // print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
                 if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 10)
                 {
-                    if(gender == 1){
-                        seController.playClip(11);
-                    }
-                    else{
-                        seController.playClip(15);
+                    if (near)
+                    {
+                        if (gender == 1)
+                        {
+                            seController.playClip(11);
+                        }
+                        else
+                        {
+                            seController.playClip(15);
+                        }
                     }
                     StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(1000));
                     animator.SetInteger("state", 3);
                     died = true;
                     Destroy(gameObject, 10);
                 }
-                else{
-                    if(gender == 1){
-                        seController.playClip(Random.Range(8, 11));
-                    }
-                    else{
-                        seController.playClip(Random.Range(12, 15));
+                else
+                {
+                    if (near)
+                    {
+                        if (gender == 1)
+                        {
+                            seController.playClip(Random.Range(8, 11));
+                        }
+                        else
+                        {
+                            seController.playClip(Random.Range(12, 15));
+                        }
                     }
                 }
             }
@@ -154,7 +172,8 @@ public class PersonController : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
-                if(other.gameObject.tag == "Player" && Time.time - lastCollideTime > 5){
+                if (other.gameObject.tag == "Player" && Time.time - lastCollideTime > 5)
+                {
                     StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(100));
                     lastCollideTime = Time.time;
                 }
