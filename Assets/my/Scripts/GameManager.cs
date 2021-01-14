@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using QuantumTek.QuantumUI;
 using TMPro;
 using cakeslice;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,11 +42,12 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public float timer;
     [Header("Game State")]
-    public static bool playing = true;
+    public static bool playing = false;
     public static bool inQuest = false;
     public static bool finishParking = false;
     public static bool questFinished = false;
     public static bool gameFinished = false;
+    public static bool changeDay = false;
     public static float limitDistance;
     public Animation lightAnime;
     public Animation stretch1;
@@ -55,9 +57,11 @@ public class GameManager : MonoBehaviour
     public GameObject minusReward;
     public GameObject minusMoney;
     public GameObject minusEnergy;
+    private float lastUpdateTime;
 
     [Header("Statistics")]
     public GameObject statisticsWindow;
+    public GameObject[] stars;
     private int acceptQuestCount;
     private int questSuccessCount;
     private int dropFoodCount;
@@ -79,6 +83,8 @@ public class GameManager : MonoBehaviour
     public GameObject questBtn;
     public GameObject pauseBtn;
     public GameObject notifyText;
+    public GameObject map;
+    private bool mapActive = false;
 
     [Header("QuestUI")]
     public Text successTXT;
@@ -179,14 +185,14 @@ public class GameManager : MonoBehaviour
         dropFoodCount = 0;
         acceptQuestCount = 0;
 
-        moneyTXT.text = "$ " + playerDollars;
+        updatePlayerDollars();
         scoreTXT.text = "得分: " + score;
         parkingLotUsing = null;
         Instantiate(goalIcon, new Vector3(0, 0, 0), Quaternion.identity);
         goalIconObj = GameObject.FindWithTag("GoalIcon");
         goalIconObj.SetActive(false);
 
-        curDay = 30;
+        curDay = 1;
         DayTXT.text = "剩餘 " + curDay + " 天";
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
@@ -201,7 +207,10 @@ public class GameManager : MonoBehaviour
     {
         if (playing)
         {
-
+            if(Input.GetKeyDown(KeyCode.M)){
+                mapActive = !mapActive;
+                map.SetActive(mapActive);
+            }
             if (inQuest)
             {
                 goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
@@ -263,6 +272,7 @@ public class GameManager : MonoBehaviour
                         fail.SetActive(true);
                         fail.GetComponent<Animation>().Stop();
                         fail.GetComponent<Animation>().Play();
+                        StartCoroutine(MinusMoneyPlay(50));
                         seController.playClip(3);
                         StartCoroutine(closeQuestUI());
                         setRandomGoalThisRound();
@@ -272,6 +282,11 @@ public class GameManager : MonoBehaviour
                         }
                     }
                     inQuest = false;
+                }
+            }
+            else{
+                if(Time.time - lastUpdateTime > 15){
+                    RandomDisactiveWaypoints();
                 }
             }
             if (questTester.GetComponent<HealthTester>().curHealth <= 0)
@@ -288,9 +303,30 @@ public class GameManager : MonoBehaviour
     }
     public void ShowStatisticsWindow()
     {
+        print(1);
+        int spendDays = 7 - curDay;
+        float moneyEarn = playerDollars - initialMoney;
         TextMeshProUGUI tmp = statisticsWindow.transform.GetChild(4).GetComponent<TextMeshProUGUI>();
-        tmp.text = (30 - curDay) + "\n" + (playerDollars - initialMoney) + "\n" + acceptQuestCount + "\n" + questSuccessCount + "\n" + dropFoodCount + "\n";
+        tmp.text = spendDays + "\n" + moneyEarn + "\n" + acceptQuestCount + "\n" + questSuccessCount + "\n" + dropFoodCount + "\n";
+        print(2);
+        float successRate = (float)questSuccessCount / acceptQuestCount;
+        print(successRate);
+        float scores = ((float)curDay / 7f) + ((moneyEarn - (dropFoodCount * 20f)) / 4000f);
+        print("scores: " + scores);
+        if(scores > 2){
+            stars[2].SetActive(true);
+        }
+        if(scores > 1.7f){
+            stars[1].SetActive(true);
+        }
+        if(moneyEarn > 1000){
+            stars[0].SetActive(true);
+        }
+
         statisticsWindow.SetActive(true);
+    }
+    public void LoadScene(){
+        SceneManager.LoadScene("Game");
     }
     public void StartGame()
     {
@@ -407,12 +443,18 @@ public class GameManager : MonoBehaviour
         moneyBar.SetActive(false);
         questTester.SetActive(false);
         DayTXT.gameObject.SetActive(false);
+        if(inQuest){
+            StartCoroutine(closeQuestUI());
+        }
     }
     public void OpenUIForTalk()
     {
         moneyBar.SetActive(true);
         questTester.SetActive(true);
         DayTXT.gameObject.SetActive(true);
+        if(inQuest){
+            OpenQuestUIForTalk();
+        }
     }
     public void SetGameFinishedState(bool state)
     {
@@ -427,6 +469,12 @@ public class GameManager : MonoBehaviour
     }
     public void updatePlayerDollars()
     {
+        if(playerDollars < 0){
+            moneyTXT.color = Color.red;
+        }
+        else{
+            moneyTXT.color = Color.green;
+        }
         moneyTXT.text = "$ " + playerDollars;
     }
     public void acceptQuest()
@@ -447,6 +495,10 @@ public class GameManager : MonoBehaviour
     }
     public void RandomDisactiveWaypoints()
     {
+        foreach (Transform child in waypoints.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
         int count = 0;
         foreach (Transform child in waypoints.transform)
         {
@@ -461,6 +513,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+        lastUpdateTime = Time.time;
     }
     public void toNextDay()
     {
@@ -469,6 +522,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator addDate()
     {
+        changeDay = true;
         PlayerControll(false);
         lightAnime.Play();
         yield return new WaitForSeconds(lightAnime["change day"].length);
@@ -476,7 +530,16 @@ public class GameManager : MonoBehaviour
         StartCoroutine(MinusMoneyPlay(500));
         DayTXT.text = "剩餘 " + curDay + " 天";
         PlayerControll(true);
-        OpenMainUIButton();
+        if(curDay == 0){
+            PlayerControll(false);
+            gameFinished = true;
+            Color newColor;
+            ColorUtility.TryParseHtmlString("#D42121", out newColor);
+            statisticsWindow.transform.GetChild(2).GetComponent<TextMeshProUGUI>().color = newColor;
+            statisticsWindow.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "脫離失敗";
+            statisticsWindow.SetActive(true);
+        }
+        changeDay = false;
     }
     public void setChosedTown(int choice)
     {

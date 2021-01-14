@@ -12,11 +12,18 @@ public class MParkingManager : MonoBehaviour {
     private bool isFinish, FinisheD, canLoadinnn = true;
     public bool timeLimit;
     public static float endTime;
+    private Color myYellow, myRed, myGreen;
 
     void Awake() {
         TimerCountMen = GameObject.Find("TimerCount");
         CountDownText = GameObject.Find("TimerCountTXT").GetComponent<Text>();
         tooFarTXT = GameObject.Find("TooFarTXT");
+        myGreen = Color.green;
+        myGreen.a = 0.5f;
+        myRed = Color.red;
+        myRed.a = 0.5f;
+        myYellow = Color.yellow;
+        myYellow.a = 0.5f;
     }
     // Start is called before the first frame update
     IEnumerator Start() {
@@ -39,14 +46,14 @@ public class MParkingManager : MonoBehaviour {
                                            // Checking when timer is reached 0(from    3)
                     if (GameManager.isTooFarFromGoal()) {
                         tooFarTXT.SetActive(true);
-                        ParkRenderer.material.color = Color.red;
+                        ParkRenderer.materials[0].SetColor("_Color", myRed);
                         GameManager.parkingLotUsing = this.gameObject;
                     } else {
                         StartCoroutine(CheckTimeToFinisheD());
                         // Level is finished
                         GameManager.parkingLotUsing = this.gameObject;
                         // Park renderer is now green(Correct location on parking place)
-                        ParkRenderer.material.color = Color.green;
+                        ParkRenderer.materials[0].SetColor("_Color", myGreen);
 
                         if (canLoadinnn) {
                             TimerCountMen.SetActive(true);
@@ -79,7 +86,7 @@ public class MParkingManager : MonoBehaviour {
                     CountDownText.text = "3";
 
                     // Car parking place now idle state =>color is now white
-                    ParkRenderer.material.color = Color.white;
+                    ParkRenderer.materials[0].color = myYellow;
                 }
 
             }
@@ -101,7 +108,7 @@ public class MParkingManager : MonoBehaviour {
 
             GameManager.finishParking = true;
             GameManager.questFinished = true;
-            ParkRenderer.material.color = Color.white;
+            ParkRenderer.materials[0].SetColor("_Color", myYellow);
             isFinish = false;
             FinisheD = false;
             t0 = false;
