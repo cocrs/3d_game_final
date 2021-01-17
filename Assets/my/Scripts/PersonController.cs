@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,8 @@ public class PersonController : MonoBehaviour
     public bool jump = false;
     public bool bottomNotDetected = true;
     public int gender;
-    SEController seController;
+    public AudioClip[] audioClips;
+    AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class PersonController : MonoBehaviour
         lastCollideTime = Time.time;
         detectDis = 0.4f;
         detectRadius = 0.2f;
-        seController = GameObject.FindWithTag("SEController").GetComponent<SEController>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -123,44 +124,57 @@ public class PersonController : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "AutonomousVehicle")
             {
-                bool near = false;
-                if (GameObject.Find("Car") != null)
-                {
-                    if (Vector3.Distance(GameObject.Find("Car").transform.position, this.transform.position) <= 50)
-                    {
-                        near = true;
-                    }
-                }
+
                 // print(other.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
                 if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude - other.gameObject.GetComponent<Rigidbody>().velocity.y > 10)
                 {
-                    if (near)
+
+                    if (gender == 1)
                     {
-                        if (gender == 1)
-                        {
-                            seController.playClip(11);
+                        if(other.gameObject.tag == "Player"){
+                            AudioSource.PlayClipAtPoint(audioClips[14] , 0.7f * Camera.main.transform.position + 0.3f * transform.position , 10f);
                         }
-                        else
-                        {
-                            seController.playClip(15);
+                        else{
+                            AudioSource.PlayClipAtPoint(audioClips[14] , this.transform.position);
                         }
                     }
-                    StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(500));
+                    else
+                    {
+                        if(other.gameObject.tag == "Player"){
+                            AudioSource.PlayClipAtPoint(audioClips[7] , 0.7f * Camera.main.transform.position + 0.3f * transform.position , 10f);
+                        }
+                        else{
+                            AudioSource.PlayClipAtPoint(audioClips[7] , this.transform.position);
+                        }
+                    }
+
+                    if (other.gameObject.tag == "Player")
+                    {
+                        StartCoroutine(GameObject.FindWithTag("Manager").GetComponent<GameManager>().MinusMoneyPlay(500));
+                    }
                     animator.SetInteger("state", 3);
                     died = true;
                     Destroy(gameObject, 10);
                 }
                 else
                 {
-                    if (near)
+
+                    if (gender == 1)
                     {
-                        if (gender == 1)
-                        {
-                            seController.playClip(Random.Range(8, 11));
+                        if(other.gameObject.tag == "Player"){
+                            AudioSource.PlayClipAtPoint(audioClips[Random.Range(8, 14)] , 0.7f * Camera.main.transform.position + 0.3f * transform.position , 10f);
                         }
-                        else
-                        {
-                            seController.playClip(Random.Range(12, 15));
+                        else{
+                            AudioSource.PlayClipAtPoint(audioClips[Random.Range(8, 14)] , this.transform.position);
+                        }
+                    }
+                    else
+                    {
+                        if(other.gameObject.tag == "Player"){
+                            AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, 7)] , 0.7f * Camera.main.transform.position + 0.3f * transform.position , 10f);
+                        }
+                        else{
+                            AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, 7)] , this.transform.position);
                         }
                     }
                 }

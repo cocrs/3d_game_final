@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMController : MonoBehaviour {
+public class BGMController : MonoBehaviour
+{
     public AudioClip[] audioClips;
     public float musicVolume = 0.6f;
     public float time;
@@ -10,21 +11,27 @@ public class BGMController : MonoBehaviour {
     int currentClip = 0;
     float fadeOut = 0f;
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         audioSource = this.GetComponent<AudioSource>();
         audioSource.clip = audioClips[currentClip];
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         time = audioSource.time;
-        if (currentClip == 0) {
-            if (audioSource.time > 56.0f) {
+        if (currentClip == 0)
+        {
+            if (audioSource.time > 56.0f)
+            {
                 audioSource.time = 4.4f;
             }
         }
-        if (currentClip == 1) {
-            if (audioSource.time > 61.0f) {
+        if (currentClip == 1)
+        {
+            if (audioSource.time > 61.0f)
+            {
                 audioSource.time = 5.0f;
             }
         }
@@ -37,14 +44,33 @@ public class BGMController : MonoBehaviour {
         */
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         audioSource.volume += (this.fadeOut * this.musicVolume);
-        if (audioSource.volume <= 0f) {
-            audioSource.clip = audioClips[currentClip == 0 ? 1 : 0];
-            currentClip = currentClip == 0 ? 1 : 0;
-            if (currentClip == 0) {
+        if (audioSource.volume <= 0f)
+        {
+            if (!GameManager.gameFinished)
+            {
+                audioSource.clip = audioClips[currentClip == 0 ? 1 : 0];
+                currentClip = currentClip == 0 ? 1 : 0;
+            }
+            else{
+                musicVolume = 0.6f;
+                if(GameManager.playing){
+                    currentClip = 2;
+                    audioSource.clip = audioClips[2];
+                }
+                else{
+                    currentClip = 3;
+                    audioSource.clip = audioClips[3];
+                }
+            }
+            if (currentClip == 0)
+            {
                 audioSource.time = 4.0f;
-            } else {
+            }
+            else
+            {
                 audioSource.time = 4.5f;
             }
             audioSource.Play();
@@ -52,23 +78,38 @@ public class BGMController : MonoBehaviour {
         }
         audioSource.volume = audioSource.volume > this.musicVolume ? this.musicVolume : audioSource.volume;
         audioSource.volume = audioSource.volume < 0f ? 0f : audioSource.volume;
+
     }
 
-    public void setClip(int clipNum) {
-        if (currentClip != clipNum) {
+    public void setClip(int clipNum)
+    {
+        if (currentClip != clipNum)
+        {
             this.changeClip(clipNum);
         }
     }
-    public int getCurrentClip() {
+    public int getCurrentClip()
+    {
         return this.currentClip;
     }
-    void changeClip(int clipNum) {
+    void changeClip(int clipNum)
+    {
         print("Change Clip");
-        if (clipNum == 0) {
+        if (clipNum == 0)
+        {
             fadeOut = -0.05f;
         }
-        if (clipNum == 1) {
+        if (clipNum == 1)
+        {
             fadeOut = -1f;
+        }
+        if (clipNum == 2)
+        {
+            fadeOut = -0.05f;
+        }
+        if (clipNum == 3)
+        {
+            fadeOut = -0.05f;
         }
     }
 

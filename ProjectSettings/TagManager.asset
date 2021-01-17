@@ -36,6 +36,9 @@ TagManager:
   - Food
   - UnusualCar
   - SEController
+  - AC1
+  - AC2
+  - AC3
   layers:
   - Default
   - TransparentFX

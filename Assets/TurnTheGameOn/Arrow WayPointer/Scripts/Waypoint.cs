@@ -3,10 +3,12 @@
 	using UnityEngine;		
 	public class Waypoint : MonoBehaviour
 	{
-
+		public GameManager gameManager;
 		public int radius;
 		[HideInInspector] public WaypointController waypointController;
-		[HideInInspector] public int waypointNumber;
+		public int waypointNumber;
+		public int index;
+		public int atCityId;
 
 		void Update(){
 			if (waypointController.player) {
@@ -18,7 +20,7 @@
 
 		void OnTriggerEnter (Collider col) {
 			if(col.gameObject.tag == "Player"){
-				waypointController.WaypointEvent (waypointNumber);
+				gameManager.acceptQuest(index, atCityId);
 				// waypointController.ChangeTarget ();
 			}
 		}

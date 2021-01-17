@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class CarCollision : MonoBehaviour
 {
+    public GameManager gameManager;
     float lastCollideTime;
     public GameObject EnergyTester;
     public CinemachineVirtualCamera cinemachine;
@@ -23,7 +24,7 @@ public class CarCollision : MonoBehaviour
             // }
             if (other.gameObject.tag == "AutonomousVehicle")
             {
-                EnergyTester.GetComponent<HealthTester>().consumeEnergy(2);
+
                 StartCoroutine(collideEffect());
             }           
 

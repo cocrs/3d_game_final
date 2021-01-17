@@ -26,7 +26,7 @@ public class SpawnCar : MonoBehaviour
     {
         if (!GameManager.changeDay && !GameManager.gameFinished)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 5, 1 << 11 | 1 << 10);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 10, 1 << 11 | 1 << 10);
             if (colliders.Length == 0 && Time.time - lastSpawn > 10f)
             {
                 GameObject spawnedCar;

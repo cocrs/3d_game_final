@@ -15,7 +15,7 @@ public class TriggerTire : MonoBehaviour
 	{
 		
 		
-		if (col.tag == "Player" || col.tag == "Trailer") {
+		if (col.tag == "Player") {
 
 			if (tNum == 1) 
 				tManager.t0 = true;
@@ -38,7 +38,7 @@ public class TriggerTire : MonoBehaviour
 	{
 		
 		
-		if (col.tag == "Player"||col.tag == "Trailer") {
+		if (col.tag == "Player") {
 			if (tNum == 1)
 				tManager.t0 = false;
 			else if (tNum == 2)

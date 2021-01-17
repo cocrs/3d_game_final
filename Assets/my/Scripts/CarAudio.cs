@@ -48,6 +48,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private AudioSource m_HighDecel; // Source for the high deceleration sounds
         private bool m_StartedSound; // flag for knowing if we have started sounds
         private CarController m_CarController; // Reference to car we are controlling
+        private float curVolume = 0.5f;
 
 
         private void StartSound()
@@ -114,7 +115,11 @@ namespace UnityStandardAssets.Vehicles.Car
                     // for 1 channel engine sound, it's oh so simple:
                     m_HighAccel.pitch = pitch*pitchMultiplier*highPitchMultiplier;
                     m_HighAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
-                    m_HighAccel.volume = 1;
+                    
+                    if(GameManager.gameFinished && !GameManager.playing){
+                        curVolume *= 0.99f;
+                    }
+                    m_HighAccel.volume = curVolume;
                 }
                 else
                 {

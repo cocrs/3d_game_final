@@ -10,6 +10,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private CarController m_Car; // the car controller we want to use
         public HealthTester EnergyTester;
         public GameManager gameManager;
+        public SEController seController;
 
         private void Awake()
         {
@@ -64,6 +65,7 @@ namespace UnityStandardAssets.Vehicles.Car
                                 // else{
                                 //     move = -1;
                                 // }
+                                seController.playClip(8);
                                 EnergyTester.consumeEnergy(5);
                                 this.gameObject.GetComponent<Rigidbody>().velocity = this.gameObject.GetComponent<Rigidbody>().velocity + new Vector3(0f, 5f, 0f);
 
