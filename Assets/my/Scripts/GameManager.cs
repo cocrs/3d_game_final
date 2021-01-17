@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
         myBlue.b = 0.25f;
         myBlue.a = 0.3f;
 
-        curDay = 1;
+        curDay = 7;
         DayTXT.text = "剩餘 " + curDay + " 天";
         // buildings = GameObject.FindGameObjectsWithTag("Building");
         goalTown1 = GameObject.FindGameObjectsWithTag("GoalTown1");
@@ -620,6 +620,10 @@ public class GameManager : MonoBehaviour
 
             int goalCityId = Random.Range(0, 3);
             int baseTime = 30;
+
+            if(goalCityId == 2){
+                distance = Random.Range(70, 121);
+            }
             goalList[i] = new Dictionary<string, dynamic>(){
                     {"goalCityId", goalCityId},
                     {"goal", goalTmp[goalCityId]},
