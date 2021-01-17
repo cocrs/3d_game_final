@@ -405,7 +405,7 @@ public class GameManager : MonoBehaviour
         questUI.transform.GetComponent<Animation>()["questIn"].time = questUI.transform.GetComponent<Animation>()["questIn"].length;
         questUI.transform.GetComponent<Animation>().Play();
         questDetailWindow.SetActive(false);
-        if (playing)
+        if (!inQuest)
         {
             while (foodInScene.Count > 0)
             {
