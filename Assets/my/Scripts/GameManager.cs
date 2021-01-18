@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
     Queue<GameObject> foodInScene;
     public GameObject successEffect;
     private Color myBlue, myRed, myGreen;
+    public Material[] materials;
     int[] foodPrice;
     List<int> indices;
     public Transform spawnPointFood;
@@ -633,16 +634,13 @@ public class GameManager : MonoBehaviour
                     {"distance", distance}
                 };
             if(goalCityId == 0){
-                waypoints.transform.GetChild(i).GetComponent<Renderer>().materials[0].SetColor("_EmissionColor", myGreen);
-                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.8f, 0.2f, 0.5f);
+                waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[0];
             }
             else if(goalCityId == 1){
-                waypoints.transform.GetChild(i).GetComponent<Renderer>().materials[0].SetColor("_EmissionColor", myBlue);
-                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.2f, 0.8f, 0.5f);
+                waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[1];
             }
             else{
-                waypoints.transform.GetChild(i).GetComponent<Renderer>().materials[0].SetColor("_EmissionColor", myRed);
-                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.8f, 0.2f, 0.2f, 0.5f);
+                waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[2];
             }
         }
     }
