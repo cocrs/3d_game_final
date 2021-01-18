@@ -11,6 +11,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public HealthTester EnergyTester;
         public GameManager gameManager;
         public SEController seController;
+        
 
         private void Awake()
         {
@@ -24,16 +25,20 @@ namespace UnityStandardAssets.Vehicles.Car
             // pass the input to the car!
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
+            
             float jvf = (Input.GetAxis("GasPedal") + 1) / 2;
+            // print("jvf" + Input.GetAxis("GasPedal"));
             float jvb = (Input.GetAxis("BreakPedal") - 1) / 2;
+            // print("jvb" + Input.GetAxis("BreakPedal"));
             float rawV = v;
             v += (jvf + jvb);
-            print(v);
-#if !MOBILE_INPUT
+            
+            // print(v);
             if (GameManager.playing)
             {
                 if (EnergyTester.curHealth > 0)
                 {
+                    print("in");
                     if (v != 0)
                     {
                         EnergyTester.consumeEnergy(0.01f);
@@ -82,9 +87,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     }
 
                     this.gameObject.GetComponent<Rigidbody>().angularVelocity += this.GetComponent<Transform>().TransformDirection(new Vector3(rawV * 0.01f, 0f, -1 * h * 0.01f));
-#else
-            m_Car.Move(h, v, v, 0f);
-#endif
+                    // m_Car.Move(h, v, v, 0f);
                 }
                 else
                 {

@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject tutorial;
     private bool first;
     public SEController seController;
+    public RectTransform tutorialRect;
+    private bool startPressed = false;
 
     [Header("Timer")]
     // public GameObject timerMenu;
@@ -180,6 +182,14 @@ public class GameManager : MonoBehaviour
         foodInScene = new Queue<GameObject>();
         initialMoney = playerDollars;
 
+        playing = false;
+        inQuest = false;
+        finishParking = false;
+        questFinished = false;
+        gameFinished = false;
+        changeDay = false;
+        startPressed = false;
+
         // waypoints.SetActive(false);
         RandomDisactiveWaypoints();
 
@@ -219,93 +229,136 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playing)
+        if (!startPressed)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (Input.GetKeyDown(KeyCode.JoystickButton2))
             {
-                mapActive = !mapActive;
-                map.SetActive(mapActive);
+                startPressed = true;
+                tutorial.SetActive(true);
             }
-            if (inQuest)
+        }
+        else if (gameFinished)
+        {
+            if (Input.GetKeyDown(KeyCode.JoystickButton2))
             {
-                goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
-                goalDistanceTXT.text = "距離目標 " + goalDis.ToString("00") + " 公尺";
-                if (goalDis <= limitDistance)
+                LoadScene();
+            }
+        }
+        else
+        {
+            if (tutorialRect.anchorMin.x == -48)
+            {
+                if (Input.GetKeyDown(KeyCode.JoystickButton2))
                 {
-                    checkMark.SetActive(true);
+                    StartGame();
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.JoystickButton2))
+            {
+                if (tutorialRect.anchorMin.x > -48)
+                {
+                    tutorialRect.anchorMin += new Vector2(-8f, 0);
+                    tutorialRect.anchorMax += new Vector2(-8f, 0);
+                }
+
+                print(tutorialRect.anchorMin.x);
+            }
+            if (Input.GetKeyDown(KeyCode.JoystickButton1))
+            {
+                if (tutorialRect.anchorMin.x < 0)
+                {
+                    tutorialRect.anchorMin += new Vector2(8f, 0);
+                    tutorialRect.anchorMax += new Vector2(8f, 0);
+                }
+            }
+            if (playing)
+            {
+                if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton0))
+                {
+                    mapActive = !mapActive;
+                    map.SetActive(mapActive);
+                }
+                if (inQuest)
+                {
+                    goalDis = (int)(player.transform.position - goal.transform.position).magnitude;
+                    goalDistanceTXT.text = "距離目標 " + goalDis.ToString("00") + " 公尺";
+                    if (goalDis <= limitDistance)
+                    {
+                        checkMark.SetActive(true);
+                    }
+                    else
+                    {
+                        checkMark.SetActive(false);
+                    }
+                    if (goalList[chosedGoalIndex]["reward"] == 0 || questTester.GetComponent<HealthTester>().curHealth <= 0)
+                    {
+                        questFinished = true;
+                    }
+                    if (!questFinished && parkingLotUsing == null)
+                    {
+                        // timer
+                        timer -= Time.deltaTime;
+                        int minutes = Mathf.FloorToInt(timer / 60f);
+                        int seconds = Mathf.FloorToInt(timer % 60f);
+                        // int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
+                        if (minutes == 0 && seconds <= 10)
+                        {
+                            timerText.color = Color.red;
+                        }
+                        if (minutes != 0 || seconds != 0)
+                        {
+                            timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+                        }
+                        else
+                        {
+                            timerText.text = "00:00";
+                            questFinished = true;
+                        }
+                    }
+                    else if (questFinished)
+                    {
+                        // turn off some UI
+                        parkingManagers.SetActive(false);
+                        waypoints.SetActive(true);
+                        RandomDisactiveWaypoints();
+                        // PlayerControll(false);
+                        homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
+                        homeParkingLot.SetActive(true);
+                        goalIconObj.SetActive(false);
+                        Camera.GetComponent<OutlineEffect>().enabled = false;
+                        inQuest = false;
+
+                        if (finishParking)
+                        {
+                            StartCoroutine(addMoney());
+                            parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
+                            parkingLotUsing = null;
+                            questSuccessCount += 1;
+                        }
+                        else
+                        {
+                            fail.SetActive(true);
+                            fail.GetComponent<Animation>().Stop();
+                            fail.GetComponent<Animation>().Play();
+                            StartCoroutine(MinusMoneyPlay(50));
+                            seController.playClip(3);
+                            StartCoroutine(closeQuestUI());
+                            setRandomGoalThisRound();
+                            if (questTester.GetComponent<HealthTester>().curHealth <= 0)
+                            {
+                                StartCoroutine(SendBackToHome());
+                            }
+                        }
+
+                    }
                 }
                 else
                 {
-                    checkMark.SetActive(false);
-                }
-                if (goalList[chosedGoalIndex]["reward"] == 0 || questTester.GetComponent<HealthTester>().curHealth <= 0)
-                {
-                    questFinished = true;
-                }
-                if (!questFinished && parkingLotUsing == null)
-                {
-                    // timer
-                    timer -= Time.deltaTime;
-                    int minutes = Mathf.FloorToInt(timer / 60f);
-                    int seconds = Mathf.FloorToInt(timer % 60f);
-                    // int milliseconds = Mathf.FloorToInt((timer * 100f) % 100f);
-                    if (minutes == 0 && seconds <= 10)
+                    if (Time.time - lastUpdateTime > 40)
                     {
-                        timerText.color = Color.red;
-                    }
-                    if (minutes != 0 || seconds != 0)
-                    {
-                        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-                    }
-                    else
-                    {
-                        timerText.text = "00:00";
-                        questFinished = true;
-                    }
-                }
-                else if (questFinished)
-                {
-                    // turn off some UI
-                    parkingManagers.SetActive(false);
-                    waypoints.SetActive(true);
-                    RandomDisactiveWaypoints();
-                    // PlayerControll(false);
-                    homeParkingLot.GetComponent<ParkingTrigger>().ResetTireTrigger();
-                    homeParkingLot.SetActive(true);
-                    goalIconObj.SetActive(false);
-                    Camera.GetComponent<OutlineEffect>().enabled = false;
-                    inQuest = false;
-
-                    if (finishParking)
-                    {
-                        StartCoroutine(addMoney());
-                        parkingLotUsing.GetComponent<MParkingManager>().ResetTireTrigger();
-                        parkingLotUsing = null;
-                        questSuccessCount += 1;
-                    }
-                    else
-                    {
-                        fail.SetActive(true);
-                        fail.GetComponent<Animation>().Stop();
-                        fail.GetComponent<Animation>().Play();
-                        StartCoroutine(MinusMoneyPlay(50));
-                        seController.playClip(3);
-                        StartCoroutine(closeQuestUI());
                         setRandomGoalThisRound();
-                        if (questTester.GetComponent<HealthTester>().curHealth <= 0)
-                        {
-                            StartCoroutine(SendBackToHome());
-                        }
+                        RandomDisactiveWaypoints();
                     }
-                    
-                }
-            }
-            else
-            {
-                if (Time.time - lastUpdateTime > 40)
-                {
-                    setRandomGoalThisRound();
-                    RandomDisactiveWaypoints();
                 }
             }
             if (questTester.GetComponent<HealthTester>().curHealth <= 0)
@@ -348,6 +401,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadScene()
     {
+        Start();
         SceneManager.LoadScene("Game");
     }
     public void StartGame()
@@ -623,7 +677,8 @@ public class GameManager : MonoBehaviour
             int goalCityId = Random.Range(0, 3);
             int baseTime = 30;
 
-            if(goalCityId == 2){
+            if (goalCityId == 2)
+            {
                 distance = Random.Range(70, 121);
             }
             goalList[i] = new Dictionary<string, dynamic>(){
@@ -634,15 +689,18 @@ public class GameManager : MonoBehaviour
                     {"time", baseTime},
                     {"distance", distance}
                 };
-            if(goalCityId == 0){
+            if (goalCityId == 0)
+            {
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[0];
                 waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.7f, 0.2f, 0);
             }
-            else if(goalCityId == 1){
+            else if (goalCityId == 1)
+            {
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[1];
                 waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.2f, 0.7f, 0);
             }
-            else{
+            else
+            {
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[2];
                 waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.7f, 0.2f, 0.2f, 0);
             }
@@ -651,11 +709,13 @@ public class GameManager : MonoBehaviour
     public void setGoal(int atCityId)
     {
         goal = goalList[chosedGoalIndex]["goal"];
-        if(atCityId != goalList[chosedGoalIndex]["goalCityId"]){
+        if (atCityId != goalList[chosedGoalIndex]["goalCityId"])
+        {
             goalList[chosedGoalIndex]["time"] += 20;
             goalList[chosedGoalIndex]["baseReward"] += 100;
         }
-        if(goalList[chosedGoalIndex]["goalCityId"] == 2){
+        if (goalList[chosedGoalIndex]["goalCityId"] == 2)
+        {
             goalList[chosedGoalIndex]["baseReward"] += 200;
         }
         float goalDis = Vector3.Distance(player.transform.position, goalList[chosedGoalIndex]["goal"].transform.position);
