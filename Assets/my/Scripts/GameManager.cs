@@ -274,6 +274,7 @@ public class GameManager : MonoBehaviour
                     homeParkingLot.SetActive(true);
                     goalIconObj.SetActive(false);
                     Camera.GetComponent<OutlineEffect>().enabled = false;
+                    inQuest = false;
 
                     if (finishParking)
                     {
@@ -296,7 +297,7 @@ public class GameManager : MonoBehaviour
                             StartCoroutine(SendBackToHome());
                         }
                     }
-                    inQuest = false;
+                    
                 }
             }
             else
@@ -635,12 +636,15 @@ public class GameManager : MonoBehaviour
                 };
             if(goalCityId == 0){
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[0];
+                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.7f, 0.2f, 0);
             }
             else if(goalCityId == 1){
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[1];
+                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.2f, 0.2f, 0.7f, 0);
             }
             else{
                 waypoints.transform.GetChild(i).GetComponent<Renderer>().material = materials[2];
+                waypoints.transform.GetChild(i).GetChild(0).GetComponent<Renderer>().material.color = new Color(0.7f, 0.2f, 0.2f, 0);
             }
         }
     }

@@ -28,7 +28,8 @@ namespace UnityStandardAssets.Vehicles.Car
             float jvb = (Input.GetAxis("BreakPedal") - 1) / 2;
             float rawV = v;
             v += (jvf + jvb);
-            // print(v);
+            print(v);
+#if !MOBILE_INPUT
             if (GameManager.playing)
             {
                 if (EnergyTester.curHealth > 0)
@@ -38,7 +39,7 @@ namespace UnityStandardAssets.Vehicles.Car
                         EnergyTester.consumeEnergy(0.01f);
                     }
                     // Debug.Log(v);
-#if !MOBILE_INPUT
+
                     bool jump = Input.GetAxis("Jump") > 0f;
                     if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.LeftShift))
                     {

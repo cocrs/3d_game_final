@@ -7,13 +7,12 @@ public class carBGMController : MonoBehaviour
 {
     public GameObject bgmControllerObject;
     BGMController bgmController;
-    AudioSource audioSource;
+    public AudioClip clip;
     bool first = true;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         bgmController = bgmControllerObject.GetComponent<BGMController>();
-        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,7 +48,7 @@ public class carBGMController : MonoBehaviour
     {
         if (collisionInfo.collider.gameObject.tag == "AutonomousVehicle" || collisionInfo.collider.gameObject.tag == "Building" || collisionInfo.collider.gameObject.tag == "SceneObject")
         {
-            AudioSource.PlayClipAtPoint(audioSource.clip, collisionInfo.transform.position);
+            AudioSource.PlayClipAtPoint(clip, collisionInfo.transform.position);
         }
     }
 }
